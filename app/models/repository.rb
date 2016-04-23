@@ -1,4 +1,4 @@
-class Repository
+class Repository < Resource
   include ActiveModel::Model
 
   attr_accessor :name, :tags
@@ -22,26 +22,6 @@ class Repository
 
   def image
     name.split("/").last
-  end
-
-  def tag(tag)
-    response = self.class.client.get "/v2/#{name}/manifests/#{tag}" do |request|
-      request.headers["Accept"] = "application/vnd.docker.distribution.manifest.v2+json"
-    end
-    response.body
-  end
-
-  private
-
-  def self.client
-    @client ||= begin
-      Faraday.new(url: Rails.configuration.x.registry_url) do |f|
-        f.request  :url_encoded
-        f.response :logger
-        f.adapter  Faraday.default_adapter
-        f.use FaradayMiddleware::ParseJson, content_type: /json/
-      end
-    end
   end
 end
 

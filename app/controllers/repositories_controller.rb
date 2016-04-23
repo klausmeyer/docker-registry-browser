@@ -4,11 +4,6 @@ class RepositoriesController < ApplicationController
   end
 
   def show
-    @repository = Repository.find params[:name]
-  end
-
-  def tag
-    @repository = Repository.find params[:name]
-    @tag        = @repository.tag params[:tag]
+    @repository = Repository.find params[:repo]
   end
 end

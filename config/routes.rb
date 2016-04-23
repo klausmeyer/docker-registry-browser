@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'repositories#index'
 
-  get '*name/tag/*tag', to: 'repositories#tag',  as: :repository_tag
-  get '*name',          to: 'repositories#show', as: :repository
+  get 'repo/*repo/tag/*tag', to: 'tags#show',         as: :tag
+  get 'repo/*repo',          to: 'repositories#show', as: :repository
+
+  delete 'repo/*repo/tag/*tag', to: 'tags#destroy' if Rails.configuration.x.delete_enabled
 end

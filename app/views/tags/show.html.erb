@@ -1,0 +1,69 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <strong>Namespace:</strong> <%= link_to @repository.namespace, root_path(anchor: "namespace-#{@repository.namespace}") %>
+    /
+    <strong>Image:</strong> <%= link_to @repository.image, repository_path(@repository.name) %>
+    /
+    <strong>Tag:</strong> <%= @tag.name %>
+  </div>
+
+  <table class="table">
+    <tr>
+      <th>Content Digest</th>
+      <td><%= @tag.content_digest %></td>
+    </tr>
+    <tr>
+      <th>Layer</th>
+      <td>
+        <table class="table table-striped">
+          <tr>
+            <th>Index</th>
+            <th>Digest</th>
+            <th>Size</th>
+          </tr>
+          <% @tag.layers.each do |layer| %>
+            <tr>
+              <td><%= layer.index %></td>
+              <td><%= layer.digest %></td>
+              <td><%= number_to_human_size layer.size %></td>
+            </tr>
+          <% end %>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<% if Rails.configuration.x.delete_enabled %>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <strong>Danger Zone</strong>
+    </div>
+    <div class="panel-body">
+      <a href="#" class="btn btn-danger pull-right" data-toggle="modal" data-target="#delete-dialog">
+        Delete
+      </a>
+      <strong>Delete this tag</strong><br>
+      Note: You can't undo this. Please be careful.
+    </div>
+  </div>
+
+  <div class="modal fade" id="delete-dialog" tabindex="-1" role="dialog" aria-labelledby="Delete dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Are you sure?</h4>
+        </div>
+        <div class="modal-body">
+          Please type in the name of the tag to enable the button:<br>
+          <br>
+          <%= text_field_tag :delete_confirm, nil, class: "form-control", data: { expected: @tag.name } %>
+        </div>
+        <div class="modal-footer">
+          <%= link_to "Yes I'm sure", tag_path(@repository.name, @tag.name), method: :delete, id: "delete-button", class: "btn btn-danger disabled" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

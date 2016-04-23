@@ -29,7 +29,8 @@ module DockerRegistryBrowser
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.x.version      = "v0.0.1-dev"
-    config.x.registry_url = ENV["DOCKER_REGISTRY_URL"] || "http://localhost:5000"
+    config.x.version        = "v0.0.1-dev"
+    config.x.registry_url   = ENV["DOCKER_REGISTRY_URL"] || "http://localhost:5000"
+    config.x.delete_enabled = ENV["ENABLE_DELETE_IMAGES"].in? %w(1 true yes)
   end
 end

@@ -6,8 +6,8 @@
   </div>
   <% if @repository.tags.any? %>
     <div class="list-group">
-      <% @repository.tags.each do |tag| %>
-        <%= link_to repository_tag_path(name: @repository.name, tag: tag), class: "list-group-item" do %>
+      <% @repository.tags.sort.each do |tag| %>
+        <%= link_to tag_path(repo: @repository.name, tag: tag), class: "list-group-item" do %>
           <strong>Tag:</strong> <%= tag %>
         <% end %>
       <% end %>
