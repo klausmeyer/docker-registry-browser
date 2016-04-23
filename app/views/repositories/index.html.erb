@@ -2,9 +2,17 @@
   <li class="active">Repositories</li>
 </ol>
 
-<div class="list-group">
-  <% @repositories.each do |repo| %>
-    <%= link_to "Repository: #{repo.name}", repository_path(repo.name), class: "list-group-item" %>
-  <% end %>
-</div>
-
+<% @repositories.group_by(&:namespace).each do |namespace, repos| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">Namespace <%= namespace %></div>
+    <div class="panel-body">
+      <div class="list-group">
+        <% repos.each do |repo| %>
+          <%= link_to repository_path(repo.name), class: "list-group-item" do %>
+            <strong>Image:</strong> <%= repo.image %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

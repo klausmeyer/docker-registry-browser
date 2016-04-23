@@ -16,6 +16,14 @@ class Repository
     )
   end
 
+  def namespace
+    name.split("/").size == 1 ? nil : name.split("/").first
+  end
+
+  def image
+    name.split("/").last
+  end
+
   def tag(tag)
     response = self.class.client.get "/v2/#{name}/manifests/#{tag}" do |request|
       request.headers["Accept"] = "application/vnd.docker.distribution.manifest.v2+json"
