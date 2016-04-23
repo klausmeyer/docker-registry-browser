@@ -27,7 +27,7 @@ class Repository
 
   def self.client
     @client ||= begin
-      Faraday.new(url: "http://localhost:5000") do |f|
+      Faraday.new(url: Rails.configuration.x.registry_url) do |f|
         f.request  :url_encoded
         f.response :logger
         f.adapter  Faraday.default_adapter
