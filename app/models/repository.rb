@@ -12,7 +12,7 @@ class Repository
     response = client.get "/v2/#{name}/tags/list"
     new(
       name: response.body["name"],
-      tags: response.body["tags"]
+      tags: Array.wrap(response.body["tags"])
     )
   end
 
