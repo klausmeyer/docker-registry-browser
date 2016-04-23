@@ -1,18 +1,17 @@
-<ol class="breadcrumb">
-  <li class="active">Repositories</li>
-</ol>
-
 <% @repositories.group_by(&:namespace).each do |namespace, repos| %>
   <div class="panel panel-default">
-    <div class="panel-heading"><strong>Namespace:</strong> <%= namespace %></div>
-    <div class="panel-body">
-      <div class="list-group">
-        <% repos.each do |repo| %>
-          <%= link_to repository_path(repo.name), class: "list-group-item" do %>
-            <strong>Image:</strong> <%= repo.image %>
-          <% end %>
+    <div class="panel-heading">
+      <%= content_tag :strong, id: "namespace-#{namespace}" do %>
+        Namespace:
+      <% end %>
+      <%= namespace %>
+    </div>
+    <div class="list-group">
+      <% repos.each do |repo| %>
+        <%= link_to repository_path(repo.name), class: "list-group-item" do %>
+          <strong>Image:</strong> <%= repo.image %>
         <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 <% end %>

@@ -1,21 +1,23 @@
-<ol class="breadcrumb">
-  <li><%= link_to "Repositories", root_path %></li>
-  <li><%= link_to @repository.name, repository_path(@repository.name) %></li>
-  <li class="active">Tag: <%= params[:tag] %></li>
-</ol>
-
-<table class="table">
-  <tr>
-    <th>Index</th>
-    <th>Digest</th>
-    <th>Size</th>
-  </tr>
-  <% @tag["layers"].each_with_index do |layer, index| %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <strong>Namespace:</strong> <%= link_to @repository.namespace, root_path(anchor: "namespace-#{@repository.namespace}") %>
+    /
+    <strong>Image:</strong> <%= link_to @repository.image, repository_path(@repository.name) %>
+    /
+    <strong>Tag:</strong> <%= params[:tag] %>
+  </div>
+  <table class="table">
     <tr>
-      <td><%= index+1 %></td>
-      <td><%= layer["digest"] %></td>
-      <td><%= number_to_human_size layer["size"] %></td>
+      <th>Index</th>
+      <th>Digest</th>
+      <th>Size</th>
     </tr>
-  <% end %>
-</table>
-
+    <% @tag["layers"].each_with_index do |layer, index| %>
+      <tr>
+        <td><%= index+1 %></td>
+        <td><%= layer["digest"] %></td>
+        <td><%= number_to_human_size layer["size"] %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
