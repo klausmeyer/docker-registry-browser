@@ -6,7 +6,23 @@ Web Interface for the [Docker Registry HTTP API V2](https://docs.docker.com/regi
 
 Repositories overview
 
-[![Screenshot 1](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot1_thumb.png "Screenshot 1: Repositories overview")](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot1.png)
+[![Screenshot 1](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot1_thumb.png "Screenshot 1")](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot1.png)
+
+Tag overview
+
+[![Screenshot 2](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot2_thumb.png "Screenshot 2")](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot2.png)
+
+Tag details - part 1
+
+[![Screenshot 3](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot3_thumb.png "Screenshot 3")](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot3.png)
+
+Tag details - part 2
+
+[![Screenshot 4](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot4_thumb.png "Screenshot 4")](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot4.png)
+
+Delete tag
+
+[![Screenshot 5](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot5_thumb.png "Screenshot 5")](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot5.png)
 
 ## Usage
 
