@@ -26,5 +26,4 @@ class Tag < Resource
     client.delete "/v2/#{repository.name}/manifests/#{content_digest}"
     true
   end
-
 end
