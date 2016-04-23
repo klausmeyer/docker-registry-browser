@@ -48,3 +48,5 @@ end
 gem 'faraday'
 gem 'faraday_middleware'
 gem 'bootstrap-sass'
+gem 'puma'
+
