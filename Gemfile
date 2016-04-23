@@ -49,4 +49,5 @@ gem 'faraday'
 gem 'faraday_middleware'
 gem 'bootstrap-sass'
 gem 'puma'
+gem 'rails_12factor', group: :production
 
