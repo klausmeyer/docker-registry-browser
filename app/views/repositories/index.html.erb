@@ -4,7 +4,7 @@
 
 <% @repositories.group_by(&:namespace).each do |namespace, repos| %>
   <div class="panel panel-default">
-    <div class="panel-heading">Namespace <%= namespace %></div>
+    <div class="panel-heading"><strong>Namespace:</strong> <%= namespace %></div>
     <div class="panel-body">
       <div class="list-group">
         <% repos.each do |repo| %>
