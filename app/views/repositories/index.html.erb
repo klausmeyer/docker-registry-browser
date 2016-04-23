@@ -1,0 +1,10 @@
+<ol class="breadcrumb">
+  <li class="active">Repositories</li>
+</ol>
+
+<div class="list-group">
+  <% @repositories.each do |repo| %>
+    <%= link_to "Repository: #{repo.name}", repository_path(repo.name), class: "list-group-item" %>
+  <% end %>
+</div>
+

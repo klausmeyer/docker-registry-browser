@@ -1,0 +1,14 @@
+<ol class="breadcrumb">
+  <li><%= link_to "Repositories", root_path %></li>
+  <li class="active"><%= @repository.name %></li>
+</ol>
+
+<% if @repository.tags.any? %>
+  <div class="list-group">
+    <% @repository.tags.each do |tag| %>
+      <%= link_to "Tag: #{tag}", repository_tag_path(name: @repository.name, tag: tag), class: "list-group-item" %>
+    <% end %>
+  </table>
+<% else %>
+  <p>Unknown</p>
+<% end %>

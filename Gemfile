@@ -43,3 +43,8 @@ group :development do
   gem 'spring'
 end
 
+# custom
+
+gem 'faraday'
+gem 'faraday_middleware'
+gem 'bootstrap-sass'
