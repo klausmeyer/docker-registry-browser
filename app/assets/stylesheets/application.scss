@@ -17,6 +17,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+a.navbar-brand {
+  padding-top: 0;
+  line-height: 48px
+}
+
 body > .container {
   padding: 70px 16px 0;
+}
+
+footer {
+  text-align: center;
+  margin-bottom: 20px;
 }

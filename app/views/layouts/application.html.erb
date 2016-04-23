@@ -17,7 +17,10 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Docker Registry Browser</a>
+        <a class="navbar-brand" href="/">
+          <img src="https://maxcdn.icons8.com/Color/PNG/48/Logos/docker-48.png" title="Docker" width="42" style="display: inline-block">
+          Registry Browser
+        </a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
@@ -29,5 +32,20 @@
   <div class="container">
     <%= yield %>
   </div>
+  <hr>
+  <footer>
+    <div class="container">
+      <small>
+        <a href="https://github.com/klausmeyer/docker-registry-browser">
+          Docker Registry Browser
+        </a>
+        <%= Rails.configuration.x.version %>
+        -
+        Running on Ruby <%= RUBY_VERSION %> and Rails <%= Rails.version %> in <%= Rails.env %> mode
+        -
+        Icons by <a href="https://icons8.com">icons8.com</a>
+      </small>
+    </div>
+  </footer>
 </body>
 </html>
