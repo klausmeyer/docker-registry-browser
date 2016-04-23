@@ -16,8 +16,8 @@ class Repository
     )
   end
 
-  def namespace
-    name.split("/").size == 1 ? nil : name.split("/").first
+  def namespace(root = "<root>")
+    name.split("/").size == 1 ? root : name.split("/").first
   end
 
   def image

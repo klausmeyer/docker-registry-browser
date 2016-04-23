@@ -1,4 +1,4 @@
-<% @repositories.group_by(&:namespace).each do |namespace, repos| %>
+<% Hash[@repositories.group_by(&:namespace).sort].each do |namespace, repos| %>
   <div class="panel panel-default">
     <div class="panel-heading">
       <%= content_tag :strong, id: "namespace-#{namespace}" do %>
