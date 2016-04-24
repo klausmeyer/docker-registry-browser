@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:5000/v2/_catalog
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Sun, 24 Apr 2016 09:51:24 GMT
+      Content-Length:
+      - '226'
+    body:
+      encoding: UTF-8
+      string: '{"repositories":["image1","image2","image3","randomguy1/image1","randomguy1/image2","randomguy1/image3","randomguy2/image1","randomguy2/image2","randomguy2/image3","randomguy3/image1","randomguy3/image2","randomguy3/image3"]}
+
+'
+    http_version: 
+  recorded_at: Sun, 24 Apr 2016 09:51:24 GMT
+recorded_with: VCR 3.0.1

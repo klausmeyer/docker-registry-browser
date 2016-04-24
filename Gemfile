@@ -49,3 +49,9 @@ gem 'faraday_middleware'
 gem 'bootstrap-sass'
 gem 'puma'
 gem 'rails_12factor', group: :production
+
+group :test do
+  gem 'rspec-rails'
+  gem 'webmock'
+  gem 'vcr'
+end

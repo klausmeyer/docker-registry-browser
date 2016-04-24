@@ -5,7 +5,7 @@ class Resource
     @client ||= begin
       Faraday.new(url: Rails.configuration.x.registry_url) do |f|
         f.request  :url_encoded
-        f.response :logger
+        f.response :logger unless Rails.env.test?
         f.response :raise_error
         f.adapter  Faraday.default_adapter
         f.use FaradayMiddleware::ParseJson, content_type: /json/
