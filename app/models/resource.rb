@@ -10,7 +10,7 @@ class Resource
         f.response :logger unless Rails.env.test?
         f.response :raise_error
         f.adapter  Faraday.default_adapter
-        f.use FaradayMiddleware::ParseJson, content_type: /json/
+        f.use FaradayMiddleware::ParseJson, content_type: /json|prettyjws/
       end
     end
   end

@@ -8,17 +8,28 @@ class Tag < Resource
       request.headers["Accept"] = "application/vnd.docker.distribution.manifest.v2+json"
     end
 
-    new(
-      repository: repository,
-      name: name,
-      content_digest: response.headers["docker-content-digest"],
-      layers: Array.wrap(response.body["layers"]).each_with_index.map do |layer, index|
+    layers = if response.headers["content-type"] =~ /v2/
+      Array.wrap(response.body["layers"]).each_with_index.map do |layer, index|
         Layer.new(
           index:  index+1,
           digest: layer["digest"],
           size:   layer["size"]
         )
       end
+    else
+      Array.wrap(response.body["fsLayers"]).each_with_index.map do |layer, index|
+        Layer.new(
+          index:  index+1,
+          digest: layer["blobSum"]
+        )
+      end
+    end
+
+    new(
+      repository: repository,
+      name: name,
+      content_digest: response.headers["docker-content-digest"],
+      layers: layers
     )
   end
 

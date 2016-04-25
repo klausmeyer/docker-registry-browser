@@ -19,13 +19,17 @@
           <tr>
             <th>Index</th>
             <th>Digest</th>
-            <th>Size</th>
+            <% if @tag.layers.first.size.present? %>
+              <th>Size</th>
+            <% end %>
           </tr>
           <% @tag.layers.each do |layer| %>
             <tr>
               <td><%= layer.index %></td>
               <td><%= layer.digest %></td>
-              <td><%= number_to_human_size layer.size %></td>
+              <% if layer.size.present? %>
+                <td><%= number_to_human_size layer.size %></td>
+              <% end %>
             </tr>
           <% end %>
         </table>
