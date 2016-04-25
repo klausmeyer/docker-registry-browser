@@ -3,7 +3,9 @@ class Resource
 
   def self.client
     @client ||= begin
-      Faraday.new(url: Rails.configuration.x.registry_url) do |f|
+      options = { url: Rails.configuration.x.registry_url }
+      options.merge!(ssl: { verify: false }) if Rails.configuration.x.no_ssl_verification
+      Faraday.new(options) do |f|
         f.request  :url_encoded
         f.response :logger unless Rails.env.test?
         f.response :raise_error
