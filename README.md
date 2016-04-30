@@ -48,8 +48,8 @@ The configuration is done by environment variables.
 
 | Option               | Required | Type   | Example                   | Description                                               |
 | -------------------- | -------- | ------ | ------------------------- | --------------------------------------------------------- |
-| DOCKER_REGISTRY_URL  | yes      | String | http://your-registry:5000 | URL to the Docker Registry which should be connected      |
-| NO_SSL_VERIFICATION  | no       | Bool   | true                      | Enalbe to skip SSL verification (default `false`)         |
+| DOCKER_REGISTRY_URL  | yes      | String | http://your-registry:5000 | URL to the Docker Registry which should be browsed        |
+| NO_SSL_VERIFICATION  | no       | Bool   | true                      | Enable to skip SSL verification (default `false`)         |
 | BASIC_AUTH_USER      | no       | String | joe                       | Username for basic-auth against registry                  |
 | BASIC_AUTH_PASSWORD  | no       | String | supersecretpassw0rd       | Password for basic-auth against registry                  |
-| ENABLE_DELETE_IMAGES | no       | Bool   | true                      | Enable to allow deletion of image-tages (default `false`) |
+| ENABLE_DELETE_IMAGES | no       | Bool   | true                      | Allow deletion of tags (default `false`)                  |
