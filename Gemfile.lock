@@ -91,6 +91,8 @@ GEM
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     puma (3.4.0)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -194,6 +196,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   puma
+  quiet_assets
   rails (= 4.2.6)
   rails_12factor
   rspec-rails

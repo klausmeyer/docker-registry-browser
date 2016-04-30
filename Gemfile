@@ -48,10 +48,17 @@ gem 'faraday'
 gem 'faraday_middleware'
 gem 'bootstrap-sass'
 gem 'puma'
-gem 'rails_12factor', group: :production
+
+group :development do
+  gem 'quiet_assets'
+end
 
 group :test do
   gem 'rspec-rails'
   gem 'webmock'
   gem 'vcr'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
