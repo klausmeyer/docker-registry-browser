@@ -1,4 +1,4 @@
-FROM ruby:2.3-alpine
+FROM ruby:2.3.1-alpine
 
 MAINTAINER Klaus Meyer <spam@klaus-meyer.net>
 
@@ -22,4 +22,3 @@ RUN gem install bundler && \
     rm -rf /usr/lib/lib/ruby/gems/*/cache/*
 
 CMD bundle exec puma -C config/puma.rb
-
