@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:5000/v2/_catalog
+    uri: http://localhost:5000/v2/_catalog?n=100
     body:
       encoding: US-ASCII
       string: ''
@@ -33,6 +33,6 @@ http_interactions:
       string: '{"repositories":["image1","image2","image3","randomguy1/image1","randomguy1/image2","randomguy1/image3","randomguy2/image1","randomguy2/image2","randomguy2/image3","randomguy3/image1","randomguy3/image2","randomguy3/image3"]}
 
 '
-    http_version: 
+    http_version:
   recorded_at: Sun, 24 Apr 2016 09:51:24 GMT
 recorded_with: VCR 3.0.1

@@ -4,9 +4,9 @@ describe Repository do
   describe ".all" do
     it "returns a list of repositories" do
       VCR.use_cassette("repository/all") do
-        list = Repository.all
+        list = Repository.list
         repo = list.first
-        expect(list).to be_instance_of Array
+        expect(list).to be_instance_of Collection
         expect(repo).to be_instance_of Repository
         expect(repo.name).to eq "image1"
       end

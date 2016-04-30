@@ -15,3 +15,7 @@
     </div>
   </div>
 <% end %>
+
+<% if @repositories.more? %>
+  <%= link_to "Next", root_path(last: @repositories.last.name), class: "btn btn-default pull-center" %>
+<% end %>

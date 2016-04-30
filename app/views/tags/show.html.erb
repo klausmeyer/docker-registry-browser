@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <strong>Namespace:</strong> <%= link_to @repository.namespace, root_path(anchor: "namespace-#{@repository.namespace}") %>
+    <strong>Namespace:</strong> <%= @repository.namespace %>
     /
     <strong>Image:</strong> <%= link_to @repository.image, repository_path(@repository.name) %>
     /

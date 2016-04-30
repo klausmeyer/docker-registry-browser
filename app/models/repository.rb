@@ -3,9 +3,11 @@ class Repository < Resource
 
   attr_accessor :name, :tags
 
-  def self.all
-    response = client.get "/v2/_catalog"
-    response.body["repositories"].map { |name| new(name: name) }
+  def self.list(count: 100, last: nil)
+    response = client.get "/v2/_catalog", { n: count, last: last }.compact
+    entries  = response.body["repositories"].map { |name| new(name: name) }
+
+    Collection.new entries: entries, more: response.headers.has_key?("Link")
   end
 
   def self.find(name)

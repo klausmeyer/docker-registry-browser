@@ -1,6 +1,6 @@
 class RepositoriesController < ApplicationController
   def index
-    @repositories = Repository.all
+    @repositories = Repository.list(last: params[:last])
   end
 
   def show
