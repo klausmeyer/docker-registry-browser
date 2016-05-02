@@ -8,11 +8,14 @@ ENV SECRET_KEY_BASE changeme
 
 EXPOSE 8080
 
+ADD . /app
+RUN adduser -S -h /app app && chown -R app /app && chown -R app /usr/local/bundle
+
 RUN apk update && \
     apk add build-base zlib-dev libxml2-dev libxslt-dev tzdata yaml-dev git nodejs && \
     rm -rf /var/cache/apk/*
 
-ADD . /app
+USER app
 WORKDIR /app
 
 RUN gem install bundler && \
