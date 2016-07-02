@@ -21,7 +21,6 @@ USER app
 WORKDIR /app
 
 RUN gem install bundler && \
-    gem install -N nokogiri -- --use-system-libraries && \
     bundle install --without development test && \
     rake assets:precompile && \
     rm -rf /usr/lib/lib/ruby/gems/*/cache/*
