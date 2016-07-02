@@ -5,6 +5,8 @@ MAINTAINER Klaus Meyer <spam@klaus-meyer.net>
 ENV PORT 8080
 ENV RAILS_ENV production
 ENV SECRET_KEY_BASE changeme
+ENV RAILS_SERVE_STATIC_FILES true
+ENV RAILS_LOG_TO_STDOUT true
 
 EXPOSE 8080
 

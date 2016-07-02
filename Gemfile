@@ -59,7 +59,3 @@ group :test do
   gem 'webmock'
   gem 'vcr'
 end
-
-group :production do
-  gem 'rails_12factor'
-end
