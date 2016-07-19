@@ -55,7 +55,7 @@ gem 'faraday_middleware'
 gem 'bootstrap-sass'
 
 group :test do
-  gem 'rspec-rails', '~> 3.5.0.beta4'
+  gem 'rspec-rails', '~> 3.5.0'
   gem 'webmock'
   gem 'vcr'
 end
