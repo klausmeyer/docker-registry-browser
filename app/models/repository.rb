@@ -11,10 +11,16 @@ class Repository < Resource
   end
 
   def self.find(name)
-    response = client.get "/v2/#{name}/tags/list"
+    begin
+      response = client.get "/v2/#{name}/tags/list"
+      tags     = response.body["tags"]
+    rescue Faraday::ResourceNotFound => e
+      tags = nil
+    end
+
     new(
-      name: response.body["name"],
-      tags: Array.wrap(response.body["tags"])
+      name: name,
+      tags: Array.wrap(tags)
     )
   end
 

@@ -16,11 +16,21 @@ describe Repository do
   describe ".find" do
     let(:name) { "randomguy1/image1" }
 
-    it "returns one repository" do
-      VCR.use_cassette("repository/find") do
+    it "returns one repository including tags on successful response" do
+      VCR.use_cassette("repository/find_success") do
         repo = Repository.find name
         expect(repo).to be_instance_of Repository
         expect(repo.name).to eq name
+        expect(repo.tags).to eq %w(latest)
+      end
+    end
+
+    it "returns one returns without tags on 404 response" do
+      VCR.use_cassette("repository/find_not_found") do
+        repo = Repository.find name
+        expect(repo).to be_instance_of Repository
+        expect(repo.name).to eq name
+        expect(repo.tags).to eq []
       end
     end
   end
