@@ -1,4 +1,4 @@
-$(document).on("ready page:load", function() {
+$(document).on("turbolinks:load", function() {
   $("#delete_confirm").on("keyup", function(e) {
     var field = $(this);
     var button = $("#delete-button");
