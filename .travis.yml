@@ -1,5 +1,5 @@
 language: ruby
 rvm:
-  - "2.3.1"
+  - "2.3.3"
 script:
   - bundle exec rspec
