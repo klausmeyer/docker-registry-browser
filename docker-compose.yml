@@ -1,0 +1,15 @@
+version: "2"
+
+services:
+
+  frontend:
+    build: .
+    environment:
+      - "DOCKER_REGISTRY_URL=http://backend:5000"
+    ports:
+      - "8080:8080"
+
+  backend:
+    image: registry:2
+    ports:
+      - "5000:5000"
