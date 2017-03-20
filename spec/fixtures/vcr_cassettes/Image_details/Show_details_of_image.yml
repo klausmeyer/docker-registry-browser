@@ -1,0 +1,73 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:5000/v2/_catalog?n=100
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Mon, 20 Mar 2017 12:20:22 GMT
+      Content-Length:
+      - '94'
+    body:
+      encoding: UTF-8
+      string: '{"repositories":["hello-world","test/hello-world","test/hello-world-2","test/hello-world-3"]}
+
+'
+    http_version: 
+  recorded_at: Mon, 20 Mar 2017 12:20:22 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/v2/test/hello-world/tags/list
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Mon, 20 Mar 2017 12:20:22 GMT
+      Content-Length:
+      - '61'
+    body:
+      encoding: UTF-8
+      string: '{"name":"test/hello-world","tags":["v2","v1","latest","v3"]}
+
+'
+    http_version: 
+  recorded_at: Mon, 20 Mar 2017 12:20:22 GMT
+recorded_with: VCR 3.0.3

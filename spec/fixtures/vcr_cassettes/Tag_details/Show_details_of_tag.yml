@@ -1,0 +1,126 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:5000/v2/test/hello-world/tags/list
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Mon, 20 Mar 2017 12:23:53 GMT
+      Content-Length:
+      - '61'
+    body:
+      encoding: UTF-8
+      string: '{"name":"test/hello-world","tags":["v2","v1","latest","v3"]}
+
+'
+    http_version: 
+  recorded_at: Mon, 20 Mar 2017 12:23:53 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/v2/test/hello-world/tags/list
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Mon, 20 Mar 2017 12:23:53 GMT
+      Content-Length:
+      - '61'
+    body:
+      encoding: UTF-8
+      string: '{"name":"test/hello-world","tags":["v2","v1","latest","v3"]}
+
+'
+    http_version: 
+  recorded_at: Mon, 20 Mar 2017 12:23:53 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/v2/test/hello-world/manifests/latest
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Accept:
+      - application/vnd.docker.distribution.manifest.v2+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '524'
+      Content-Type:
+      - application/vnd.docker.distribution.manifest.v2+json
+      Docker-Content-Digest:
+      - sha256:2075ac87b043415d35bb6351b4a59df19b8ad154e578f7048335feeb02d0f759
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      Etag:
+      - '"sha256:2075ac87b043415d35bb6351b4a59df19b8ad154e578f7048335feeb02d0f759"'
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Mon, 20 Mar 2017 12:23:53 GMT
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+           "schemaVersion": 2,
+           "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+           "config": {
+              "mediaType": "application/vnd.docker.container.image.v1+json",
+              "size": 1478,
+              "digest": "sha256:48b5124b2768d2b917edcb640435044a97967015485e812545546cbed5cf0233"
+           },
+           "layers": [
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "size": 979,
+                 "digest": "sha256:983bfa07a342e316f08afd066894505088de985d46a9af743920aa9cafd17e7a"
+              }
+           ]
+        }
+    http_version: 
+  recorded_at: Mon, 20 Mar 2017 12:23:53 GMT
+recorded_with: VCR 3.0.3

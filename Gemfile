@@ -64,4 +64,5 @@ group :test do
   gem 'rspec-rails', '~> 3.5.0'
   gem 'webmock'
   gem 'vcr'
+  gem 'capybara'
 end
