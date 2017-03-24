@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:5000/v2/_catalog?n=100
+    uri: http://registry:5000/v2/_catalog?n=100
     body:
       encoding: US-ASCII
       string: ''
@@ -37,7 +37,7 @@ http_interactions:
   recorded_at: Mon, 20 Mar 2017 12:20:22 GMT
 - request:
     method: get
-    uri: http://localhost:5000/v2/test/hello-world/tags/list
+    uri: http://registry:5000/v2/test/hello-world/tags/list
     body:
       encoding: US-ASCII
       string: ''

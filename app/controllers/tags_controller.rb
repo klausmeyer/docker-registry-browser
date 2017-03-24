@@ -5,6 +5,8 @@ class TagsController < ApplicationController
   end
 
   def destroy
+    reject_destroy unless Rails.configuration.x.delete_enabled
+
     if @tag.delete
       redirect_with_flash :notice, "The tag #{@tag.name} has been deleted."
     else
@@ -21,5 +23,9 @@ class TagsController < ApplicationController
 
   def redirect_with_flash(type, message)
     redirect_to repository_path(@repository.name), flash: { type => message }
+  end
+
+  def reject_destroy
+    raise "Tag deletion feature is not enabled.\nPlease set `ENABLE_DELETE_IMAGES=true` to enable it."
   end
 end

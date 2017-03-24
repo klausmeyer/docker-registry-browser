@@ -1,0 +1,247 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://registry:5000/v2/hello-world/tags/list
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 24 Mar 2017 21:54:04 GMT
+      Content-Length:
+      - '41'
+    body:
+      encoding: UTF-8
+      string: '{"name":"hello-world","tags":["latest"]}
+
+'
+    http_version: 
+  recorded_at: Fri, 24 Mar 2017 21:54:04 GMT
+- request:
+    method: get
+    uri: http://registry:5000/v2/hello-world/manifests/latest
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Accept:
+      - application/vnd.docker.distribution.manifest.v2+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '524'
+      Content-Type:
+      - application/vnd.docker.distribution.manifest.v2+json
+      Docker-Content-Digest:
+      - sha256:2075ac87b043415d35bb6351b4a59df19b8ad154e578f7048335feeb02d0f759
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      Etag:
+      - '"sha256:2075ac87b043415d35bb6351b4a59df19b8ad154e578f7048335feeb02d0f759"'
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 24 Mar 2017 21:54:04 GMT
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+           "schemaVersion": 2,
+           "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+           "config": {
+              "mediaType": "application/vnd.docker.container.image.v1+json",
+              "size": 1478,
+              "digest": "sha256:48b5124b2768d2b917edcb640435044a97967015485e812545546cbed5cf0233"
+           },
+           "layers": [
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "size": 979,
+                 "digest": "sha256:983bfa07a342e316f08afd066894505088de985d46a9af743920aa9cafd17e7a"
+              }
+           ]
+        }
+    http_version: 
+  recorded_at: Fri, 24 Mar 2017 21:54:04 GMT
+- request:
+    method: get
+    uri: http://registry:5000/v2/hello-world/tags/list
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 24 Mar 2017 21:54:10 GMT
+      Content-Length:
+      - '41'
+    body:
+      encoding: UTF-8
+      string: '{"name":"hello-world","tags":["latest"]}
+
+'
+    http_version: 
+  recorded_at: Fri, 24 Mar 2017 21:54:10 GMT
+- request:
+    method: get
+    uri: http://registry:5000/v2/hello-world/manifests/latest
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Accept:
+      - application/vnd.docker.distribution.manifest.v2+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '524'
+      Content-Type:
+      - application/vnd.docker.distribution.manifest.v2+json
+      Docker-Content-Digest:
+      - sha256:2075ac87b043415d35bb6351b4a59df19b8ad154e578f7048335feeb02d0f759
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      Etag:
+      - '"sha256:2075ac87b043415d35bb6351b4a59df19b8ad154e578f7048335feeb02d0f759"'
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 24 Mar 2017 21:54:10 GMT
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+           "schemaVersion": 2,
+           "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+           "config": {
+              "mediaType": "application/vnd.docker.container.image.v1+json",
+              "size": 1478,
+              "digest": "sha256:48b5124b2768d2b917edcb640435044a97967015485e812545546cbed5cf0233"
+           },
+           "layers": [
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "size": 979,
+                 "digest": "sha256:983bfa07a342e316f08afd066894505088de985d46a9af743920aa9cafd17e7a"
+              }
+           ]
+        }
+    http_version: 
+  recorded_at: Fri, 24 Mar 2017 21:54:10 GMT
+- request:
+    method: delete
+    uri: http://registry:5000/v2/hello-world/manifests/sha256:2075ac87b043415d35bb6351b4a59df19b8ad154e578f7048335feeb02d0f759
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 24 Mar 2017 21:54:10 GMT
+      Content-Length:
+      - '0'
+      Content-Type:
+      - text/plain; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Fri, 24 Mar 2017 21:54:10 GMT
+- request:
+    method: get
+    uri: http://registry:5000/v2/hello-world/tags/list
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 24 Mar 2017 21:54:10 GMT
+      Content-Length:
+      - '35'
+    body:
+      encoding: UTF-8
+      string: '{"name":"hello-world","tags":null}
+
+'
+    http_version: 
+  recorded_at: Fri, 24 Mar 2017 21:54:10 GMT
+recorded_with: VCR 3.0.3

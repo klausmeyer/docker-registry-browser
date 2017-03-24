@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:5000/v2/_catalog?n=100
+    uri: http://registry:5000/v2/_catalog?n=100
     body:
       encoding: US-ASCII
       string: ''

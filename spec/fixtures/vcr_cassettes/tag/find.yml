@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:5000/v2/randomguy1/image1/manifests/latest
+    uri: http://registry:5000/v2/randomguy1/image1/manifests/latest
     body:
       encoding: US-ASCII
       string: ''

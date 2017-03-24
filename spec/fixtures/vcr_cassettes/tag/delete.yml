@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:5000/v2/randomguy1/image1/manifests/latest
+    uri: http://registry:5000/v2/randomguy1/image1/manifests/latest
     body:
       encoding: US-ASCII
       string: ''
@@ -120,7 +120,7 @@ http_interactions:
   recorded_at: Sun, 24 Apr 2016 10:27:13 GMT
 - request:
     method: delete
-    uri: http://localhost:5000/v2/randomguy1/image1/manifests/sha256:f8502f54079856d2ad7a393660264dd8af9a4a2d4543e4d443ef1d29724f51cf
+    uri: http://registry:5000/v2/randomguy1/image1/manifests/sha256:f8502f54079856d2ad7a393660264dd8af9a4a2d4543e4d443ef1d29724f51cf
     body:
       encoding: US-ASCII
       string: ''
