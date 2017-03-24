@@ -1,3 +1,15 @@
+sudo: required
+dist: trusty
+addons:
+  apt:
+    sources:
+      - ubuntu-sdk-team
+    packages:
+      - libqt5webkit5-dev
+      - qtdeclarative5-dev
+env:
+  QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
+
 language: ruby
 rvm:
   - "2.4.1"
