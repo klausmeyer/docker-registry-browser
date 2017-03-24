@@ -1,0 +1,5 @@
+{
+  "name": "docker-registry-browser",
+  "private": true,
+  "dependencies": {}
+}
