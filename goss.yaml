@@ -1,0 +1,15 @@
+port:
+  tcp:8080:
+    listening: true
+    ip:
+    - 0.0.0.0
+process:
+  ruby: # puma
+    running: true
+http:
+  http://localhost:8080/ping:
+    status: 200
+    allow-insecure: false
+    no-follow-redirects: false
+    timeout: 5000
+    body: ['pong']
