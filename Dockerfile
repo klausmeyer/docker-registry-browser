@@ -25,4 +25,4 @@ RUN gem install bundler && \
     rake assets:precompile && \
     rm -rf /usr/lib/lib/ruby/gems/*/cache/*
 
-CMD bundle exec puma -C config/puma.rb
+CMD puma -C config/puma.rb
