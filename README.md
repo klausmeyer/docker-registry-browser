@@ -53,3 +53,5 @@ The configuration is done by environment variables.
 | BASIC_AUTH_USER      | no       | String | joe                       | Username for basic-auth against registry                  |
 | BASIC_AUTH_PASSWORD  | no       | String | supersecretpassw0rd       | Password for basic-auth against registry                  |
 | ENABLE_DELETE_IMAGES | no       | Bool   | true                      | Allow deletion of tags (default `false`)                  |
+
+You can also set BASIC_AUTH_USER and BASIC_AUTH_PASSWORD as [Docker Swarm secrets](https://docs.docker.com/engine/swarm/secrets/).
