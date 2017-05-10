@@ -1,5 +1,6 @@
 require_relative 'boot'
 
+require 'config'
 require "rails"
 # Pick the frameworks you want:
 require "active_model/railtie"
@@ -26,8 +27,8 @@ module DockerRegistryBrowser
 
     config.x.registry_url        = ENV["DOCKER_REGISTRY_URL"] || "http://localhost:5000"
     config.x.no_ssl_verification = ENV["NO_SSL_VERIFICATION"].in? %w(1 true yes)
-    config.x.basic_auth_user     = File.file?("/run/secrets/BASIC_AUTH_USER") ? File.read("/run/secrets/BASIC_AUTH_USER").strip : ENV["BASIC_AUTH_USER"]
-    config.x.basic_auth_password = File.file?("/run/secrets/BASIC_AUTH_PASSWORD") ? File.read("/run/secrets/BASIC_AUTH_PASSWORD").strip : ENV["BASIC_AUTH_PASSWORD"]
+    config.x.basic_auth_user     = Config.get("BASIC_AUTH_USER")
+    config.x.basic_auth_password = Config.get("BASIC_AUTH_PASSWORD")
     config.x.delete_enabled      = ENV["ENABLE_DELETE_IMAGES"].in? %w(1 true yes)
   end
 end
