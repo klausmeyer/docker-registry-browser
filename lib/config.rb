@@ -1,11 +1,13 @@
 module Config
   extend self
 
-  def get(name)
-    if File.file?("/run/secrets/#{name}")
+  def get(name:, default: nil, secret: false)
+    if secret && File.file?("/run/secrets/#{name}")
       File.read("/run/secrets/#{name}").strip
-    else
+    elsif ENV.key?(name)
       ENV[name]
+    else
+      default
     end
   end
 end

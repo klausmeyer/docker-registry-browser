@@ -1,7 +1,7 @@
 Rails.application.config.tap do |config|
-  config.x.registry_url        = ENV["DOCKER_REGISTRY_URL"] || "http://localhost:5000"
-  config.x.no_ssl_verification = ENV["NO_SSL_VERIFICATION"].in? %w(1 true yes)
-  config.x.basic_auth_user     = Config.get("BASIC_AUTH_USER")
-  config.x.basic_auth_password = Config.get("BASIC_AUTH_PASSWORD")
-  config.x.delete_enabled      = ENV["ENABLE_DELETE_IMAGES"].in? %w(1 true yes)
+  config.x.registry_url        = Config.get(name: "DOCKER_REGISTRY_URL", default: "http://localhost:5000")
+  config.x.no_ssl_verification = Config.get(name: "NO_SSL_VERIFICATION").in? %w(1 true yes)
+  config.x.basic_auth_user     = Config.get(name: "BASIC_AUTH_USER", secret: true)
+  config.x.basic_auth_password = Config.get(name: "BASIC_AUTH_PASSWORD", secret: true)
+  config.x.delete_enabled      = Config.get(name: "ENABLE_DELETE_IMAGES").in? %w(1 true yes)
 end
