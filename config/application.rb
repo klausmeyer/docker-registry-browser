@@ -1,6 +1,5 @@
 require_relative 'boot'
 
-require 'config'
 require "rails"
 # Pick the frameworks you want:
 require "active_model/railtie"
@@ -25,10 +24,8 @@ module DockerRegistryBrowser
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    config.x.registry_url        = ENV["DOCKER_REGISTRY_URL"] || "http://localhost:5000"
-    config.x.no_ssl_verification = ENV["NO_SSL_VERIFICATION"].in? %w(1 true yes)
-    config.x.basic_auth_user     = Config.get("BASIC_AUTH_USER")
-    config.x.basic_auth_password = Config.get("BASIC_AUTH_PASSWORD")
-    config.x.delete_enabled      = ENV["ENABLE_DELETE_IMAGES"].in? %w(1 true yes)
+    # custom
+
+    config.autoload_paths += [ Rails.root.join("lib") ]
   end
 end
