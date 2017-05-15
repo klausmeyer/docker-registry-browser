@@ -46,6 +46,14 @@ describe Repository do
       end
     end
 
+    context "when the name contains a namespace (with slash) and image" do
+      let(:name) { "department/randomguy1/image1" }
+
+      it "returns just the namespace part" do
+        expect(subject.namespace).to eq "department/randomguy1"
+      end
+    end
+
     context "when the name contains only a image" do
       let(:name)  { "image1" }
       let(:label) { "custom-label" }
