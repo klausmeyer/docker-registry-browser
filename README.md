@@ -55,3 +55,7 @@ The configuration is done by environment variables.
 | ENABLE_DELETE_IMAGES | no       | Bool   | true                      | Allow deletion of tags (default `false`)                  |
 
 You can also set BASIC_AUTH_USER and BASIC_AUTH_PASSWORD as [Docker Swarm secrets](https://docs.docker.com/engine/swarm/secrets/).
+
+**Note:**
+
+If you're using a reverse-proxy setup with SSL termination in front of this application in combination with `ENABLE_DELETE_IMAGES=true` you must make sure that the application knows about this fact (by sending `X-Forwarded-Proto: https` in the HTTP headers). Otherwise the application would throw errors like `"HTTP Origin header [...] didn't match request.base_url [...]"` when you're trying to delete image-tags.
