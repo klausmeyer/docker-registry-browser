@@ -9,6 +9,10 @@
 
   <table class="table">
     <tr>
+        <th>Docker Pull Command</th>
+        <td><span id="pull-command"><%= get_pull_command(@repository.name, @tag.name)%></span> <button class="btn btn-default btn-xs glyphicon glyphicon-copy" type="button" onclick="copyToClipboard('#pull-command')"></button></td>
+    </tr>
+    <tr>
       <th>Content Digest</th>
       <td><%= @tag.content_digest %></td>
     </tr>

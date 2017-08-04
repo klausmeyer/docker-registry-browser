@@ -13,6 +13,7 @@ feature "Tag details" do
     expect(page).to have_content "Layer"
     expect(page).to have_content "sha256:983bfa07a342e316f08afd066894505088de985d46a9af743920aa9cafd17e7a"
     expect(page).to have_content "979 Bytes"
+    expect(page).to have_content "docker pull localhost:5000/test/hello-world:latest"
   end
 end
 
