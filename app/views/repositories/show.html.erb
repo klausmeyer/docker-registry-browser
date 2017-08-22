@@ -6,7 +6,7 @@
   </div>
   <% if @repository.tags.any? %>
     <ul class="list-group">
-      <% @repository.tags.sort.each do |tag| %>
+      <% @repository.tags.sort.reverse.each do |tag| %>
         <li class="list-group-item">
         <%= link_to tag_path(repo: @repository.name, tag: tag) do %>
           <strong>Tag:</strong> <%= tag %>
