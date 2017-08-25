@@ -8,10 +8,12 @@
   </div>
 
   <table class="table">
-    <tr>
+    <% if Rails.configuration.x.public_registry_url %>
+      <tr>
         <th>Docker Pull Command</th>
         <td><span id="pull-command"><%= get_pull_command(@repository.name, @tag.name)%></span> <button class="btn btn-default btn-xs glyphicon glyphicon-copy" type="button" onclick="copyToClipboard('#pull-command')"></button></td>
-    </tr>
+      </tr>
+    <% end %>
     <tr>
       <th>Content Digest</th>
       <td><%= @tag.content_digest %></td>
