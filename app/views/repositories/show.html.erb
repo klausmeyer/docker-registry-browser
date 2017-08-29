@@ -13,7 +13,7 @@
         <% end %>
         <% if Rails.configuration.x.public_registry_url %>
           <div class="pull-right">
-            <span id="pull-command-<%= tag.object_id %>"><%= get_pull_command(@repository.name, tag)%></span>
+            <span id="pull-command-<%= tag.object_id %>"><%= pull_command(@repository.name, tag)%></span>
             <button class="btn btn-default btn-xs glyphicon glyphicon-copy" type="button" onclick="copyToClipboard('#pull-command-<%= tag.object_id %>')"></button>
           </div>
         <% end %>
