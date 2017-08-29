@@ -13,7 +13,5 @@ feature "Image details" do
     expect(page).to have_content "Tag: v1"
     expect(page).to have_content "Tag: v2"
     expect(page).to have_content "Tag: v3"
-    expect(page).to have_content "docker pull localhost:5000/test/hello-world:v3"
   end
 end
-
