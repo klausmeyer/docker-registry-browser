@@ -15,4 +15,3 @@ feature "Image details" do
     expect(page).to have_content "Tag: v3"
   end
 end
-

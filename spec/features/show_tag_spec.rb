@@ -15,4 +15,3 @@ feature "Tag details" do
     expect(page).to have_content "979 Bytes"
   end
 end
-

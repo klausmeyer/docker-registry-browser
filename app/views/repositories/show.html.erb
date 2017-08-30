@@ -5,13 +5,21 @@
     <strong>Image:</strong> <%= @repository.image %>
   </div>
   <% if @repository.tags.any? %>
-    <div class="list-group">
-      <% @repository.tags.sort.each do |tag| %>
-        <%= link_to tag_path(repo: @repository.name, tag: tag), class: "list-group-item" do %>
+    <ul class="list-group">
+      <% @repository.tags.sort.reverse.each do |tag| %>
+        <li class="list-group-item">
+        <%= link_to tag_path(repo: @repository.name, tag: tag) do %>
           <strong>Tag:</strong> <%= tag %>
         <% end %>
+        <% if Rails.configuration.x.public_registry_url %>
+          <div class="pull-right">
+            <span id="pull-command-<%= tag.object_id %>"><%= pull_command(@repository.name, tag)%></span>
+            <button class="btn btn-default btn-xs glyphicon glyphicon-copy" type="button" onclick="copyToClipboard('#pull-command-<%= tag.object_id %>')"></button>
+          </div>
+        <% end %>
+        </li>
       <% end %>
-    </div>
+    </ul>
   <% else %>
     <div class="panel-body">
       No tags at the moment :(
