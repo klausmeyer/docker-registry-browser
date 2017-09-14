@@ -1,4 +1,4 @@
-FROM ruby:2.4.1-alpine
+FROM ruby:2.4.2-alpine
 
 MAINTAINER Klaus Meyer <spam@klaus-meyer.net>
 
@@ -12,7 +12,7 @@ EXPOSE 8080
 
 RUN   apk update \
   &&  apk add build-base zlib-dev libxml2-dev libxslt-dev tzdata yaml-dev git nodejs \
-  &&  rm -rf /var/cache/apk/* 
+  &&  rm -rf /var/cache/apk/*
 
 WORKDIR /app
 
@@ -21,7 +21,7 @@ ADD Gemfile.lock /app
 
 RUN   gem install bundler \
   &&  bundle install --without development test
-  
+
 ADD . /app
 
 RUN adduser -S -h /app app && chown -R app /app && chown -R app /usr/local/bundle
