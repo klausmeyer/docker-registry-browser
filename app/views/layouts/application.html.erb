@@ -7,22 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <!-- Static navbar -->
-  <nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-dark bg-dark">
     <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">
-          <img src="https://maxcdn.icons8.com/Color/PNG/48/Logos/docker-48.png" title="Docker" width="42" style="display: inline-block">
-          Registry Browser
-        </a>
-      </div>
-    </div><!--/.container-fluid -->
+      <a class="navbar-brand" href="/">
+        <img src="https://maxcdn.icons8.com/Color/PNG/48/Logos/docker-48.png" title="Docker" width="42" style="display: inline-block">
+        Registry Browser
+      </a>
+    </div>
   </nav>
   <div class="container">
     <%= render "flash" %>
@@ -30,16 +21,14 @@
   </div>
   <hr>
   <footer>
-    <div class="container">
-      <small>
-        <a href="https://github.com/klausmeyer/docker-registry-browser">
-          Docker Registry Browser
-        </a>
-        -
-        Running on Ruby <%= RUBY_VERSION %> and Rails <%= Rails.version %> in <%= Rails.env %> mode
-        -
-        Icons by <a href="https://icons8.com">icons8.com</a>
-      </small>
+    <div class="container text-center text-muted small">
+      <a href="https://github.com/klausmeyer/docker-registry-browser">
+        Docker Registry Browser
+      </a>
+      -
+      Running on Ruby <%= RUBY_VERSION %> and Rails <%= Rails.version %> in <%= Rails.env %> mode
+      -
+      Icons by <a href="https://icons8.com">icons8.com</a>
     </div>
   </footer>
 </body>

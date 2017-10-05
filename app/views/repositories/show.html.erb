@@ -1,28 +1,37 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <strong>Namespace:</strong> <%= @repository.namespace %>
-    /
+<%= content_tag :div, class: "breadcrumb" do %>
+  <div class="breadcrumb-item">
+    <strong>Namespace:</strong> /<%= @repository.namespace %>
+  </div>
+  <div class="breadcrumb-item active">
     <strong>Image:</strong> <%= @repository.image %>
   </div>
-  <% if @repository.tags.any? %>
-    <ul class="list-group">
-      <% @repository.tags.sort.reverse.each do |tag| %>
-        <li class="list-group-item">
-        <%= link_to tag_path(repo: @repository.name, tag: tag) do %>
-          <strong>Tag:</strong> <%= tag %>
-        <% end %>
-        <% if Rails.configuration.x.public_registry_url %>
-          <div class="pull-right">
-            <span id="pull-command-<%= tag.object_id %>"><%= pull_command(@repository.name, tag)%></span>
-            <button class="btn btn-default btn-xs glyphicon glyphicon-copy" type="button" onclick="copyToClipboard('#pull-command-<%= tag.object_id %>')"></button>
-          </div>
-        <% end %>
-        </li>
-      <% end %>
-    </ul>
-  <% else %>
-    <div class="panel-body">
-      No tags at the moment :(
-    </div>
-  <% end %>
-</div>
+<% end %>
+
+<% if @repository.tags.any? %>
+  <div class="list-group">
+    <% @repository.tags.sort.reverse.each do |tag| %>
+      <div class="list-group-item d-flex justify-content-between">
+        <div class="align-self-center w-50">
+          <%= link_to tag_path(repo: @repository.name, tag: tag), class: "list-group-item-action" do %>
+            <strong>Tag:</strong> <%= tag %>
+          <% end %>
+        </div>
+        <div class="align-self-center w-50">
+          <% if Rails.configuration.x.public_registry_url %>
+            <div class="input-group">
+              <%= text_field :image, :pull_command, value: pull_command(@repository.name, tag), class: "form-control" %>
+              <span class="input-group-btn">
+                <a href="#" class="btn btn-outline-secondary" data-behaviour="copy-pull-command">Copy</a>
+              </span>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="alert alert-warning text-center">
+    <strong>Sorry!</strong>
+    No tags are available at the moment.
+  </p>
+<% end %>

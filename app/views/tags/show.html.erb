@@ -1,69 +1,79 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <strong>Namespace:</strong> <%= @repository.namespace %>
-    /
-    <strong>Image:</strong> <%= link_to @repository.image, repository_path(@repository.name) %>
-    /
+<%= content_tag :div, class: "breadcrumb" do %>
+  <div class="breadcrumb-item">
+    <strong>Namespace:</strong> /<%= @repository.namespace %>
+  </div>
+  <div class="breadcrumb-item">
+    <strong>Image:</strong> <%= @repository.image %>
+  </div>
+  <div class="breadcrumb-item active">
     <strong>Tag:</strong> <%= @tag.name %>
   </div>
+<% end %>
 
-  <table class="table">
-    <% if Rails.configuration.x.public_registry_url %>
-      <tr>
-        <th>Docker Pull Command</th>
-        <td><span id="pull-command"><%= pull_command(@repository.name, @tag.name)%></span> <button class="btn btn-default btn-xs glyphicon glyphicon-copy" type="button" onclick="copyToClipboard('#pull-command')"></button></td>
-      </tr>
-    <% end %>
-    <tr>
-      <th>Content Digest</th>
-      <td><%= @tag.content_digest %></td>
-    </tr>
-    <tr>
-      <th>Layer</th>
-      <td>
-        <table class="table table-striped">
+<% if Rails.configuration.x.public_registry_url %>
+  <div class="input-group">
+    <%= text_field :image, :pull_command, value: pull_command(@repository.name, @tag.name), class: "form-control" %>
+    <span class="input-group-btn">
+      <a href="#" class="btn btn-outline-secondary" data-behaviour="copy-pull-command">Copy</a>
+    </span>
+  </div>
+
+  <br>
+<% end %>
+
+<table class="table">
+  <tr>
+    <th>Content Digest</th>
+    <td><code><%= @tag.content_digest %></code></td>
+  </tr>
+  <tr>
+    <th>Layer</th>
+    <td>
+      <table class="table table-striped">
+        <tr>
+          <th>Index</th>
+          <th>Digest</th>
+          <% if @tag.layers.first.size.present? %>
+            <th>Size</th>
+          <% end %>
+        </tr>
+        <% @tag.layers.each do |layer| %>
           <tr>
-            <th>Index</th>
-            <th>Digest</th>
-            <% if @tag.layers.first.size.present? %>
-              <th>Size</th>
+            <td><%= layer.index %></td>
+            <td><code><%= layer.digest %></code></td>
+            <% if layer.size.present? %>
+              <td><nobr><%= number_to_human_size layer.size %></nobr></td>
             <% end %>
           </tr>
-          <% @tag.layers.each do |layer| %>
-            <tr>
-              <td><%= layer.index %></td>
-              <td><%= layer.digest %></td>
-              <% if layer.size.present? %>
-                <td><%= number_to_human_size layer.size %></td>
-              <% end %>
-            </tr>
-          <% end %>
-        </table>
-      </td>
-    </tr>
-  </table>
-</div>
+        <% end %>
+      </table>
+    </td>
+  </tr>
+</table>
 
 <% if Rails.configuration.x.delete_enabled %>
-  <div class="panel panel-danger">
-    <div class="panel-heading">
-      <strong>Danger Zone</strong>
-    </div>
-    <div class="panel-body">
-      <a href="#" class="btn btn-danger pull-right" data-toggle="modal" data-target="#delete-dialog">
-        Delete
+  <hr>
+
+  <div class="jumbotron text-center">
+    <h1 class="display-6">Danger Zone</h1>
+    <p class="lead">
+      Note: You can NOT undo this.
+      <br>
+      Please be careful.
+    </p>
+    <div class="text-center">
+      <a href="#" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#delete-dialog">
+        Delete this tag
       </a>
-      <strong>Delete this tag</strong><br>
-      Note: You can't undo this. Please be careful.
     </div>
   </div>
 
-  <div class="modal fade" id="delete-dialog" tabindex="-1" role="dialog" aria-labelledby="Delete dialog">
+  <div class="modal fade" id="delete-dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">Are you sure?</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
           Please type in the name of the tag to enable the button:<br>

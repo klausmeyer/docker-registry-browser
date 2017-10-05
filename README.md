@@ -14,17 +14,13 @@ Tag overview
 
 [![Screenshot 2](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot2_thumb.png "Screenshot 2")](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot2.png)
 
-Tag details - part 1
+Tag details
 
 [![Screenshot 3](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot3_thumb.png "Screenshot 3")](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot3.png)
 
-Tag details - part 2
-
-[![Screenshot 4](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot4_thumb.png "Screenshot 4")](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot4.png)
-
 Delete tag
 
-[![Screenshot 5](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot5_thumb.png "Screenshot 5")](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot5.png)
+[![Screenshot 4](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot4_thumb.png "Screenshot 4")](https://github.com/klausmeyer/docker-registry-browser/raw/master/docs/screenshot5.png)
 
 ## Usage
 

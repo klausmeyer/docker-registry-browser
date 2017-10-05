@@ -8,7 +8,10 @@ feature "Tag details" do
   scenario "Delete tag", :vcr, :js do
     visit "/repo/hello-world/tag/latest"
 
-    expect(page).to have_content "Namespace: <root> / Image: hello-world / Tag: latest"
+    expect(page).to have_content "Namespace: /"
+    expect(page).to have_content "Image: hello-world"
+    expect(page).to have_content "Tag: latest"
+
     expect(page).to have_content "Danger Zone"
     click_link "Delete"
 

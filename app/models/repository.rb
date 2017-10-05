@@ -24,7 +24,7 @@ class Repository < Resource
     )
   end
 
-  def namespace(root = "<root>")
+  def namespace(root = "")
     name.split("/").size == 1 ? root : name.split("/")[0...-1].join('/')
   end
 

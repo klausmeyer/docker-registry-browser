@@ -65,8 +65,8 @@ describe Repository do
       end
 
       context "when no custom root label is passed" do
-        it "returns <root>" do
-          expect(subject.namespace).to eq "<root>"
+        it "returns empty string" do
+          expect(subject.namespace).to eq ""
         end
       end
     end

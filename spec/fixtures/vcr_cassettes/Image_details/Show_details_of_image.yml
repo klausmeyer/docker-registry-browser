@@ -33,11 +33,11 @@ http_interactions:
       string: '{"repositories":["hello-world","test/hello-world","test/hello-world-2","test/hello-world-3"]}
 
 '
-    http_version: 
+    http_version:
   recorded_at: Mon, 20 Mar 2017 12:20:22 GMT
 - request:
     method: get
-    uri: http://registry:5000/v2/test/hello-world/tags/list
+    uri: http://registry:5000/v2/hello-world/tags/list
     body:
       encoding: US-ASCII
       string: ''
@@ -65,9 +65,9 @@ http_interactions:
       - '61'
     body:
       encoding: UTF-8
-      string: '{"name":"test/hello-world","tags":["v2","v1","latest","v3"]}
+      string: '{"name":"hello-world","tags":["v2","v1","latest","v3"]}
 
 '
-    http_version: 
+    http_version:
   recorded_at: Mon, 20 Mar 2017 12:20:22 GMT
 recorded_with: VCR 3.0.3
