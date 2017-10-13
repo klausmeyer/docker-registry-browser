@@ -23,3 +23,7 @@ body > .container {
 .breadcrumb-item + .breadcrumb-item::before {
   content: "|";
 }
+
+footer {
+  margin-bottom: 20px;
+}
