@@ -3,7 +3,7 @@
     <strong>Namespace:</strong> /<%= @repository.namespace %>
   </div>
   <div class="breadcrumb-item">
-    <strong>Image:</strong> <%= @repository.image %>
+    <strong>Image:</strong> <%= link_to @repository.image, repository_path(@repository.name) %>
   </div>
   <div class="breadcrumb-item active">
     <strong>Tag:</strong> <%= @tag.name %>
