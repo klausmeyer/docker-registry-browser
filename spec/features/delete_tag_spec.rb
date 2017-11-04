@@ -5,7 +5,7 @@ feature "Tag details" do
     allow(Rails.configuration.x).to receive(:delete_enabled) { true }
   end
 
-  scenario "Delete tag", :vcr, :js do
+  scenario "Delete tag", :vcr do
     visit "/repo/hello-world/tag/latest"
 
     expect(page).to have_content "Namespace: /"

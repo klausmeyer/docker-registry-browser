@@ -63,7 +63,7 @@ gem 'bootstrap', '~> 4.0.0.beta'
 gem 'jquery-rails'
 
 group :test do
-  gem 'rspec-rails', '~> 3.5.0'
+  gem 'rspec-rails', '~> 3.7.0'
   gem 'webmock'
   gem 'vcr'
   gem 'capybara-webkit'
