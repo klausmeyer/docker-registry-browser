@@ -18,4 +18,13 @@ describe "routes for tags" do
       tag:        "1.2.3"
     )
   end
+
+  it "routes DELETE /repo/xx/yy-zz/tag/latest to the tags controller" do
+    expect(delete("/repo/xx/yy-zz/tag/latest")).to route_to(
+      controller: "tags",
+      action:     "destroy",
+      repo:       "xx/yy-zz",
+      tag:        "latest"
+    )
+  end
 end
