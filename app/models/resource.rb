@@ -11,11 +11,10 @@ class Resource
             Rails.configuration.x.basic_auth_user,
             Rails.configuration.x.basic_auth_password
         end
-        f.request  :url_encoded
+        f.use FaradayMiddleware::ParseJson, content_type: /json|prettyjws/
         f.response :logger unless Rails.env.test?
         f.response :raise_error
-        f.use FaradayMiddleware::ParseJson, content_type: /json|prettyjws/
-        f.adapter Faraday.default_adapter
+        f.adapter  Faraday.default_adapter
       end
     end
   end
