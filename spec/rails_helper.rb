@@ -51,7 +51,5 @@ RSpec.configure do |config|
     config.ignore_localhost = true
   end
 
-  Capybara.javascript_driver = :webkit
-
   Rails.configuration.x.registry_url = "http://registry:5000"
 end
