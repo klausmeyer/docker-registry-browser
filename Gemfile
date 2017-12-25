@@ -62,8 +62,11 @@ gem 'faraday_middleware'
 gem 'bootstrap', '~> 4.0.0.beta'
 gem 'jquery-rails'
 
-group :test do
+group :development, :test do
   gem 'rspec-rails', '~> 3.7.0'
+end
+
+group :test do
   gem 'webmock'
   gem 'vcr'
 end
