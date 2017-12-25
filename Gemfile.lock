@@ -195,7 +195,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
-    uglifier (3.1.2)
+    uglifier (4.0.2)
       execjs (>= 0.3.0, < 3)
     vcr (4.0.0)
     web-console (3.5.1)
