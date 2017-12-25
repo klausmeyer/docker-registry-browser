@@ -110,7 +110,7 @@ GEM
       mini_portile2 (~> 2.3.0)
     popper_js (1.12.5)
     public_suffix (2.0.5)
-    puma (3.7.1)
+    puma (3.11.0)
     rack (2.0.3)
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
