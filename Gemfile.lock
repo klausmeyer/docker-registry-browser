@@ -105,7 +105,7 @@ GEM
     multi_json (1.12.2)
     multipart-post (2.0.0)
     nio4r (2.2.0)
-    nokogiri (1.8.1)
+    nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     popper_js (1.12.9)
     public_suffix (3.0.1)
