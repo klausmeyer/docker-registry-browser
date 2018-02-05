@@ -11,17 +11,10 @@
 <% end %>
 
 <% if Rails.configuration.x.public_registry_url %>
-  <div class="input-group">
-    <%= text_field :image, :pull_command, value: pull_command(@repository.name, @tag.name), class: "form-control", readonly: true %>
-    <span class="input-group-btn">
-      <a href="#" class="btn btn-outline-secondary" data-behaviour="copy-pull-command">Copy</a>
-    </span>
-  </div>
-
-  <br>
+  <%= render partial: 'shared/copy_to_clipboard', locals: { value: pull_command(@repository.name, @tag.name) } %>
 <% end %>
 
-<table class="table">
+<table class="table mt-3">
   <tr>
     <th>Content Digest</th>
     <td><code><%= @tag.content_digest %></code></td>
