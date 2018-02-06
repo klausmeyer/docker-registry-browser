@@ -34,25 +34,27 @@ docker run --name registry-browser -it -p 8080:8080 -e DOCKER_REGISTRY_URL=http:
 
 ### Manual setup
 
-1. Install ruby e.g. using [RVM](http://rvm.io) (see `.ruby-version` file for required version).
-2. Execute `gem install bundler && bundle install --without development test` inside your local clone of this repository
-3. Run the application using `DOCKER_REGISTRY_URL=http://your-registry:5000 bundle exec bundle exec puma -C config/puma.rb`
+1. Install ruby e.g. using [RVM](http://rvm.io)<br>(see `.ruby-version` file for required version).
+2. Execute the following command inside your local clone of this repository:<br>`gem install bundler && bundle install --without development test`
+3. Run the application using<br>`DOCKER_REGISTRY_URL=http://your-registry:5000 bundle exec bundle exec puma -C config/puma.rb`
 
 ## Configuration
 
 The configuration is done by environment variables.
 
-| Option               | Required | Type   | Example                   | Description                                               |
-| -------------------- | -------- | ------ | ------------------------- | --------------------------------------------------------- |
-| DOCKER_REGISTRY_URL  | yes      | String | http://your-registry:5000 | URL to the Docker Registry which should be browsed        |
-| NO_SSL_VERIFICATION  | no       | Bool   | true                      | Enable to skip SSL verification (default `false`)         |
-| BASIC_AUTH_USER      | no       | String | joe                       | Username for basic-auth against registry                  |
-| BASIC_AUTH_PASSWORD  | no       | String | supersecretpassw0rd       | Password for basic-auth against registry                  |
-| ENABLE_DELETE_IMAGES | no       | Bool   | true                      | Allow deletion of tags (default `false`)                  |
-| PUBLIC_REGISTRY_URL  | no       | String | your-registry:5000        | The public URL to the Docker Registry to do docker pull   |
+| Option                 | Required | Type   | Description                                                                                    |
+| ---------------------- | -------- | ------ | ---------------------------------------------------------------------------------------------- |
+| `DOCKER_REGISTRY_URL`  | yes      | String | URL to the Docker Registry which should be browsed<br>**Example**: `http://your-registry:5000` |
+| `NO_SSL_VERIFICATION`  | no       | Bool   | Enable to skip SSL verification (default `false`)<br>**Example**: `true`                       |
+| `BASIC_AUTH_USER`      | no       | String | Username for basic-auth against registry<br>**Example**: `joe`                                 |
+| `BASIC_AUTH_PASSWORD`  | no       | String | Password for basic-auth against registry<br>**Example**: `supersecretpassw0rd`                 |
+| `ENABLE_DELETE_IMAGES` | no       | Bool   | Allow deletion of tags (default `false`)<br>**Example**: `true`                                |
+| `PUBLIC_REGISTRY_URL`  | no       | String | The public URL to the Docker Registry to do docker pull<br>**Example**: `your-registry:5000`   |
 
-You can also set BASIC_AUTH_USER and BASIC_AUTH_PASSWORD as [Docker Swarm secrets](https://docs.docker.com/engine/swarm/secrets/).
+You can also set `BASIC_AUTH_USER` and `BASIC_AUTH_PASSWORD` as [Docker Swarm secrets](https://docs.docker.com/engine/swarm/secrets/).
 
-**Note:**
+### Proxy Setups
 
-If you're using a reverse-proxy setup with SSL termination in front of this application in combination with `ENABLE_DELETE_IMAGES=true` you must make sure that the application knows about this fact (by sending `X-Forwarded-Proto: https` in the HTTP headers). Otherwise the application would throw errors like `"HTTP Origin header [...] didn't match request.base_url [...]"` when you're trying to delete image-tags.
+If you're using a reverse-proxy setup with SSL termination in front of this application in combination with `ENABLE_DELETE_IMAGES=true` you must make sure that the application knows about this fact (by sending `X-Forwarded-Proto: https` in the HTTP headers).
+
+Otherwise the application would throw errors like `"HTTP Origin header [...] didn't match request.base_url [...]"` when you're trying to delete image-tags.
