@@ -188,7 +188,7 @@ GEM
     uglifier (4.1.10)
       execjs (>= 0.3.0, < 3)
     vcr (4.0.0)
-    webmock (3.4.0)
+    webmock (3.4.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
