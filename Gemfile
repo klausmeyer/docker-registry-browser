@@ -71,7 +71,7 @@ gem 'bootstrap', '~> 4.1.0'
 gem 'jquery-rails'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.7.0'
+  gem 'rspec-rails', '~> 3.8.0'
 end
 
 group :test do
