@@ -1,82 +1,48 @@
-<%= content_tag :div, class: "breadcrumb" do %>
-  <div class="breadcrumb-item">
-    <strong>Namespace:</strong> /<%= @repository.namespace %>
-  </div>
-  <div class="breadcrumb-item">
-    <strong>Image:</strong> <%= link_to @repository.image, repository_path(@repository.name) %>
-  </div>
-  <div class="breadcrumb-item active">
-    <strong>Tag:</strong> <%= @tag.name %>
-  </div>
-<% end %>
+<div class="row justify-content-center">
+  <div class="col-md-10">
 
-<% if Rails.configuration.x.public_registry_url %>
-  <%= render partial: 'shared/copy_to_clipboard', locals: { value: pull_command(@repository.name, @tag.name) } %>
-<% end %>
+    <%= render "breadcrumb" %>
 
-<table class="table mt-3">
-  <tr>
-    <th>Content Digest</th>
-    <td><code><%= @tag.content_digest %></code></td>
-  </tr>
-  <tr>
-    <th>Layer</th>
-    <td>
-      <table class="table table-striped">
-        <tr>
-          <th>Index</th>
-          <th>Digest</th>
-          <% if @tag.layers.first.size.present? %>
-            <th>Size</th>
-          <% end %>
-        </tr>
-        <% @tag.layers.each do |layer| %>
-          <tr>
-            <td><%= layer.index %></td>
-            <td><code><%= layer.digest %></code></td>
-            <% if layer.size.present? %>
-              <td><nobr><%= number_to_human_size layer.size %></nobr></td>
-            <% end %>
-          </tr>
+    <div class="card border-docker mb-5">
+      <%= content_tag :div, class: "card-header" do %>
+        <%= image_tag "https://png.icons8.com/ios/150/737b84/tags.png", size: "75x75", align: "right" %>
+
+        <span class="text-muted small">Image</span>
+        <h5 class="card-title mb-1"><%= @repository.name %></h5>
+
+        <span class="text-muted small">Tag</span>
+        <h5 class="card-title mb-1"><%= @tag.name %></h5>
+
+        <span class="text-muted small">Content Digest</span>
+        <h6 class="card-title mb-0">
+          <%= render partial: "shared/copy_to_clipboard", locals: { name: :content_digest, value: @tag.content_digest, title: "Copy sha" } %>
+        </h6>
+      <% end %>
+
+      <div class="card-body">
+        <% if Rails.configuration.x.public_registry_url %>
+          <h5 class="card-title mb-2">Docker</h5>
+          <%= render partial: "shared/copy_to_clipboard", locals: { name: :pull_cmd, value: pull_command(@repository.name, @tag.name) } %>
         <% end %>
-      </table>
-    </td>
-  </tr>
-</table>
-
-<% if Rails.configuration.x.delete_enabled %>
-  <hr>
-
-  <div class="jumbotron text-center">
-    <h1 class="display-6">Danger Zone</h1>
-    <p class="lead">
-      Note: You can NOT undo this.
-      <br>
-      Please be careful.
-    </p>
-    <div class="text-center">
-      <a href="#" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#delete-dialog">
-        Delete this tag
-      </a>
-    </div>
-  </div>
-
-  <div class="modal fade" id="delete-dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="myModalLabel">Are you sure?</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        </div>
-        <div class="modal-body">
-          Please type in the name of the tag to enable the button:<br>
-          <br>
-          <%= text_field_tag :delete_confirm, nil, class: "form-control", data: { expected: @tag.name } %>
-        </div>
-        <div class="modal-footer">
-          <%= link_to "Yes I'm sure", tag_path(@repository.name, @tag.name), method: :delete, id: "delete-button", class: "btn btn-danger disabled" %>
-        </div>
+        <h5 class="card-title mt-4 mb-0">Layers</h5>
       </div>
+
+      <ul class="list-group list-group-flush">
+        <% @tag.layers.each do |layer| %>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span class="badge badge-pill badge-dlayer mr-2 px-3"><%= format '%03d', layer.index %></span>
+            <span class="flex-grow-1 text-monospace small text-truncate"><%= layer.digest %></span>
+            <% if layer.size.present? %>
+              <nobr class="text-muted small"><%= number_to_human_size layer.size %></nobr>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
     </div>
+
+    <% if Rails.configuration.x.delete_enabled %>
+      <%= render "delete" %>
+    <% end %>
+
   </div>
-<% end %>
+</div>

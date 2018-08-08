@@ -1,6 +1,19 @@
-<div class="input-group">
-  <%= text_field :image, :pull_command, value: local_assigns[:value], class: "form-control", readonly: true %>
-  <span class="input-group-append">
-    <a href="#" class="btn btn-outline-secondary" data-behaviour="copy-pull-command">Copy</a>
-  </span>
-</div>
+<% local_assigns[:title] ||= "Copy to clipboard" %>
+<% local_assigns[:style] ||= "field" # icon %>
+
+<% if local_assigns[:style] == "field" %>
+  <div class="d-flex align-items-center js-copy-to-clipboard">
+    <div class="flex-grow-1">
+      <%= text_field_tag local_assigns[:name], local_assigns[:value], class: "form-control-plaintext js-copy text-monospace" %>
+    </div>
+    <div class="pl-3">
+      <%= link_to "#copy", title: local_assigns[:title], data: { copy_target: ".js-copy", toggle: "tooltip" } do %>
+        <%= image_tag "https://png.icons8.com/small/32/212529/copy-2.png", size: "16x16" %>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <%= link_to "#copy", title: local_assigns[:title], data: { copy: local_assigns[:value], toggle: "tooltip" } do %>
+    <%= image_tag "https://png.icons8.com/small/32/212529/copy-2.png", size: "16x16" %>
+  <% end %>
+<% end %>

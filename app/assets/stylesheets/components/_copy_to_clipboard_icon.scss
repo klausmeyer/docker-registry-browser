@@ -1,0 +1,11 @@
+.copy-to-clipboard-icon {
+  position: relative;
+  z-index: 1029;
+  margin-left: 1.25rem;
+
+  a {
+    position: absolute;
+    display: inline-block;
+    margin-top: .75rem
+  }
+}

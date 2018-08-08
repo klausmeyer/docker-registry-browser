@@ -1,29 +1,17 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
+$theme-colors: (
+  "docker": #0db7ed,
+  "docker-alt": #384d54,
+  "dimage": #22aac4,
+  "dtag": #1bad73,
+  "dnamespace": #fa6812,
+  "dlayer": #d7dbe0,
+);
 @import "bootstrap";
 
-body > .container {
-  padding: 100px 16px 0;
-}
+// App sections
+@import "application/body";
 
-.breadcrumb-item + .breadcrumb-item::before {
-  content: "|";
-}
-
-footer {
-  margin-bottom: 20px;
-}
+// Components
+@import "components/alert";
+@import "components/copy_to_clipboard_icon";
+@import "components/text";

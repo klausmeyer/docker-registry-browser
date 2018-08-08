@@ -1,10 +1,21 @@
-<% if flash[:notice] %>
-  <div class="alert alert-info">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
-<% if flash[:error] %>
-  <div class="alert alert-danger">
-    <%= flash[:error] %>
+<% if flash.any? %>
+  <div class="app-flash">
+    <% flash.each do |type, body| %>
+      <%# only render the usual messages %>
+      <% next unless %w(success notice error info).include?(type.to_s) %>
+
+      <%= content_tag :div, class: "alert alert-#{type} alert-flash" do %>
+        <% if body.kind_of?(Array) %>
+          <ul class="mb-0">
+            <% body.each do |message| %>
+              <%= content_tag(:li, message) %>
+            <% end %>
+          </ul>
+        <% else %>
+          <p class="mb-0"><%= body %></p>
+        <% end %>
+      <% end if body.present? %>
+
+    <% end %>
   </div>
 <% end %>
