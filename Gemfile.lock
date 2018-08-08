@@ -204,12 +204,12 @@ PLATFORMS
 DEPENDENCIES
   bootstrap (~> 4.1.0)
   byebug
-  capybara (~> 3.0, < 4.0)
+  capybara (~> 3.0)
   faraday
   faraday_middleware
   jquery-rails
   puma (~> 3.11)
-  rails (~> 5.2.0)
+  rails (~> 5.2.1)
   rspec-rails (~> 3.8.0)
   sass-rails (~> 5.0)
   spring
