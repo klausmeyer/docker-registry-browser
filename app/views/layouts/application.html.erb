@@ -1,34 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Docker Registry Browser</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-</head>
-<body>
-  <nav class="navbar navbar-dark bg-dark fixed-top">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Docker Registry Browser</title>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  </head>
+  <body>
+    <%= render "header" %>
+
     <div class="container">
-      <a class="navbar-brand" href="/">
-        <img src="https://maxcdn.icons8.com/Color/PNG/48/Logos/docker-48.png" title="Docker" width="42" style="display: inline-block">
-        Registry Browser
-      </a>
+      <%= render "flash" %>
+      <%= yield %>
     </div>
-  </nav>
-  <div class="container">
-    <%= render "flash" %>
-    <%= yield %>
-  </div>
-  <hr>
-  <footer>
-    <div class="container text-center text-muted small">
-      <a href="https://github.com/klausmeyer/docker-registry-browser">Docker Registry Browser</a>
-      -
-      Running on Ruby <%= RUBY_VERSION %> and Rails <%= Rails.version %> in <%= Rails.env %> mode
-      -
-      Icons by <a href="https://icons8.com">icons8.com</a>
-    </div>
-  </footer>
-</body>
+
+    <%= render "footer" %>
+  </body>
 </html>

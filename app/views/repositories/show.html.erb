@@ -1,32 +1,42 @@
-<%= content_tag :div, class: "breadcrumb" do %>
-  <div class="breadcrumb-item">
-    <strong>Namespace:</strong> /<%= @repository.namespace %>
-  </div>
-  <div class="breadcrumb-item active">
-    <strong>Image:</strong> <%= @repository.image %>
-  </div>
-<% end %>
+<div class="row justify-content-center">
+  <div class="col-md-6">
 
-<% if @repository.tags.any? %>
-  <div class="list-group">
-    <% @repository.tags.sort.reverse.each do |tag| %>
-      <div class="list-group-item d-flex justify-content-between">
-        <div class="align-self-center w-50">
-          <%= link_to tag_path(repo: @repository.name, tag: tag), class: "list-group-item-action" do %>
-            <strong>Tag:</strong> <%= tag %>
+    <%= render "breadcrumb" %>
+
+    <div class="card border-docker mb-5">
+      <%= content_tag :div, class: "card-header" do %>
+        <%= image_tag "https://png.icons8.com/ios/150/737b84/docker.png", size: "75x75", align: "right" %>
+
+        <span class="text-muted small">Namespace</span>
+        <h5 class="card-title mb-1"><%= @repository.namespace.presence || "/" %></h5>
+
+        <span class="text-muted small">Image</span>
+        <h5 class="card-title mb-0"><%= @repository.image %></h5>
+      <% end %>
+
+      <% if @repository.tags.any? %>
+        <div class="list-group list-group-flush">
+          <% @repository.tags.sort.reverse.each do |tag| %>
+            <% if Rails.configuration.x.public_registry_url %>
+              <div class="copy-to-clipboard-icon">
+                <%= render partial: "shared/copy_to_clipboard", locals: { name: :pull_cmd, value: pull_command(@repository.name, tag), style: "icon" } %>
+              </div>
+            <% end %>
+
+            <%= link_to tag_path(repo: @repository.name, tag: tag), class: "list-group-item list-group-item-action d-flex justify-content-between align-items-center" do %>
+              <div class="flex-grow-1">
+                <% css_margin = Rails.configuration.x.public_registry_url ? "ml-4" : nil %>
+                <%= content_tag :span, "Tag", class: "badge badge-dtag text-uppercase mr-1 #{css_margin}" %>
+                <span class="text-monospace small"><%= tag %></span>
+              </div>
+              <%= image_tag "https://png.icons8.com/small/32/000000/forward.png", size: "16x16" %>
+            <% end %>
           <% end %>
         </div>
-        <div class="align-self-center w-50">
-          <% if Rails.configuration.x.public_registry_url %>
-            <%= render partial: 'shared/copy_to_clipboard', locals: { value: pull_command(@repository.name, tag) } %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
+      <% else %>
+        <%= render "blank_tags" %>
+      <% end %>
+    </div>
+
   </div>
-<% else %>
-  <p class="alert alert-warning text-center">
-    <strong>Sorry!</strong>
-    No tags are available at the moment.
-  </p>
-<% end %>
+</div>

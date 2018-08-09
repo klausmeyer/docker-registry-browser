@@ -13,16 +13,46 @@ $(document).on("turbolinks:load", function() {
     }
   });
 
-  $("*[data-behaviour=copy-pull-command]").on("click", function(e) {
+  $("[data-copy-target]").on("click", function(e) {
     e.preventDefault();
 
-    var $link = $(this);
-    var $input = $("input[type=text]", $link.closest(".input-group"));
+    var $icon = $(this);
+        $icon.data("origin-title", $icon.data("original-title"));
+    var $target = $icon.parent().parent().find( $icon.data("copy-target") );
 
-    $input.select();
+    $target.select();
     document.execCommand("copy");
-    $input.unselect();
+
+    // microcopy
+    $icon.prop("title", "Copied").tooltip('_fixTitle').tooltip('show');
+    setTimeout(function(){ $icon.prop("title", $icon.data("origin-title")).tooltip('_fixTitle').tooltip('hide'); $target.blur(); }, 3000);
 
     return false;
   });
+
+  $(".js-copy-to-clipboard").find("input").on("focus", function() {
+    $(this).parent().next().find("a[data-copy-target]").click();
+  });
+
+  $("[data-copy]").on("click", function(e) {
+    e.preventDefault();
+
+    var $icon = $(this);
+        $icon.data("origin-title", $icon.data("original-title"));
+    var $target = $("<input />");
+        $("body").append($target);
+
+    var text = $(this).data("copy")
+        $target.val(text)
+
+    $icon.prop("title", "Copied").tooltip('_fixTitle').tooltip('show');
+    setTimeout(function(){ $icon.prop("title", $icon.data("origin-title")).tooltip('_fixTitle').tooltip('hide'); }, 3000);
+
+    $target.select();
+    document.execCommand("copy");
+    $target.remove();
+
+    return false;
+  });
+
 });
