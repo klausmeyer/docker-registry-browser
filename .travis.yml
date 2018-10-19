@@ -5,14 +5,10 @@ branches:
 language: ruby
 
 rvm:
-  - "2.5.1"
+  - "2.5.3"
 
 before_install:
   - gem update --system
-
-# NOTE: This is a workaround since the default containing the
-# `--deployment` flag is currently making problems.
-install: bundle install --jobs=3 --retry=3
 
 script:
   - bundle exec rspec
