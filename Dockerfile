@@ -2,6 +2,9 @@ FROM ruby:2.5.3-alpine
 
 MAINTAINER Klaus Meyer <spam@klaus-meyer.net>
 
+ARG SOURCE_COMMIT
+ENV SOURCE_COMMIT $SOURCE_COMMIT
+
 ENV PORT 8080
 ENV RAILS_ENV production
 ENV SECRET_KEY_BASE changeme
