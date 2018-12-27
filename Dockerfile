@@ -1,4 +1,4 @@
-FROM ruby:2.5.3-alpine
+FROM ruby:2.6.0-alpine
 
 MAINTAINER Klaus Meyer <spam@klaus-meyer.net>
 
@@ -25,7 +25,7 @@ RUN apk update \
 && adduser -S -h /app app \
 && chown -R app /app \
 && chown -R app /usr/local/bundle \
-&& rake assets:precompile \
+&& bundle exec rake assets:precompile \
 && apk del build-base yarn
 
 USER app
