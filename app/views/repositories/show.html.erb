@@ -5,7 +5,7 @@
 
     <div class="card border-docker mb-5">
       <%= content_tag :div, class: "card-header" do %>
-        <%= image_tag "https://png.icons8.com/ios/150/737b84/docker.png", size: "75x75", align: "right" %>
+        <%= image_tag "icons/repo.png", size: "75x75", align: "right" %>
 
         <span class="text-muted small">Namespace</span>
         <h5 class="card-title mb-1"><%= @repository.namespace.presence || "/" %></h5>
@@ -29,7 +29,7 @@
                 <%= content_tag :span, "Tag", class: "badge badge-dtag text-uppercase mr-1 #{css_margin}" %>
                 <span class="text-monospace small"><%= tag %></span>
               </div>
-              <%= image_tag "https://png.icons8.com/small/32/000000/forward.png", size: "16x16" %>
+              <%= image_tag "icons/arrow.png", size: "16x16" %>
             <% end %>
           <% end %>
         </div>
