@@ -8,12 +8,12 @@
     </div>
     <div class="pl-3">
       <%= link_to "#copy", title: local_assigns[:title], data: { copy_target: ".js-copy", toggle: "tooltip" } do %>
-        <%= image_tag "https://png.icons8.com/small/32/212529/copy-2.png", size: "16x16" %>
+        <%= image_tag "icons/copy.png", size: "16x16" %>
       <% end %>
     </div>
   </div>
 <% else %>
   <%= link_to "#copy", title: local_assigns[:title], data: { copy: local_assigns[:value], toggle: "tooltip" } do %>
-    <%= image_tag "https://png.icons8.com/small/32/212529/copy-2.png", size: "16x16" %>
+    <%= image_tag "icons/copy.png", size: "16x16" %>
   <% end %>
 <% end %>

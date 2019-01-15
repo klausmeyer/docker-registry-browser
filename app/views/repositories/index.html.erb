@@ -5,7 +5,7 @@
       <% Hash[@repositories.group_by(&:namespace).sort].each do |namespace, repos| %>
         <div class="card border-docker mb-5">
           <%= content_tag :div, class: "card-header", id: "namespace-#{namespace}" do %>
-            <%= image_tag "https://png.icons8.com/ios/100/737b84/docker-container.png", size: "50x50", align: "right" %>
+            <%= image_tag "icons/namespace.png", size: "50x50", align: "right" %>
 
             <span class="text-muted small">Namespace</span>
             <h5 class="card-title mb-0"><%= namespace.presence || "/" %></h5>
@@ -17,7 +17,7 @@
                   <span class="badge badge-dimage text-uppercase mr-1">Image</span>
                   <span class="text-monospace small text-truncate"><%= repo.image %></span>
                 </div>
-                <%= image_tag "https://png.icons8.com/small/32/000000/forward.png", size: "16x16" %>
+                <%= image_tag "icons/arrow.png", size: "16x16" %>
               <% end %>
             <% end %>
           </div>
