@@ -30,14 +30,51 @@ RSpec.describe 'Repositories' do
           stub_request(:get, 'http://registry:5000/v2/_catalog?n=100')
             .to_return(
               status: 401,
-              headers: { 'WWW-Authenticate' => 'Basic realm="Docker Registry"' }
+              headers: { 'WWW-Authenticate' => www_authenticate }
             )
         end
 
-        it 'requests authentication if the registry asks for it' do
-          get '/'
+        context 'with a requested basic authentication' do
+          let(:www_authenticate) { 'Basic realm="Docker Registry"' }
 
-          expect(response).to have_http_status :unauthorized
+          it 'asks the browser for username and password' do
+            get '/'
+
+            expect(response).to have_http_status :unauthorized
+          end
+        end
+
+        context 'with a requested token authentication' do
+          let(:www_authenticate) { 'Bearer realm="https://auth.example.com/token",service="registry.example.com",scope="repository:hello/world:pull,push"' }
+          let(:service_double)   { instance_double('ObtainAuthenticationToken', call: token) }
+          let(:token)            { 'received-token' }
+
+          before do
+            allow(ObtainAuthenticationToken).to receive(:new).and_return(service_double)
+          end
+
+          it 'authenticates against the indicated realm' do
+            get '/'
+
+            expect(ObtainAuthenticationToken).to have_received(:new).with(
+              'realm'   => 'https://auth.example.com/token',
+              'service' => 'registry.example.com',
+              'scope'   => 'repository:hello/world:pull,push'
+            )
+            expect(service_double).to have_received(:call)
+          end
+
+          it 'stores the token in session' do
+            get '/'
+
+            expect(session[:registry_auth_token]).to eq token
+          end
+
+          it 'reloads the current page' do
+            get '/'
+
+            expect(response).to redirect_to '/'
+          end
         end
       end
     end

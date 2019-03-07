@@ -1,5 +1,9 @@
 # Changelog
 
+# Next
+
+* Support for token based authentication
+
 # v1.0.1
 
 * Reduce size of docker image

@@ -48,10 +48,17 @@ The configuration is done by environment variables.
 | `NO_SSL_VERIFICATION`  | no       | Bool   | Enable to skip SSL verification (default `false`)<br>**Example**: `true`                       |
 | `BASIC_AUTH_USER`      | no       | String | Username for basic-auth against registry<br>**Example**: `joe`                                 |
 | `BASIC_AUTH_PASSWORD`  | no       | String | Password for basic-auth against registry<br>**Example**: `supersecretpassw0rd`                 |
+| `TOKEN_AUTH_USER`      | no       | String | Username for token-auth against registry<br>**Example**: `joe`                                 |
+| `TOKEN_AUTH_PASSWORD`  | no       | String | Password for token-auth against registry<br>**Example**: `supersecretpassw0rd`                 |
 | `ENABLE_DELETE_IMAGES` | no       | Bool   | Allow deletion of tags (default `false`)<br>**Example**: `true`                                |
 | `PUBLIC_REGISTRY_URL`  | no       | String | The public URL to the Docker Registry to do docker pull<br>**Example**: `your-registry:5000`   |
 
-You can also set `BASIC_AUTH_USER` and `BASIC_AUTH_PASSWORD` as [Docker Swarm secrets](https://docs.docker.com/engine/swarm/secrets/).
+You can also set the following variables as [Docker Swarm secrets](https://docs.docker.com/engine/swarm/secrets/) with the same naming:
+
+* `BASIC_AUTH_USER`
+* `BASIC_AUTH_PASSWORD`
+* `TOKEN_AUTH_USER`
+* `TOKEN_AUTH_PASSWORD`
 
 ### Proxy Setups
 
