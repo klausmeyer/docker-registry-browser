@@ -1,8 +1,9 @@
 # Changelog
 
-# Next
+# v1.1.0
 
 * Support for token based authentication
+* Update of used libraries
 
 # v1.0.1
 
