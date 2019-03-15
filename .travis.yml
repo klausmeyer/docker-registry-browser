@@ -5,10 +5,7 @@ branches:
 language: ruby
 
 rvm:
-  - 2.6.1
-
-before_install:
-  - gem update --system
+  - 2.6.2
 
 script:
   - bundle exec rspec
