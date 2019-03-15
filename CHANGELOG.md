@@ -1,5 +1,9 @@
 # Changelog
 
+# v1.1.1
+
+* Update to Ruby 2.6.2 and Rails 5.2.2.1
+
 # v1.1.0
 
 * Support for token based authentication
