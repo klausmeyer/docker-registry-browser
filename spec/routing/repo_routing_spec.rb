@@ -9,3 +9,9 @@ describe "routes for repos" do
     )
   end
 end
+
+describe "routes redirect for repos", type: :request do
+  it "routes GET /foo.bar to the tags controller" do
+    expect(get("/foo.bar")).to redirect_to('/repo/foo.bar')
+  end
+end

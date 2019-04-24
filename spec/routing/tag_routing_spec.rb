@@ -28,3 +28,13 @@ describe "routes for tags" do
     )
   end
 end
+
+describe "routes redirect for tags", type: :request do
+  it "routes GET /foo.bar:latest to the tags controller" do
+    expect(get("/foo.bar:latest")).to redirect_to('/repo/foo.bar/tag/latest')
+  end
+
+  it "routes GET /foo/bar:1.2.3 to the tags controller" do
+    expect(get("/foo/bar:1.2.3")).to redirect_to('/repo/foo/bar/tag/1.2.3')
+  end
+end
