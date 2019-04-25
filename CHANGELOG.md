@@ -1,5 +1,10 @@
 # Changelog
 
+# v1.1.2
+
+* Update to Ruby 2.6.3 and Rails 5.2.3
+* Support for links in `/example:latest` format (via redirect)
+
 # v1.1.1
 
 * Update to Ruby 2.6.2 and Rails 5.2.2.1

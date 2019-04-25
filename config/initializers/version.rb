@@ -1,4 +1,4 @@
-Rails.application.config.x.version = "1.1.1"
+Rails.application.config.x.version = "1.1.2"
 
 # Docker Cloud will pass the git commit it is building the image from
 # See: https://docs.docker.com/docker-hub/builds/advanced/
