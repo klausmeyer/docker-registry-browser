@@ -1,8 +1,8 @@
 <nav class="navbar navbar-dark bg-dark fixed-top">
   <div class="container justify-content-center">
-    <a class="navbar-brand" href="/">
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "icons/docker-header.png", alt: "Docker", width: "42" %>
       Docker Registry Browser
-    </a>
+    <% end %>
   </div>
 </nav>
