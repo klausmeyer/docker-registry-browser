@@ -1,5 +1,9 @@
 # Changelog
 
+# v1.2.0
+
+* Support for standalone SSL
+
 # v1.1.2
 
 * Update to Ruby 2.6.3 and Rails 5.2.3
