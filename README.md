@@ -52,6 +52,10 @@ The configuration is done by environment variables.
 | `TOKEN_AUTH_PASSWORD`  | no       | String | Password for token-auth against registry<br>**Example**: `supersecretpassw0rd`                 |
 | `ENABLE_DELETE_IMAGES` | no       | Bool   | Allow deletion of tags (default `false`)<br>**Example**: `true`                                |
 | `PUBLIC_REGISTRY_URL`  | no       | String | The public URL to the Docker Registry to do docker pull<br>**Example**: `your-registry:5000`   |
+| `PORT`                 | no       | Number | The port on which the application will serve HTTP requests.<br>**Default**: `8080`             |
+| `SSL_PORT`             | no       | Number | The port on which the application will serve HTTPS requests.<br>**Default**: `8443`            |
+| `SSL_CERT_PATH`        | no       | String | Absolute path to the SSL certificate which should be used.<br>**Example**: `/ssl/cert.pem`     |
+| `SSL_KEY_PATH`         | no       | String | Absolute path to the SSL private key which should be used.<br>**Example**: `/ssl/key.pem`      |
 
 You can also set the following variables as [Docker Swarm secrets](https://docs.docker.com/engine/swarm/secrets/) with the same naming:
 
@@ -59,6 +63,12 @@ You can also set the following variables as [Docker Swarm secrets](https://docs.
 * `BASIC_AUTH_PASSWORD`
 * `TOKEN_AUTH_USER`
 * `TOKEN_AUTH_PASSWORD`
+
+### Local SSL
+
+Although it is recommended to use a reverse proxy and terminate SSL requests there the application allows to run in a standalone setup handling SSL by its own.
+
+For this both config options `SSL_CERT_PATH` and `SSL_KEY_PATH` need to be present and contain the correct path to the certificate and key to be used.
 
 ### Proxy Setups
 
