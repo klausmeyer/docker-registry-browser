@@ -5,7 +5,7 @@ $(document).on("turbolinks:load", function() {
     var field = $(this);
     var button = $("#delete-button");
 
-    if(field.val() == field.data("expected")) {
+    if(field.val() == field.attr("data-expected")) {
       button.removeClass("disabled");
     }
     else {
