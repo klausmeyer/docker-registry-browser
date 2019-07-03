@@ -1,5 +1,9 @@
 # Changelog
 
+# v1.2.1
+
+* Fix tag delete button for special tag names (like `null`)
+
 # v1.2.0
 
 * Support for standalone SSL
