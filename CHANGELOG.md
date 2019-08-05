@@ -1,5 +1,9 @@
 # Changelog
 
+# v1.2.2
+
+* Improve warning text for delete tag button
+
 # v1.2.1
 
 * Fix tag delete button for special tag names (like `null`)
