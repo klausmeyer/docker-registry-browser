@@ -5,7 +5,13 @@
       <%= image_tag "icons/danger.png", size: "50x50", class: "mr-3" %>
       <div class="media-body">
         <h5 class="card-title mb-1">Delete Tag '<%= @tag.name %>'</h5>
-        <p class="card-text">Please be careful. You can NOT undo this.</p>
+        <p class="card-text">
+          Please be careful. This will delete the content referenced by this tag and not just the reference.
+          <br>
+          If you have more than one tag for the same version of an image <strong>all of them</strong> will be removed.
+          <br><br>
+          You can <strong>NOT</strong> undo this!
+        </p>
 
         <a href="#" class="btn btn-danger px-4" data-toggle="modal" data-target="#delete-dialog">
           Delete Tag…
