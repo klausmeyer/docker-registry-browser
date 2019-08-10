@@ -56,6 +56,7 @@ The configuration is done by environment variables.
 | `SSL_PORT`             | no       | Number | The port on which the application will serve HTTPS requests.<br>**Default**: `8443`            |
 | `SSL_CERT_PATH`        | no       | String | Absolute path to the SSL certificate which should be used.<br>**Example**: `/ssl/cert.pem`     |
 | `SSL_KEY_PATH`         | no       | String | Absolute path to the SSL private key which should be used.<br>**Example**: `/ssl/key.pem`      |
+| `RAILS_RELATIVE_URL_ROOT ` | no       | String | Serve the application under a subpath  (default `/`)<br>**Example**: `/registry-browser`       |
 
 You can also set the following variables as [Docker Swarm secrets](https://docs.docker.com/engine/swarm/secrets/) with the same naming:
 
