@@ -1,5 +1,9 @@
 # Changelog
 
+# v1.2.3
+
+* Security fix for nokogiri CVE-2019-5477
+
 # v1.2.2
 
 * Improve warning text for delete tag button
