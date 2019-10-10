@@ -10,7 +10,12 @@ threads min_threads_count, max_threads_count
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 #
-port        ENV.fetch("PORT") { 3000 }
+# port        ENV.fetch("PORT") { 3000 }
+
+address = ENV.fetch("ADDRESS", "0.0.0.0")
+port    = ENV.fetch("PORT", "3000")
+
+bind "tcp://#{address}:#{port}"
 
 # Specifies the `environment` that Puma will run in.
 #
@@ -37,7 +42,7 @@ plugin :tmp_restart
 # custom
 
 if (cert = ENV["SSL_CERT_PATH"]) && (key = ENV["SSL_KEY_PATH"])
-  ssl_bind "0.0.0.0", ENV.fetch("SSL_PORT", "8443"), {
+  ssl_bind ENV.fetch("SSL_ADDRESS", "0.0.0.0"), ENV.fetch("SSL_PORT", "8443"), {
     cert: cert,
     key:  key
   }
