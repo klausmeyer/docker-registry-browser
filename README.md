@@ -32,11 +32,23 @@ Execute:
 docker run --name registry-browser -it -p 8080:8080 -e DOCKER_REGISTRY_URL=http://your-registry:5000 klausmeyer/docker-registry-browser
 ```
 
-### Manual setup
+### Manual production setup
 
-1. Install ruby e.g. using [RVM](http://rvm.io)<br>(see `.ruby-version` file for required version).
-2. Execute the following command inside your local clone of this repository:<br>`gem install bundler && bundle install --without development test`
-3. Run the application using<br>`DOCKER_REGISTRY_URL=http://your-registry:5000 bundle exec bundle exec puma -C config/puma.rb`
+1) Install ruby e.g. using [RVM](http://rvm.io) (see `.ruby-version` file for required version).
+
+2) Execute the following commands inside your local clone of this repository:
+
+```
+gem install bundler
+bundle install --without development test
+RAILS_ENV=production rails assets:precompile
+```
+
+3) Run the application using the following command
+
+```
+RAILS_ENV=production RAILS_SERVE_STATIC_FILES=true SECRET_KEY_BASE=changeme DOCKER_REGISTRY_URL=http://your-registry:5000 bundle exec puma -C config/puma.rb
+```
 
 ## Configuration
 
