@@ -54,23 +54,22 @@ RAILS_ENV=production RAILS_SERVE_STATIC_FILES=true SECRET_KEY_BASE=changeme DOCK
 
 The configuration is done by environment variables.
 
-| Option                     | Type   | Description                                                                                    |
-| -------------------------- | ------ | ---------------------------------------------------------------------------------------------- |
-| `DOCKER_REGISTRY_URL`      | String | URL to the Docker Registry which should be browsed<br>**Default**: `http://localhost:5000`     |
-| `NO_SSL_VERIFICATION`      | Bool   | Enable to skip SSL verification (default `false`)<br>**Example**: `true`                       |
-| `BASIC_AUTH_USER`          | String | Username for basic-auth against registry<br>**Example**: `joe`                                 |
-| `BASIC_AUTH_PASSWORD`      | String | Password for basic-auth against registry<br>**Example**: `supersecretpassw0rd`                 |
-| `TOKEN_AUTH_USER`          | String | Username for token-auth against registry<br>**Example**: `joe`                                 |
-| `TOKEN_AUTH_PASSWORD`      | String | Password for token-auth against registry<br>**Example**: `supersecretpassw0rd`                 |
-| `ENABLE_DELETE_IMAGES`     | Bool   | Allow deletion of tags (default `false`)<br>**Example**: `true`                                |
-| `PUBLIC_REGISTRY_URL`      | String | The public URL to the Docker Registry to do docker pull<br>**Example**: `your-registry:5000`   |
-| `ADDRESS`                  | String | The address on which the application will serve HTTP requests.<br>**Default**: `0.0.0.0`       |
-| `PORT`                     | Number | The port on which the application will serve HTTP requests.<br>**Default**: `8080`             |
-| `SSL_ADDRESS`              | String | The address on which the application will serve HTTPS requests.<br>**Default**: `0.0.0.0`      |
-| `SSL_PORT`                 | Number | The port on which the application will serve HTTPS requests.<br>**Default**: `8443`            |
-| `SSL_CERT_PATH`            | String | Absolute path to the SSL certificate which should be used.<br>**Example**: `/ssl/cert.pem`     |
-| `SSL_KEY_PATH`             | String | Absolute path to the SSL private key which should be used.<br>**Example**: `/ssl/key.pem`      |
-| `RAILS_RELATIVE_URL_ROOT ` | String | Serve the application under a subpath (default `/`)<br>**Example**: `/registry-browser`        |
+| Option                 | Type   | Description                                                                                  |
+| ---------------------- | ------ | -------------------------------------------------------------------------------------------- |
+| `DOCKER_REGISTRY_URL`  | String | URL to the Docker Registry which should be browsed<br>**Default**: `http://localhost:5000`   |
+| `NO_SSL_VERIFICATION`  | Bool   | Enable to skip SSL verification (default `false`)<br>**Example**: `true`                     |
+| `BASIC_AUTH_USER`      | String | Username for basic-auth against registry<br>**Example**: `joe`                               |
+| `BASIC_AUTH_PASSWORD`  | String | Password for basic-auth against registry<br>**Example**: `supersecretpassw0rd`               |
+| `TOKEN_AUTH_USER`      | String | Username for token-auth against registry<br>**Example**: `joe`                               |
+| `TOKEN_AUTH_PASSWORD`  | String | Password for token-auth against registry<br>**Example**: `supersecretpassw0rd`               |
+| `ENABLE_DELETE_IMAGES` | Bool   | Allow deletion of tags (default `false`)<br>**Example**: `true`                              |
+| `PUBLIC_REGISTRY_URL`  | String | The public URL to the Docker Registry to do docker pull<br>**Example**: `your-registry:5000` |
+| `ADDRESS`              | String | The address on which the application will serve HTTP requests.<br>**Default**: `0.0.0.0`     |
+| `PORT`                 | Number | The port on which the application will serve HTTP requests.<br>**Default**: `8080`           |
+| `SSL_ADDRESS`          | String | The address on which the application will serve HTTPS requests.<br>**Default**: `0.0.0.0`    |
+| `SSL_PORT`             | Number | The port on which the application will serve HTTPS requests.<br>**Default**: `8443`          |
+| `SSL_CERT_PATH`        | String | Absolute path to the SSL certificate which should be used.<br>**Example**: `/ssl/cert.pem`   |
+| `SSL_KEY_PATH`         | String | Absolute path to the SSL private key which should be used.<br>**Example**: `/ssl/key.pem`    |
 
 You can also set the following variables as [Docker Swarm secrets](https://docs.docker.com/engine/swarm/secrets/) with the same naming:
 
@@ -78,6 +77,21 @@ You can also set the following variables as [Docker Swarm secrets](https://docs.
 * `BASIC_AUTH_PASSWORD`
 * `TOKEN_AUTH_USER`
 * `TOKEN_AUTH_PASSWORD`
+
+Running the application under a subfolder:
+
+In case you want to define a subfolder the app is running under (e.g. behind a proxy) you can set the two options to the path:
+* `RAILS_RELATIVE_URL_ROOT`
+* `SCRIPT_NAME`
+
+For example:
+
+```
+docker run [...] \
+  -e RAILS_RELATIVE_URL_ROOT=/browser \
+  -e SCRIPT_NAME=/browser \
+  [...]
+```
 
 ### Local SSL
 
