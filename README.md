@@ -36,7 +36,7 @@ docker run --name registry-browser -it -p 8080:8080 -e DOCKER_REGISTRY_URL=http:
 
 1. Install ruby e.g. using [RVM](http://rvm.io)<br>(see `.ruby-version` file for required version).
 2. Execute the following command inside your local clone of this repository:<br>`gem install bundler && bundle install --without development test`
-3. Run the application using<br>`DOCKER_REGISTRY_URL=http://your-registry:5000 bundle exec bundle exec puma -C config/puma.rb`
+3. Run the application using<br>`RAILS_ENV=production SECRET_KEY_BASE=changeme DOCKER_REGISTRY_URL=http://your-registry:5000 bundle exec puma -C config/puma.rb`
 
 ## Configuration
 
