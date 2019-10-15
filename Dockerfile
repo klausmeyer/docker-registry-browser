@@ -23,6 +23,7 @@ RUN apk update \
 && apk add build-base zlib-dev tzdata nodejs yarn openssl-dev \
 && rm -rf /var/cache/apk/* \
 && gem install bundler \
+&& bundle config --local build.sassc --disable-march-tune-native \
 && bundle install --without development test \
 && bundle exec rake assets:precompile \
 && addgroup -S app && adduser -S app -G app -h /app \
