@@ -1,4 +1,4 @@
-version: "2"
+version: "3"
 
 services:
 
@@ -6,10 +6,14 @@ services:
     build: .
     environment:
       - "DOCKER_REGISTRY_URL=http://backend:5000"
+      - "ENABLE_DELETE_IMAGES=true"
+      - "PUBLIC_REGISTRY_URL=localhost:5000"
     ports:
       - "8080:8080"
 
   backend:
     image: registry:2
+    environment:
+      - "REGISTRY_STORAGE_DELETE_ENABLED=true"
     ports:
       - "5000:5000"

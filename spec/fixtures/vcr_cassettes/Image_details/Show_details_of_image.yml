@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: http://registry:5000/v2/_catalog?n=100
+    uri: http://localhost:5000/v2/_catalog?n=100
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.11.0
+      - Faraday v0.17.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -25,25 +25,25 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Date:
-      - Mon, 20 Mar 2017 12:20:22 GMT
+      - Thu, 07 Nov 2019 15:10:23 GMT
       Content-Length:
-      - '94'
+      - '115'
     body:
       encoding: UTF-8
-      string: '{"repositories":["hello-world","test/hello-world","test/hello-world-2","test/hello-world-3"]}
+      string: '{"repositories":["hello-world","test/hello-world","test/hello-world-1","test/hello-world-2","test/hello-world-3"]}
 
-'
-    http_version:
-  recorded_at: Mon, 20 Mar 2017 12:20:22 GMT
+        '
+    http_version: 
+  recorded_at: Thu, 07 Nov 2019 15:10:23 GMT
 - request:
     method: get
-    uri: http://registry:5000/v2/hello-world/tags/list
+    uri: http://localhost:5000/v2/hello-world/tags/list
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.11.0
+      - Faraday v0.17.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -60,14 +60,14 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Date:
-      - Mon, 20 Mar 2017 12:20:22 GMT
+      - Thu, 07 Nov 2019 15:10:23 GMT
       Content-Length:
-      - '61'
+      - '51'
     body:
       encoding: UTF-8
-      string: '{"name":"hello-world","tags":["v2","v1","latest","v3"]}
+      string: '{"name":"hello-world","tags":["v2","latest","v1"]}
 
-'
-    http_version:
-  recorded_at: Mon, 20 Mar 2017 12:20:22 GMT
-recorded_with: VCR 3.0.3
+        '
+    http_version: 
+  recorded_at: Thu, 07 Nov 2019 15:10:23 GMT
+recorded_with: VCR 5.0.0

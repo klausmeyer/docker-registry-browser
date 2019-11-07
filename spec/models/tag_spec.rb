@@ -1,10 +1,11 @@
 require "rails_helper"
 
 describe Tag do
-  describe ".find" do
-    let(:repo) { Repository.new(name: "randomguy1/image1") }
-    let(:name) { "latest" }
+  let(:repo) { Repository.new(name: "test/hello-world") }
 
+  describe ".find" do
+    let(:name) { "latest" }
+    
     it "returns one repository" do
       VCR.use_cassette("tag/find") do
         tag = Tag.find repository: repo, name: name
@@ -14,8 +15,7 @@ describe Tag do
   end
 
   describe "#delete" do
-    let(:repo) { Repository.new(name: "randomguy1/image1") }
-    let(:name) { "latest" }
+    let(:name) { "delete-me" }
 
     it "returns true" do
       VCR.use_cassette("tag/delete") do

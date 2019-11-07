@@ -7,37 +7,70 @@
       <%= content_tag :div, class: "card-header" do %>
         <%= image_tag "icons/tag.png", size: "75x75", align: "right" %>
 
-        <span class="text-muted small">Image</span>
-        <h5 class="card-title mb-1"><%= @repository.name %></h5>
-
         <span class="text-muted small">Tag</span>
-        <h5 class="card-title mb-1"><%= @tag.name %></h5>
+        <h5 class="card-title mb-1"><%= @repository.name %>:<%= @tag.name %></h5>
+
+        <span class="text-muted small">Created</span>
+        <h5 class="card-title mb-1"><%= @tag.created %></h5>
+
+        <span class="text-muted small">Architecture</span>
+        <h5 class="card-title mb-1"><%= @tag.os %> / <%= @tag.architecture %></h5>
 
         <span class="text-muted small">Content Digest</span>
-        <h6 class="card-title mb-0">
-          <%= render partial: "shared/copy_to_clipboard", locals: { name: :content_digest, value: @tag.content_digest, title: "Copy sha" } %>
-        </h6>
+        <%= render partial: "shared/copy_to_clipboard", locals: { name: :content_digest, value: @tag.content_digest, title: "Copy sha" } %>
       <% end %>
 
       <div class="card-body">
         <% if Rails.configuration.x.public_registry_url %>
-          <h5 class="card-title mb-2">Docker</h5>
+          <h5 class="mb-2">Pull Command</h5>
           <%= render partial: "shared/copy_to_clipboard", locals: { name: :pull_cmd, value: pull_command(@repository.name, @tag.name) } %>
         <% end %>
-        <h5 class="card-title mt-4 mb-0">Layers</h5>
-      </div>
 
-      <ul class="list-group list-group-flush">
-        <% @tag.layers.each do |layer| %>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            <span class="badge badge-pill badge-dlayer mr-2 px-3"><%= format '%03d', layer.index %></span>
-            <span class="flex-grow-1 text-monospace small text-truncate"><%= layer.digest %></span>
-            <% if layer.size.present? %>
-              <nobr class="text-muted small"><%= number_to_human_size layer.size %></nobr>
+        <% if @tag.labels.any? %>
+          <h5 class="mt-4">Labels</h5>
+          <ul class="list-group list-group-flush">
+            <% @tag.labels.each do |key, value| %>
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col text-monospace small"><span class="badge-pill badge-dlayer"><%= key %></span></div>
+                  <div class="col text-monospace small"><%= value %></div>
+                </div>
+              </li>
             <% end %>
-          </li>
+          </ul>
         <% end %>
-      </ul>
+
+        <% if @tag.env.any? %>
+          <h5 class="mt-4">ENV</h5>
+          <ul class="list-group list-group-flush">
+            <% @tag.env.each do |env| %>
+              <%= content_tag :li, class: "list-group-item overflow-hidden", title: env do %>
+                <nobr class="text-monospace small"><%= env %></nobr>
+              <% end %>
+            <% end %>
+          </ul>
+        <% end %>
+
+        <h5 class="mt-4">Layers</h5>
+        <ul class="list-group list-group-flush">
+          <% @tag.layers.each do |layer| %>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="badge badge-pill badge-dlayer mr-2 px-3"><%= format '%03d', layer.index %></span>
+              <span class="flex-grow-1 text-monospace small text-truncate"><%= layer.digest %></span>
+              <% if layer.size.present? %>
+                <nobr class="text-muted small"><%= number_to_human_size layer.size %></nobr>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+
+        <h5 class="mt-4">History</h5>
+        <div class="overflow-auto">
+          <% @tag.history.each do |entry| %>
+            <nobr class="small text-monospace"><%= entry %></nobr>
+          <% end %>
+        </div>
+      </div>
     </div>
 
     <% if Rails.configuration.x.delete_enabled %>

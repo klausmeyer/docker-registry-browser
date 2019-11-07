@@ -1,15 +1,28 @@
 class Tag < Resource
   include ActiveModel::Model
 
-  attr_accessor :repository, :name, :content_digest, :layers
+  attr_accessor(
+    :architecture,
+    :content_digest,
+    :created,
+    :env,
+    :history,
+    :labels,
+    :layers,
+    :name,
+    :os,
+    :repository
+  )
 
   def self.find(repository:, name:)
-    response = client.get "/v2/#{repository.name}/manifests/#{name}" do |request|
+    tag = client.get "/v2/#{repository.name}/manifests/#{name}" do |request|
       request.headers["Accept"] = "application/vnd.docker.distribution.manifest.v2+json"
     end
 
-    layers = if response.headers["content-type"] =~ /v2/
-      Array.wrap(response.body["layers"]).each_with_index.map do |layer, index|
+    details = JSON.parse(client.get("/v2/#{repository.name}/blobs/#{tag.body.dig('config', 'digest')}").body)
+
+    layers = if tag.headers["content-type"] =~ /v2/
+      Array.wrap(tag.body["layers"]).each_with_index.map do |layer, index|
         Layer.new(
           index:  index+1,
           digest: layer["digest"],
@@ -17,7 +30,7 @@ class Tag < Resource
         )
       end
     else
-      Array.wrap(response.body["fsLayers"]).each_with_index.map do |layer, index|
+      Array.wrap(tag.body["fsLayers"]).each_with_index.map do |layer, index|
         Layer.new(
           index:  index+1,
           digest: layer["blobSum"]
@@ -25,11 +38,19 @@ class Tag < Resource
       end
     end
 
+    created = Time.parse(details.dig("created")) rescue nil
+
     new(
-      repository: repository,
-      name: name,
-      content_digest: response.headers["docker-content-digest"],
-      layers: layers
+      architecture:   details.dig("architecture"),
+      content_digest: tag.headers["docker-content-digest"],
+      created:        created,
+      env:            details.dig("config", "Env") || [],
+      labels:         details.dig("config", "Labels") || {},
+      layers:         layers,
+      history:        details.dig("history").map { |e| HistoryEntry.new(e) } || [],
+      name:           name,
+      os:             details.dig("os"),
+      repository:     repository
     )
   end
 
