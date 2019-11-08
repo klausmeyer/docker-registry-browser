@@ -13,6 +13,5 @@ feature "Image details" do
     expect(page).to have_content "latest"
     expect(page).to have_content "v1"
     expect(page).to have_content "v2"
-    expect(page).to have_content "v3"
   end
 end

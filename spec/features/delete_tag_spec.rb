@@ -6,22 +6,19 @@ feature "Tag details" do
   end
 
   scenario "Delete tag", :vcr do
-    visit "/repo/hello-world/tag/latest"
-
-    expect(page).to have_content "Image"
-    expect(page).to have_content "hello-world"
+    visit "/repo/hello-world/tag/delete-me"
 
     expect(page).to have_content "Tag"
-    expect(page).to have_content "latest"
+    expect(page).to have_content "hello-world:delete-me"
 
     expect(page).to have_content "Danger Zone"
     click_link "Delete Tag…"
 
     expect(page).to have_selector("#delete-dialog", visible: true)
     expect(page).to have_content "This will permanently delete the "
-    fill_in "delete_confirm", with: "latest"
+    fill_in "delete_confirm", with: "delete-me"
     click_link "Delete Tag"
 
-    expect(page).to have_content "The tag latest has been deleted."
+    expect(page).to have_content "The tag delete-me has been deleted."
   end
 end

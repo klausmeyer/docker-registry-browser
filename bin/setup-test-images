@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+set -x
+
+function image() {
+  local name=$1
+
+  echo -e "FROM busybox\nLABEL maintainer=Somebody\nLABEL image=$name\nENV IMAGE=$name" | docker build -t "localhost:5000/$name" -
+  docker push "localhost:5000/$name"
+}
+
+image "hello-world:latest"
+image "hello-world:v1"
+image "hello-world:v2"
+image "hello-world:delete-me"
+
+image "test/hello-world:latest"
+image "test/hello-world:delete-me"
+image "test/hello-world-1:latest"
+image "test/hello-world-2:latest"
+image "test/hello-world-3:latest"

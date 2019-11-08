@@ -10,7 +10,7 @@ RSpec.describe 'Repositories' do
       end
 
       let!(:stub) do
-        stub_request(:get, 'http://registry:5000/v2/_catalog?n=100')
+        stub_request(:get, 'http://localhost:5000/v2/_catalog?n=100')
           .with(headers: headers)
           .to_return(
             body: '{"repositories":[]}',
@@ -27,7 +27,7 @@ RSpec.describe 'Repositories' do
     context 'without http basic auth' do
       context 'when the registry throws a http 401' do
         let!(:stub) do
-          stub_request(:get, 'http://registry:5000/v2/_catalog?n=100')
+          stub_request(:get, 'http://localhost:5000/v2/_catalog?n=100')
             .to_return(
               status: 401,
               headers: { 'WWW-Authenticate' => www_authenticate }

@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: http://registry:5000/v2/_catalog?n=100
+    uri: http://localhost:5000/v2/_catalog?n=100
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.9.2
+      - Faraday v0.17.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -25,14 +25,14 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Date:
-      - Sun, 24 Apr 2016 09:51:24 GMT
+      - Thu, 07 Nov 2019 15:10:23 GMT
       Content-Length:
-      - '226'
+      - '115'
     body:
       encoding: UTF-8
-      string: '{"repositories":["image1","image2","image3","randomguy1/image1","randomguy1/image2","randomguy1/image3","randomguy2/image1","randomguy2/image2","randomguy2/image3","randomguy3/image1","randomguy3/image2","randomguy3/image3"]}
+      string: '{"repositories":["hello-world","test/hello-world","test/hello-world-1","test/hello-world-2","test/hello-world-3"]}
 
-'
-    http_version:
-  recorded_at: Sun, 24 Apr 2016 09:51:24 GMT
-recorded_with: VCR 3.0.1
+        '
+    http_version: 
+  recorded_at: Thu, 07 Nov 2019 15:10:23 GMT
+recorded_with: VCR 5.0.0
