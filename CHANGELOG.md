@@ -1,5 +1,12 @@
 # Changelog
 
+# v1.3.0
+
+* Update to Ruby 2.6.5 and Rails 6.0.1
+* Add `ADDRESS` and `SSL_ADDRESS` options
+* Fix an `Illegal instruction` ruby error related to sassc
+* Show more details on the tag page (Labels, ENVs, Created Date, ...)
+
 # v1.2.3
 
 * Security fix for nokogiri CVE-2019-5477
