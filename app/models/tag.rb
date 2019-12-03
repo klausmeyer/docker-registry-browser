@@ -19,7 +19,8 @@ class Tag < Resource
       request.headers["Accept"] = "application/vnd.docker.distribution.manifest.v2+json"
     end
 
-    details = JSON.parse(client.get("/v2/#{repository.name}/blobs/#{tag.body.dig('config', 'digest')}").body)
+    details = client.get("/v2/#{repository.name}/blobs/#{tag.body.dig('config', 'digest')}").body
+    details = JSON.parse(details) if details.instance_of?(String)
 
     layers = if tag.headers["content-type"] =~ /v2/
       Array.wrap(tag.body["layers"]).each_with_index.map do |layer, index|
