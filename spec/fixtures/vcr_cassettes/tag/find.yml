@@ -51,7 +51,7 @@ http_interactions:
               }
            ]
         }
-    http_version: 
+    http_version:
   recorded_at: Thu, 07 Nov 2019 15:10:23 GMT
 - request:
     method: get
@@ -78,7 +78,7 @@ http_interactions:
       Content-Length:
       - '2081'
       Content-Type:
-      - application/octet-stream
+      - <%= blob_content_type %>
       Docker-Content-Digest:
       - sha256:1995e63d80c946b0a53b74ba8a62f0ef0ad7fbaf213817a905d018f2072c1f84
       Docker-Distribution-Api-Version:
@@ -99,6 +99,6 @@ http_interactions:
         -c #(nop)  LABEL maintainer=Somebody","empty_layer":true},{"created":"2019-11-07T14:55:53.025623659Z","created_by":"/bin/sh
         -c #(nop)  LABEL image=test/hello-world:latest","empty_layer":true},{"created":"2019-11-07T14:55:53.155374911Z","created_by":"/bin/sh
         -c #(nop)  ENV IMAGE=test/hello-world:latest","empty_layer":true}],"os":"linux","rootfs":{"type":"layers","diff_ids":["sha256:1da8e4c8d30765bea127dc2f11a17bc723b59480f4ab5292edb00eb8eb1d96b1"]}}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 07 Nov 2019 15:10:23 GMT
 recorded_with: VCR 5.0.0
