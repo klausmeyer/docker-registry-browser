@@ -230,7 +230,7 @@ DEPENDENCIES
   faraday_middleware
   jquery-rails
   puma (~> 4.1)
-  rails (~> 6.0.1)
+  rails (~> 6.0.2)
   rspec-rails (~> 3.9.0)
   sass-rails (>= 6)
   spring
