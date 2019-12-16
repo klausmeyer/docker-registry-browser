@@ -1,5 +1,11 @@
 # Changelog
 
+# v1.3.1
+
+* Update to Rails 6.0.2
+* Allow Faraday to follow remote redirects
+* Support registries returning json header for blob requests
+
 # v1.3.0
 
 * Update to Ruby 2.6.5 and Rails 6.0.1
