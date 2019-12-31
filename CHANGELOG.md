@@ -1,5 +1,9 @@
 # Changelog
 
+# v1.3.2
+
+* Improve token auth support
+
 # v1.3.1
 
 * Update to Rails 6.0.2
