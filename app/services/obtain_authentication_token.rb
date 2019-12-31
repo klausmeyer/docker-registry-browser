@@ -14,7 +14,8 @@ class ObtainAuthenticationToken
   attr_accessor :realm, :service, :scope
 
   def perform_request
-    client.get(realm, params).body.fetch('token')
+    resp = client.get(realm, params)
+    resp.body['token'] || resp.body['access_token']
   end
 
   def params
