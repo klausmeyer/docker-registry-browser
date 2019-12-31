@@ -18,7 +18,7 @@ RSpec.describe ObtainAuthenticationToken do
 
     let(:response_body) do
       {
-        token: token
+        access_token: token
       }
     end
 
@@ -45,8 +45,22 @@ RSpec.describe ObtainAuthenticationToken do
       expect(stubbed_request).to have_been_made
     end
 
-    it 'returns the received token' do
-      expect(instance.call).to eq token
+    context 'with the new oauth2 compatible response format' do
+      it 'returns the received token' do
+        expect(instance.call).to eq token
+      end
+    end
+
+    context 'with the old response format' do
+      let(:response_body) do
+        {
+          token: token
+        }
+      end
+
+      it 'returns the received token' do
+        expect(instance.call).to eq token
+      end
     end
   end
 end
