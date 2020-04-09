@@ -41,9 +41,9 @@ plugin :tmp_restart
 
 # custom
 
-if (cert = ENV["SSL_CERT_PATH"]) && (key = ENV["SSL_KEY_PATH"])
-  ssl_bind ENV.fetch("SSL_ADDRESS", "0.0.0.0"), ENV.fetch("SSL_PORT", "8443"), {
-    cert: cert,
-    key:  key
+if Rails.application.config.x.ssl_cert_path && Rails.application.config.x.ssl_key_path
+  ssl_bind Rails.application.config.x.ssl_address, Rails.application.config.x.ssl_port, {
+    cert: Rails.application.config.x.ssl_cert_path,
+    key:  Rails.application.config.x.ssl_key_path
   }
 end

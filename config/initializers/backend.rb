@@ -9,4 +9,8 @@ Rails.application.config.tap do |config|
   config.x.token_auth_password = Config.get(name: "TOKEN_AUTH_PASSWORD", secret: true)
   config.x.delete_enabled      = Config.get(name: "ENABLE_DELETE_IMAGES").in? %w(1 true yes)
   config.x.public_registry_url = Config.get(name: "PUBLIC_REGISTRY_URL")
+  config.x.ssl_address         = Config.get(name: "SSL_ADDRESS", default: "0.0.0.0")
+  config.x.ssl_port            = Config.get(name: "SSL_PORT", default: "8443")
+  config.x.ssl_cert_path       = Config.get(name: "SSL_CERT_PATH")
+  config.x.ssl_key_path        = Config.get(name: "SSL_KEY_PATH")
 end
