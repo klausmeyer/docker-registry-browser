@@ -1,5 +1,12 @@
 # Changelog
 
+# v1.3.3
+
+* Add new `CA_FILE` option to configure CA for SSL backends
+* Update to Rails 6.0.2.2
+* Update to Ruby 2.6.6
+* Update to Faraday 1.0
+
 # v1.3.2
 
 * Improve token auth support
