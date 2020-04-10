@@ -57,7 +57,8 @@ The configuration is done by environment variables.
 | Option                 | Type   | Description                                                                                  |
 | ---------------------- | ------ | -------------------------------------------------------------------------------------------- |
 | `DOCKER_REGISTRY_URL`  | String | URL to the Docker Registry which should be browsed<br>**Default**: `http://localhost:5000`   |
-| `NO_SSL_VERIFICATION`  | Bool   | Enable to skip SSL verification (default `false`)<br>**Example**: `true`                     |
+| `NO_SSL_VERIFICATION`  | Bool   | Skip SSL verification (default `false`)<br>**Example**: `true`                               |
+| `CA_FILE`              | String | Custom CA file to verify the registry's certificate<br>**Example**: `/path/to/ca.pem`        |
 | `BASIC_AUTH_USER`      | String | Username for basic-auth against registry<br>**Example**: `joe`                               |
 | `BASIC_AUTH_PASSWORD`  | String | Password for basic-auth against registry<br>**Example**: `supersecretpassw0rd`               |
 | `TOKEN_AUTH_USER`      | String | Username for token-auth against registry<br>**Example**: `joe`                               |

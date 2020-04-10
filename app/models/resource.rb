@@ -2,7 +2,7 @@ class Resource
   private
 
   def self.client
-    Faraday.new(url: Rails.configuration.x.registry_url, ssl: { verify: !Rails.configuration.x.no_ssl_verification }) do |f|
+    Faraday.new(url: Rails.configuration.x.registry_url, ssl: ssl_options) do |f|
       if Rails.configuration.x.basic_auth_user && Rails.configuration.x.basic_auth_password
         f.use Faraday::Request::BasicAuthentication,
           Rails.configuration.x.basic_auth_user,
@@ -18,6 +18,13 @@ class Resource
       f.response :raise_error
       f.adapter  Faraday.default_adapter
     end
+  end
+
+  def self.ssl_options
+    {
+      verify:  Rails.configuration.x.no_ssl_verification.!,
+      ca_file: Rails.configuration.x.ca_file
+    }.compact
   end
 
   def client
