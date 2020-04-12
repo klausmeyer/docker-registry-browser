@@ -1,5 +1,9 @@
 # Changelog
 
+# v1.3.4
+
+* Fix issue in puma config.
+
 # v1.3.3
 
 * Add new `CA_FILE` option to configure CA for SSL backends
