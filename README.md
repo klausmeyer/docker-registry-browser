@@ -79,7 +79,7 @@ You can also set the following variables as [Docker Swarm secrets](https://docs.
 * `TOKEN_AUTH_USER`
 * `TOKEN_AUTH_PASSWORD`
 
-Running the application under a subfolder:
+### Running the application under a subfolder
 
 In case you want to define a subfolder the app is running under (e.g. behind a proxy) you can set the two options to the path:
 * `RAILS_RELATIVE_URL_ROOT`
