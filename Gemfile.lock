@@ -58,11 +58,11 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    autoprefixer-rails (9.7.3)
+    autoprefixer-rails (9.7.6)
       execjs
     bootsnap (1.4.6)
       msgpack (~> 1.0)
-    bootstrap (4.4.1)
+    bootstrap (4.5.0)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
@@ -87,7 +87,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday_middleware (1.0.0)
       faraday (~> 1.0)
-    ffi (1.11.3)
+    ffi (1.12.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashdiff (1.0.1)
@@ -118,7 +118,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
-    popper_js (1.14.5)
+    popper_js (1.16.0)
     public_suffix (4.0.5)
     puma (4.3.3)
       nio4r (~> 2.0)
@@ -177,7 +177,7 @@ GEM
     safe_yaml (1.0.5)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
-    sassc (2.2.1)
+    sassc (2.3.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
       railties (>= 4.0.0)
@@ -223,7 +223,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
-  bootstrap (~> 4.4.1)
+  bootstrap (~> 4.5.0)
   byebug
   capybara (~> 3.0)
   faraday
