@@ -16,6 +16,8 @@ RSpec.describe ObtainAuthenticationToken do
     let(:service) { 'registry.example.com' }
     let(:scope)   { 'repository:hello/world:pull,push' }
 
+    let(:response_status) { 200 }
+
     let(:response_body) do
       {
         access_token: token
@@ -36,7 +38,7 @@ RSpec.describe ObtainAuthenticationToken do
         offline_token: true,
         scope:         scope,
         service:       service
-      }).to_return(body: response_body.to_json, headers: response_headers)
+      }).to_return(status: response_status, body: response_body.to_json, headers: response_headers)
     end
 
     it 'sends a request to the realm' do
@@ -60,6 +62,14 @@ RSpec.describe ObtainAuthenticationToken do
 
       it 'returns the received token' do
         expect(instance.call).to eq token
+      end
+    end
+
+    context 'then the response is http 401' do
+      let(:response_status) { 401 }
+
+      it 'raises a custom error' do
+        expect { instance.call }.to raise_error ObtainAuthenticationToken::InvalidCredentials
       end
     end
   end
