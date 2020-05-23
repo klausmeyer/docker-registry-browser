@@ -65,7 +65,7 @@ RSpec.describe ObtainAuthenticationToken do
       end
     end
 
-    context 'then the response is http 401' do
+    context 'when the response is http 401' do
       let(:response_status) { 401 }
 
       it 'raises a custom error' do
