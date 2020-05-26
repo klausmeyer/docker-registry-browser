@@ -32,7 +32,22 @@ class ApplicationController < ActionController::Base
     auth_params = details[/\w+ (.*)/, 1]
     auth_params = Hash[auth_params.scan(/(\w+)="([^"]+)"/)]
 
+    return if auth_attempts_exceeded? auth_params['scope']
+
+    session[:registry_auth_scope] = auth_params['scope']
     session[:registry_auth_token] = ObtainAuthenticationToken.new(auth_params).call
     redirect_to request.fullpath
+  rescue ObtainAuthenticationToken::InvalidCredentials
+    render 'errors/invalid_credentials'
+  end
+
+  def auth_attempts_exceeded?(scope)
+    session[:registry_auth_attempts] = 0 if scope != session[:registry_auth_scope]
+    session[:registry_auth_attempts] += 1
+
+    return false if session[:registry_auth_attempts] <= 3
+
+    render 'errors/auth_attempts_exceeded'
+    true
   end
 end

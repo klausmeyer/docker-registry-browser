@@ -1,4 +1,6 @@
 class ObtainAuthenticationToken
+  InvalidCredentials = Class.new(RuntimeError)
+
   def initialize(auth_params)
     @realm   = auth_params.fetch('realm')
     @service = auth_params.fetch('service')
@@ -16,6 +18,9 @@ class ObtainAuthenticationToken
   def perform_request
     resp = client.get(realm, params)
     resp.body['token'] || resp.body['access_token']
+  rescue Faraday::ClientError => e
+    raise InvalidCredentials if e.response[:status] == 401
+    raise e
   end
 
   def params
