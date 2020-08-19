@@ -33,7 +33,7 @@ class ObtainAuthenticationToken
   end
 
   def client
-    Faraday.new url: realm, ssl: { verify: !Rails.configuration.x.no_ssl_verification } do |f|
+    Faraday.new url: realm, ssl: ssl_options do |f|
       f.use Faraday::Request::BasicAuthentication,
         Rails.configuration.x.token_auth_user,
         Rails.configuration.x.token_auth_password
@@ -42,5 +42,12 @@ class ObtainAuthenticationToken
       f.response :raise_error
       f.adapter Faraday.default_adapter
     end
+  end
+
+  def ssl_options
+    {
+      verify:  Rails.configuration.x.no_ssl_verification.!,
+      ca_file: Rails.configuration.x.ca_file
+    }.compact
   end
 end
