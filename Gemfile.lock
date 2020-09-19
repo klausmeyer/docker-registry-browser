@@ -115,12 +115,12 @@ GEM
     minitest (5.14.2)
     msgpack (1.3.3)
     multipart-post (2.1.1)
-    nio4r (2.5.3)
+    nio4r (2.5.4)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     popper_js (1.16.0)
     public_suffix (4.0.6)
-    puma (4.3.6)
+    puma (5.0.0)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -229,7 +229,7 @@ DEPENDENCIES
   faraday
   faraday_middleware
   jquery-rails
-  puma (~> 4.1)
+  puma (~> 5.0)
   rails (~> 6.0.3)
   rspec-rails (~> 4.0.0)
   sass-rails (>= 6)
