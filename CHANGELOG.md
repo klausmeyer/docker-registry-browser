@@ -1,5 +1,12 @@
 # Changelog
 
+# v1.3.5
+
+* Update to Ruby 2.7.2
+* Update to Rails 6.0.3.4
+* Gracefully handle token auth issues
+* Use ca_file option when obtaining auth token
+
 # v1.3.4
 
 * Fix issue in puma config.
