@@ -1,10 +1,11 @@
 class ObtainAuthenticationToken
   InvalidCredentials = Class.new(RuntimeError)
 
-  def initialize(auth_params)
+  def initialize(auth_params, creds)
     @realm   = auth_params.fetch('realm')
     @service = auth_params.fetch('service')
     @scope   = auth_params.fetch('scope')
+    @creds   = creds
   end
 
   def call
@@ -13,7 +14,7 @@ class ObtainAuthenticationToken
 
   private
 
-  attr_accessor :realm, :service, :scope
+  attr_accessor :realm, :service, :scope, :creds
 
   def perform_request
     resp = client.get(realm, params)
@@ -34,9 +35,7 @@ class ObtainAuthenticationToken
 
   def client
     Faraday.new url: realm, ssl: ssl_options do |f|
-      f.use Faraday::Request::BasicAuthentication,
-        Rails.configuration.x.token_auth_user,
-        Rails.configuration.x.token_auth_password
+      f.use Faraday::Request::BasicAuthentication, *creds
       f.use FaradayMiddleware::ParseJson, content_type: /json|prettyjws/
       f.response :logger unless Rails.env.test?
       f.response :raise_error

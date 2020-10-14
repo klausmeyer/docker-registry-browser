@@ -7,10 +7,10 @@ class Resource
         f.use Faraday::Request::BasicAuthentication,
           Rails.configuration.x.basic_auth_user,
           Rails.configuration.x.basic_auth_password
-      elsif (auth = Current.http_basic_auth).present?
-        f.use Faraday::Request::BasicAuthentication, *auth
       elsif (token = Current.http_token_auth).present?
         f.request :oauth2, token, token_type: :bearer
+      elsif (auth = Current.http_basic_auth).present?
+        f.use Faraday::Request::BasicAuthentication, *auth
       end
       f.use FaradayMiddleware::FollowRedirects, limit: 5
       f.use FaradayMiddleware::ParseJson, content_type: /json|prettyjws/

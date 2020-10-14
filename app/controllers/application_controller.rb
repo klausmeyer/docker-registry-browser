@@ -14,28 +14,47 @@ class ApplicationController < ActionController::Base
   end
 
   def client_error(error)
-    if error.response && error.response[:status] == 401
-      case details = error.response.dig(:headers, 'www-authenticate')
-      when /basic/i
-        request_http_basic_authentication
-      when /bearer/i
-        perform_token_authentication(details)
-      else
-        raise
-      end
+    raise error unless error.response && error.response[:status] == 401
+
+    case details = error.response.dig(:headers, 'www-authenticate')
+    when /basic/i
+      basic_authentication
+    when /bearer/i
+      token_authentication(details)
     else
-      raise
+      raise error
     end
   end
 
-  def perform_token_authentication(details)
+  def basic_authentication
+    request_http_basic_authentication
+  end
+
+  def token_authentication(details)
+    if token_authentication_credentials.present?
+      obtain_authentication_token(details)
+    else
+      request_http_basic_authentication
+    end
+  end
+
+  def token_authentication_credentials
+    credentials = [
+      Rails.configuration.x.token_auth_user,
+      Rails.configuration.x.token_auth_password
+    ]
+
+    credentials.compact.presence || Current.http_basic_auth.presence
+  end
+
+  def obtain_authentication_token(details)
     auth_params = details[/\w+ (.*)/, 1]
     auth_params = Hash[auth_params.scan(/(\w+)="([^"]+)"/)]
 
     return if auth_attempts_exceeded? auth_params['scope']
 
     session[:registry_auth_scope] = auth_params['scope']
-    session[:registry_auth_token] = ObtainAuthenticationToken.new(auth_params).call
+    session[:registry_auth_token] = ObtainAuthenticationToken.new(auth_params, token_authentication_credentials).call
     redirect_to request.fullpath
   rescue ObtainAuthenticationToken::InvalidCredentials
     render 'errors/invalid_credentials'

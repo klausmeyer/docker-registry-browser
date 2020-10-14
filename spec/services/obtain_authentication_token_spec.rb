@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ObtainAuthenticationToken do
   describe '#call' do
-    let(:instance) { described_class.new(params) }
+    let(:instance) { described_class.new(params, credentials) }
 
     let(:params) do
       {
@@ -10,6 +10,13 @@ RSpec.describe ObtainAuthenticationToken do
         'service' => service,
         'scope'   => scope
       }
+    end
+
+    let(:credentials) do
+      [
+        'username',
+        'password'
+      ]
     end
 
     let(:realm)   { 'https://auth.example.com/token' }
