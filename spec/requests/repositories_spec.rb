@@ -53,27 +53,63 @@ RSpec.describe 'Repositories' do
             allow(ObtainAuthenticationToken).to receive(:new).and_return(service_double)
           end
 
-          it 'authenticates against the indicated realm' do
-            get '/'
+          context 'when there are token credentials configured' do
+            before do
+              allow(Rails.configuration.x).to receive(:token_auth_user).and_return('username')
+              allow(Rails.configuration.x).to receive(:token_auth_password).and_return('password')
+            end
 
-            expect(ObtainAuthenticationToken).to have_received(:new).with(
-              'realm'   => 'https://auth.example.com/token',
-              'service' => 'registry.example.com',
-              'scope'   => 'repository:hello/world:pull,push'
-            )
-            expect(service_double).to have_received(:call)
+            it 'authenticates against the indicated realm' do
+              get '/'
+
+              expect(ObtainAuthenticationToken).to have_received(:new).with({
+                'realm'   => 'https://auth.example.com/token',
+                'service' => 'registry.example.com',
+                'scope'   => 'repository:hello/world:pull,push'
+              }, ['username', 'password'])
+              expect(service_double).to have_received(:call)
+            end
+
+            it 'stores the token in session' do
+              get '/'
+
+              expect(session[:registry_auth_token]).to eq token
+            end
+
+            it 'reloads the current page' do
+              get '/'
+
+              expect(response).to redirect_to '/'
+            end
           end
 
-          it 'stores the token in session' do
-            get '/'
+          context 'when there are no token credentials configured' do
+            context 'when basic credentials available in the current request' do
+              it 'requests those from the browser' do
+                get '/'
 
-            expect(session[:registry_auth_token]).to eq token
-          end
+                expect(response).to have_http_status :unauthorized
+              end
+            end
 
-          it 'reloads the current page' do
-            get '/'
+            context 'when basic credentials are available' do
+              let(:headers) do
+                {
+                  'Authorization' => 'Basic YWRtaW46c2VjcmV0'
+                }
+              end
 
-            expect(response).to redirect_to '/'
+              it 'uses them to request a token' do
+                get '/', headers: headers
+
+                expect(ObtainAuthenticationToken).to have_received(:new).with({
+                  'realm'   => 'https://auth.example.com/token',
+                  'service' => 'registry.example.com',
+                  'scope'   => 'repository:hello/world:pull,push'
+                }, ['admin', 'secret'])
+                expect(service_double).to have_received(:call)
+              end
+            end
           end
         end
       end
