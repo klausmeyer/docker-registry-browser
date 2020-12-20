@@ -20,16 +20,17 @@ WORKDIR /app
 ADD . .
 
 RUN apk update \
-&& apk add build-base zlib-dev tzdata nodejs yarn openssl-dev \
-&& rm -rf /var/cache/apk/* \
-&& gem install bundler \
-&& bundle config --local build.sassc --disable-march-tune-native \
-&& bundle install --without development test \
-&& bundle exec rake assets:precompile \
-&& addgroup -S app && adduser -S app -G app -h /app \
-&& chown -R app.app /app \
-&& chown -R app.app /usr/local/bundle \
-&& apk del build-base yarn
+ && apk add build-base zlib-dev tzdata nodejs yarn openssl-dev \
+ && rm -rf /var/cache/apk/* \
+ && gem install bundler -v $(tail -n1 Gemfile.lock | xargs) \
+ && bundle config set build.sassc '--disable-march-tune-native' \
+ && bundle config set without 'development test' \
+ && bundle install \
+ && bundle exec rails assets:precompile \
+ && addgroup -S app && adduser -S app -G app -h /app \
+ && chown -R app.app /app \
+ && chown -R app.app /usr/local/bundle \
+ && apk del build-base yarn
 
 USER app
 
