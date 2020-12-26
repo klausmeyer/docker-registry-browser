@@ -73,5 +73,6 @@ end
 
 group :test do
   gem 'webmock'
+  gem 'rexml' # required by webmock via crack gem
   gem 'vcr'
 end

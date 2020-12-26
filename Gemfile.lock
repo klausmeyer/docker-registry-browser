@@ -159,6 +159,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (1.8.2)
+    rexml (3.2.4)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -230,6 +231,7 @@ DEPENDENCIES
   listen (~> 3.3)
   puma (~> 5.0)
   rails (~> 6.1.0)
+  rexml
   rspec-rails (~> 4.0.0)
   sass-rails (>= 6)
   spring
@@ -242,4 +244,4 @@ RUBY VERSION
    ruby 3.0.0
 
 BUNDLED WITH
-   2.1.4
+   2.2.3
