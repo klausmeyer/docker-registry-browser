@@ -234,7 +234,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.3)
   puma (~> 5.0)
-  rails (~> 6.1.0)
+  rails (~> 6.1.1)
   rexml
   rspec-rails (~> 4.0.0)
   sass-rails (>= 6)
