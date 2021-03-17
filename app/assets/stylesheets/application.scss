@@ -14,3 +14,16 @@ $theme-colors: (
 // Components
 @import "components/alert";
 @import "components/copy_to_clipboard_icon";
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+[data-toggle="collapse"].collapsed .if-not-collapsed {
+  display: none;
+}
+
+[data-toggle="collapse"]:not(.collapsed) .if-collapsed {
+  display: none;
+}

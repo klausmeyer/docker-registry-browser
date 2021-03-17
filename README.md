@@ -56,21 +56,22 @@ The configuration is done by environment variables.
 
 | Option                 | Type   | Description                                                                                  |
 | ---------------------- | ------ | -------------------------------------------------------------------------------------------- |
-| `DOCKER_REGISTRY_URL`  | String | URL to the Docker Registry which should be browsed<br>**Default**: `http://localhost:5000`   |
-| `NO_SSL_VERIFICATION`  | Bool   | Skip SSL verification (default `false`)<br>**Example**: `true`                               |
-| `CA_FILE`              | String | Custom CA file to verify the registry's certificate<br>**Example**: `/path/to/ca.pem`        |
-| `BASIC_AUTH_USER`      | String | Username for basic-auth against registry<br>**Example**: `joe`                               |
-| `BASIC_AUTH_PASSWORD`  | String | Password for basic-auth against registry<br>**Example**: `supersecretpassw0rd`               |
-| `TOKEN_AUTH_USER`      | String | Username for token-auth against registry<br>**Example**: `joe`                               |
-| `TOKEN_AUTH_PASSWORD`  | String | Password for token-auth against registry<br>**Example**: `supersecretpassw0rd`               |
-| `ENABLE_DELETE_IMAGES` | Bool   | Allow deletion of tags (default `false`)<br>**Example**: `true`                              |
-| `PUBLIC_REGISTRY_URL`  | String | The public URL to the Docker Registry to do docker pull<br>**Example**: `your-registry:5000` |
 | `ADDRESS`              | String | The address on which the application will serve HTTP requests.<br>**Default**: `0.0.0.0`     |
+| `BASIC_AUTH_PASSWORD`  | String | Password for basic-auth against registry<br>**Example**: `supersecretpassw0rd`               |
+| `BASIC_AUTH_USER`      | String | Username for basic-auth against registry<br>**Example**: `joe`                               |
+| `CA_FILE`              | String | Custom CA file to verify the registry's certificate<br>**Example**: `/path/to/ca.pem`        |
+| `COLLAPSE_NAMESPACES`  | Bool   | Collapse namespaces on repository list.<br>**Default**: `false`                              |
+| `DOCKER_REGISTRY_URL`  | String | URL to the Docker Registry which should be browsed<br>**Default**: `http://localhost:5000`   |
+| `ENABLE_DELETE_IMAGES` | Bool   | Allow deletion of tags (default `false`)<br>**Example**: `true`                              |
+| `NO_SSL_VERIFICATION`  | Bool   | Skip SSL verification (default `false`)<br>**Example**: `true`                               |
 | `PORT`                 | Number | The port on which the application will serve HTTP requests.<br>**Default**: `8080`           |
+| `PUBLIC_REGISTRY_URL`  | String | The public URL to the Docker Registry to do docker pull<br>**Example**: `your-registry:5000` |
 | `SSL_ADDRESS`          | String | The address on which the application will serve HTTPS requests.<br>**Default**: `0.0.0.0`    |
-| `SSL_PORT`             | Number | The port on which the application will serve HTTPS requests.<br>**Default**: `8443`          |
 | `SSL_CERT_PATH`        | String | Absolute path to the SSL certificate which should be used.<br>**Example**: `/ssl/cert.pem`   |
 | `SSL_KEY_PATH`         | String | Absolute path to the SSL private key which should be used.<br>**Example**: `/ssl/key.pem`    |
+| `SSL_PORT`             | Number | The port on which the application will serve HTTPS requests.<br>**Default**: `8443`          |
+| `TOKEN_AUTH_PASSWORD`  | String | Password for token-auth against registry<br>**Example**: `supersecretpassw0rd`               |
+| `TOKEN_AUTH_USER`      | String | Username for token-auth against registry<br>**Example**: `joe`                               |
 
 You can also set the following variables as [Docker Swarm secrets](https://docs.docker.com/engine/swarm/secrets/) with the same naming:
 
