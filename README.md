@@ -26,7 +26,7 @@ Delete tag
 $ docker run --name registry-browser -p 8080:8080 klausmeyer/docker-registry-browser
 ```
 
-Please have a look at the [Documentation](docs/README.md) for more details and available configuration options.
+Please have a look at the [Documentation](https://github.com/klausmeyer/docker-registry-browser/blob/master/docs/README.md) for more details and available configuration options.
 
 ## Licence
 
