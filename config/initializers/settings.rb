@@ -10,5 +10,5 @@ Rails.application.config.tap do |config|
   config.x.token_auth_password = Config.get(name: "TOKEN_AUTH_PASSWORD", secret: true)
   config.x.delete_enabled      = Config.get(name: "ENABLE_DELETE_IMAGES").in? %w(1 true yes)
   config.x.public_registry_url = Config.get(name: "PUBLIC_REGISTRY_URL")
-  config.x.collapse_namespaces = Config.get(name: "COLLAPSE_NAMESPACES").in? %w(1 true yes)
+  config.x.collapse_namespaces = Config.get(name: "ENABLE_COLLAPSE_NAMESPACES").in? %w(1 true yes)
 end

@@ -1,4 +1,4 @@
-FROM ruby:3.0.0-alpine
+FROM ruby:3.0.1-alpine
 
 MAINTAINER Klaus Meyer <spam@klaus-meyer.net>
 
@@ -20,7 +20,7 @@ WORKDIR /app
 ADD . .
 
 RUN apk update \
- && apk add build-base zlib-dev tzdata nodejs yarn openssl-dev \
+ && apk add build-base zlib-dev tzdata nodejs yarn openssl-dev shared-mime-info \
  && rm -rf /var/cache/apk/* \
  && gem install bundler -v $(tail -n1 Gemfile.lock | xargs) \
  && bundle config set build.sassc '--disable-march-tune-native' \
