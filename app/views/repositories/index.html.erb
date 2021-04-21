@@ -2,15 +2,16 @@
   <div class="col-md-6">
     <% if @repositories.any? %>
       <% @namespaces.each do |namespace, repos| %>
+        <%- namespace_key = namespace.gsub('/', '-slash-') %>
         <div class="card border-docker mb-5">
-          <%= content_tag :div, class: "card-header", id: "namespace-#{namespace}" do %>
+          <%= content_tag :div, class: "card-header", id: "namespace-#{namespace_key}" do %>
             <%= image_tag "icons/namespace.png", size: "50x50", align: "right" %>
 
             <span class="text-muted small">Namespace</span>
             <h5 class="card-title mb-0"><%= namespace.presence || "/" %></h5>
           <% end %>
           <div>
-          <%= content_tag :div, class: {collapse: configs.collapse_namespaces}, id: "namespace-#{namespace}-repos" do %>
+          <%= content_tag :div, class: {collapse: configs.collapse_namespaces}, id: "namespace-#{namespace_key}-repos" do %>
             <div class="list-group list-group-flush">
               <% repos.each do |repo| %>
                 <%= link_to repository_path(repo.name), class: "list-group-item list-group-item-action d-flex align-items-center" do %>
@@ -23,7 +24,7 @@
               <% end %>
             </div>
           <% end %>
-          <%= content_tag :button, class: "collapsed btn btn-default w-100", data: { toggle: "collapse", target: "#namespace-#{namespace}-repos" } do %>
+          <%= content_tag :button, class: "collapsed btn btn-default w-100", data: { toggle: "collapse", target: "#namespace-#{namespace_key}-repos" } do %>
             <span class="if-collapsed">&#8964;</span>
             <span class="if-not-collapsed">&#8963;</span>
           <% end if configs.collapse_namespaces %>
