@@ -2,7 +2,7 @@
   <div class="col-md-6">
     <% if @repositories.any? %>
       <% @namespaces.each do |namespace, repos| %>
-        <%- namespace_key = namespace.gsub('/', '-slash-') %>
+        <%- namespace_key = namespace.gsub("/", "-slash-") %>
         <div class="card border-docker mb-5">
           <%= content_tag :div, class: "card-header", id: "namespace-#{namespace_key}" do %>
             <%= image_tag "icons/namespace.png", size: "50x50", align: "right" %>
