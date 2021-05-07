@@ -64,7 +64,7 @@ end
 
 gem 'faraday'
 gem 'faraday_middleware'
-gem 'bootstrap', '~> 4.6.0'
+gem 'bootstrap', '~> 5.0.0'
 gem 'jquery-rails'
 
 group :development, :test do
