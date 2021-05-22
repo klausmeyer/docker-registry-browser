@@ -129,7 +129,7 @@ GEM
       racc (~> 1.4)
     popper_js (1.16.0)
     public_suffix (4.0.6)
-    puma (5.3.1)
+    puma (5.3.2)
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
