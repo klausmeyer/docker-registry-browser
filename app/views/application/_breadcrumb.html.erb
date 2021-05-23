@@ -6,11 +6,11 @@
   </div>
 
   <%= content_tag :div, class: "breadcrumb-item" do %>
-    <%= link_to @repository.namespace.presence || "root", root_path, data: { toggle: "tooltip" }, title: "Docker Namespace" %>
+    <%= link_to @repository.namespace.presence || "root", root_path, class: "text-reset", data: { toggle: "tooltip" }, title: "Docker Namespace" %>
   <% end if @repository && @repository.namespace.presence %>
 
   <%= content_tag :div, class: "breadcrumb-item" do %>
-    <%= link_to @repository.image, repository_path(@repository.name), data: { toggle: "tooltip" }, title: "Docker Image" %>
+    <%= link_to @repository.image, repository_path(@repository.name), class: "text-reset", data: { toggle: "tooltip" }, title: "Docker Image" %>
   <% end if @repository && @repository.image.presence %>
 
   <%= content_tag :div, class: "breadcrumb-item" do %>

@@ -23,10 +23,10 @@
               </div>
             <% end %>
 
-            <%= link_to tag_path(repo: @repository.name, tag: tag), class: "list-group-item list-group-item-action d-flex justify-content-between align-items-center" do %>
+            <%= link_to tag_path(repo: @repository.name, tag: tag), class: "list-group-item list-group-item-action d-flex py-3 justify-content-between align-items-center" do %>
               <div class="flex-grow-1">
-                <% css_margin = Rails.configuration.x.public_registry_url ? "ml-4" : nil %>
-                <%= content_tag :span, "Tag", class: "badge badge-dtag text-uppercase mr-1 #{css_margin}" %>
+                <% css_margin = Rails.configuration.x.public_registry_url ? "ms-4" : nil %>
+                <%= content_tag :span, "Tag", class: "badge bg-dtag text-uppercase me-1 #{css_margin}" %>
                 <span class="text-monospace small"><%= tag %></span>
               </div>
               <%= image_tag "icons/arrow.png", size: "16x16" %>

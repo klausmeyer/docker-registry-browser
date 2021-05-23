@@ -12,9 +12,9 @@
           <% end %>
           <div class="list-group list-group-flush">
             <% repos.each do |repo| %>
-              <%= link_to repository_path(repo.name), class: "list-group-item list-group-item-action d-flex align-items-center" do %>
+              <%= link_to repository_path(repo.name), class: "list-group-item list-group-item-action d-flex py-3 align-items-center" do %>
                 <div class="flex-grow-1">
-                  <span class="badge badge-dimage text-uppercase mr-1">Image</span>
+                  <span class="badge bg-dimage text-uppercase me-1">Image</span>
                   <span class="text-monospace small text-truncate"><%= repo.image %></span>
                 </div>
                 <%= image_tag "icons/arrow.png", size: "16x16" %>

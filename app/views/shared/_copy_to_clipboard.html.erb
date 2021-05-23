@@ -6,7 +6,7 @@
     <div class="flex-grow-1">
       <%= text_field_tag local_assigns[:name], local_assigns[:value], class: "form-control-plaintext js-copy text-monospace" %>
     </div>
-    <div class="pl-3">
+    <div class="ps-3">
       <%= link_to "#copy", title: local_assigns[:title], data: { copy_target: ".js-copy", toggle: "tooltip" } do %>
         <%= image_tag "icons/copy.png", size: "16x16" %>
       <% end %>

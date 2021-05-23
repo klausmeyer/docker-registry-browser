@@ -32,7 +32,7 @@
             <% @tag.labels.each do |key, value| %>
               <li class="list-group-item">
                 <div class="row">
-                  <div class="col text-monospace small"><span class="badge-pill badge-dlayer"><%= key %></span></div>
+                  <div class="col text-monospace small"><span class="badge rounded-pill bg-dlayer"><%= key %></span></div>
                   <div class="col text-monospace small"><%= value %></div>
                 </div>
               </li>
@@ -55,7 +55,7 @@
         <ul class="list-group list-group-flush">
           <% @tag.layers.each do |layer| %>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              <span class="badge badge-pill badge-dlayer mr-2 px-3"><%= format '%03d', layer.index %></span>
+              <span class="badge rounded-pill bg-dlayer me-2 px-2"><%= format '%03d', layer.index %></span>
               <span class="flex-grow-1 text-monospace small text-truncate"><%= layer.digest %></span>
               <% if layer.size.present? %>
                 <nobr class="text-muted small"><%= number_to_human_size layer.size %></nobr>
