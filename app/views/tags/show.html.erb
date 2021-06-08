@@ -18,6 +18,9 @@
 
         <span class="text-muted small">Content Digest</span>
         <%= render partial: "shared/copy_to_clipboard", locals: { name: :content_digest, value: @tag.content_digest, title: "Copy sha" } %>
+
+        <span class="text-muted small">Type</span>
+        <h5 class="card-title mb-1"><%= @tag.type%></h5>
       <% end %>
 
       <div class="card-body">
@@ -51,18 +54,20 @@
           </ul>
         <% end %>
 
-        <h5 class="mt-4">Layers</h5>
-        <ul class="list-group list-group-flush">
-          <% @tag.layers.each do |layer| %>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <span class="badge badge-pill badge-dlayer mr-2 px-3"><%= format '%03d', layer.index %></span>
-              <span class="flex-grow-1 text-monospace small text-truncate"><%= layer.digest %></span>
-              <% if layer.size.present? %>
-                <nobr class="text-muted small"><%= number_to_human_size layer.size %></nobr>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
+        <% if @tag.layers.any? %>
+          <h5 class="mt-4">Layers</h5>
+          <ul class="list-group list-group-flush">
+            <% @tag.layers.each do |layer| %>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span class="badge badge-pill badge-dlayer mr-2 px-3"><%= format '%03d', layer.index %></span>
+                <span class="flex-grow-1 text-monospace small text-truncate"><%= layer.digest %></span>
+                <% if layer.size.present? %>
+                  <nobr class="text-muted small"><%= number_to_human_size layer.size %></nobr>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
 
         <h5 class="mt-4">History</h5>
         <div class="overflow-auto">

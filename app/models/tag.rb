@@ -1,6 +1,12 @@
 class Tag < Resource
   include ActiveModel::Model
 
+  ACCEPTED_MANIFEST_FORMATS = %w[
+    application/vnd.oci.image.manifest.v1+json
+    application/vnd.docker.distribution.manifest.v2+json
+    application/vnd.docker.distribution.manifest.v1+json
+  ].freeze
+
   attr_accessor(
     :architecture,
     :content_digest,
@@ -11,52 +17,44 @@ class Tag < Resource
     :layers,
     :name,
     :os,
-    :repository
+    :repository,
+    :type,
   )
 
   def self.find(repository:, name:)
-    tag = client.get "/v2/#{repository.name}/manifests/#{name}" do |request|
-      request.headers["Accept"] = "application/vnd.docker.distribution.manifest.v2+json"
+    manifest = client.get "/v2/#{repository.name}/manifests/#{name}" do |request|
+      request.headers["Accept"] = ACCEPTED_MANIFEST_FORMATS.join(', ')
     end
 
-    details = client.get("/v2/#{repository.name}/blobs/#{tag.body.dig('config', 'digest')}").body
-    details = JSON.parse(details) if details.instance_of?(String)
+    digest = manifest.body.dig('config', 'digest') or raise KeyError, 'Missing config.digest'
 
-    layers = if tag.headers["content-type"] =~ /v2/
-      Array.wrap(tag.body["layers"]).each_with_index.map do |layer, index|
-        Layer.new(
-          index:  index+1,
-          digest: layer["digest"],
-          size:   layer["size"]
-        )
-      end
-    else
-      Array.wrap(tag.body["fsLayers"]).each_with_index.map do |layer, index|
-        Layer.new(
-          index:  index+1,
-          digest: layer["blobSum"]
-        )
-      end
+    blob = client.get("/v2/#{repository.name}/blobs/#{digest}").body
+    blob = JSON.parse(blob) if blob.instance_of?(String)
+
+    layers = Array.wrap(manifest.body["layers"] || manifest.body["fsLayers"]).each_with_index.map do |layer, index|
+      Layer.new(
+        index:  index+1,
+        digest: layer["digest"] || layer["blobSum"],
+        size:   layer["size"]
+      )
     end
-
-    created = Time.parse(details.dig("created")) rescue nil
 
     new(
-      architecture:   details.dig("architecture"),
-      content_digest: tag.headers["docker-content-digest"],
-      created:        created,
-      env:            details.dig("config", "Env") || [],
-      labels:         details.dig("config", "Labels") || {},
+      architecture:   blob.dig("architecture"),
+      content_digest: manifest.headers["docker-content-digest"],
+      created:        (Time.parse(blob.dig("created")) rescue nil),
+      env:            blob.dig("config", "Env") || [],
+      history:        blob.dig("history").map { |e| HistoryEntry.new(e) },
+      labels:         blob.dig("config", "Labels") || {},
       layers:         layers,
-      history:        details.dig("history").map { |e| HistoryEntry.new(e) } || [],
       name:           name,
-      os:             details.dig("os"),
-      repository:     repository
+      os:             blob.dig("os"),
+      repository:     repository,
+      type:           manifest.headers["content-type"],
     )
   end
 
   def delete
-    client.delete "/v2/#{repository.name}/manifests/#{content_digest}"
-    true
+    client.delete("/v2/#{repository.name}/manifests/#{content_digest}").success?
   end
 end
