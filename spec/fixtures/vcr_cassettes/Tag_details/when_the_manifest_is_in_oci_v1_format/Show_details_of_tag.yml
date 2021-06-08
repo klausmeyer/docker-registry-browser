@@ -1,0 +1,174 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:5000/v2/test/hello-world/tags/list
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Thu, 07 Nov 2019 15:10:23 GMT
+      Content-Length:
+      - '58'
+    body:
+      encoding: UTF-8
+      string: '{"name":"test/hello-world","tags":["delete-me","latest"]}
+
+        '
+    http_version:
+  recorded_at: Thu, 07 Nov 2019 15:10:23 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/v2/test/hello-world/tags/list
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Thu, 07 Nov 2019 15:10:23 GMT
+      Content-Length:
+      - '58'
+    body:
+      encoding: UTF-8
+      string: '{"name":"test/hello-world","tags":["delete-me","latest"]}
+
+        '
+    http_version:
+  recorded_at: Thu, 07 Nov 2019 15:10:23 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/v2/test/hello-world/manifests/latest
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.0
+      Accept:
+        application/vnd.oci.image.manifest.v1+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '527'
+      Content-Type:
+      - application/vnd.docker.distribution.manifest.v2+json
+      Docker-Content-Digest:
+      - sha256:054ac5c50ed0047ec8794e1f61d8fcc579c9183783e9fa9763d4c7187feec3b0
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      Etag:
+      - '"sha256:054ac5c50ed0047ec8794e1f61d8fcc579c9183783e9fa9763d4c7187feec3b0"'
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Thu, 07 Nov 2019 15:10:23 GMT
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+           "schemaVersion": 2,
+           "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+           "config": {
+              "mediaType": "application/vnd.docker.container.image.v1+json",
+              "size": 2081,
+              "digest": "sha256:1995e63d80c946b0a53b74ba8a62f0ef0ad7fbaf213817a905d018f2072c1f84"
+           },
+           "layers": [
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "size": 761056,
+                 "digest": "sha256:0f8c40e1270f10d085dda8ce12b7c5b17cd808f055df5a7222f54837ca0feae0"
+              }
+           ]
+        }
+    http_version:
+  recorded_at: Thu, 07 Nov 2019 15:10:23 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/v2/test/hello-world/blobs/sha256:1995e63d80c946b0a53b74ba8a62f0ef0ad7fbaf213817a905d018f2072c1f84
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Accept-Ranges:
+      - bytes
+      Cache-Control:
+      - max-age=31536000
+      Content-Length:
+      - '2081'
+      Content-Type:
+      - application/octet-stream
+      Docker-Content-Digest:
+      - sha256:1995e63d80c946b0a53b74ba8a62f0ef0ad7fbaf213817a905d018f2072c1f84
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      Etag:
+      - '"sha256:1995e63d80c946b0a53b74ba8a62f0ef0ad7fbaf213817a905d018f2072c1f84"'
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Thu, 07 Nov 2019 15:10:23 GMT
+    body:
+      encoding: UTF-8
+      string: '{"architecture":"amd64","config":{"Hostname":"","Domainname":"","User":"","AttachStdin":false,"AttachStdout":false,"AttachStderr":false,"Tty":false,"OpenStdin":false,"StdinOnce":false,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","IMAGE=test/hello-world:latest"],"Cmd":["sh"],"ArgsEscaped":true,"Image":"sha256:309306fdd13b4f9b14e80c171efd4b9d0434d0c41ac0a5d8c4848162f4791989","Volumes":null,"WorkingDir":"","Entrypoint":null,"OnBuild":null,"Labels":{"image":"test/hello-world:latest","maintainer":"Somebody"}},"container":"4159a8af587c879951d0b67b7f41412dd8f113fa1fa02f1bbffb3c6b97e34449","container_config":{"Hostname":"4159a8af587c","Domainname":"","User":"","AttachStdin":false,"AttachStdout":false,"AttachStderr":false,"Tty":false,"OpenStdin":false,"StdinOnce":false,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","IMAGE=test/hello-world:latest"],"Cmd":["/bin/sh","-c","#(nop)
+        ","ENV IMAGE=test/hello-world:latest"],"ArgsEscaped":true,"Image":"sha256:309306fdd13b4f9b14e80c171efd4b9d0434d0c41ac0a5d8c4848162f4791989","Volumes":null,"WorkingDir":"","Entrypoint":null,"OnBuild":null,"Labels":{"image":"test/hello-world:latest","maintainer":"Somebody"}},"created":"2019-11-07T14:55:53.155374911Z","docker_version":"19.03.4","history":[{"created":"2019-10-30T23:20:37.083008444Z","created_by":"/bin/sh
+        -c #(nop) ADD file:1141b81e5149cc37c4346ee17e282cca8c7016a9bcfeb7a54842a87ecf8419d4
+        in / "},{"created":"2019-10-30T23:20:37.206592274Z","created_by":"/bin/sh
+        -c #(nop)  CMD [\"sh\"]","empty_layer":true},{"created":"2019-11-07T14:55:50.967828091Z","created_by":"/bin/sh
+        -c #(nop)  LABEL maintainer=Somebody","empty_layer":true},{"created":"2019-11-07T14:55:53.025623659Z","created_by":"/bin/sh
+        -c #(nop)  LABEL image=test/hello-world:latest","empty_layer":true},{"created":"2019-11-07T14:55:53.155374911Z","created_by":"/bin/sh
+        -c #(nop)  ENV IMAGE=test/hello-world:latest","empty_layer":true}],"os":"linux","rootfs":{"type":"layers","diff_ids":["sha256:1da8e4c8d30765bea127dc2f11a17bc723b59480f4ab5292edb00eb8eb1d96b1"]}}'
+    http_version:
+  recorded_at: Thu, 07 Nov 2019 15:10:23 GMT
+recorded_with: VCR 5.0.0
