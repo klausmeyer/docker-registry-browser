@@ -31,4 +31,3 @@ Please have a look at the [Documentation](https://github.com/klausmeyer/docker-r
 ## Licence
 
 The application is available as open source under the terms of the MIT License.
-

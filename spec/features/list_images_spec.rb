@@ -6,7 +6,7 @@ feature "Image listing" do
 
     expect(page).to have_content "Namespace"
     expect(page).to have_content "/"
-    expect(page).to have_content "Image"
+    expect(page).to have_content "IMG"
     expect(page).to have_content "hello-world"
 
     expect(page).to have_content "test"

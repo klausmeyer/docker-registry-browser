@@ -82,6 +82,12 @@ Default: Not used
 
 ### Features
 
+#### `ENABLE_COLLAPSE_NAMESPACES`
+
+This option will enable collapsed namespaces on repository list.
+
+Default: `false`
+
 #### `ENABLE_DELETE_IMAGES`
 
 This option will enable the delete button for image-tags.
