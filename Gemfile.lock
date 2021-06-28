@@ -241,7 +241,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.3)
   puma (~> 5.0)
-  rails (~> 6.1.3)
+  rails (~> 6.1.4)
   rexml
   rspec-rails (~> 5.0.0)
   sass-rails (>= 6)
@@ -255,4 +255,4 @@ RUBY VERSION
    ruby 3.0.1
 
 BUNDLED WITH
-   2.2.3
+   2.2.15
