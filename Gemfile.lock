@@ -205,7 +205,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    spring (2.1.1)
+    spring (3.0.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
