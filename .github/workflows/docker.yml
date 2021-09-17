@@ -21,5 +21,5 @@ jobs:
         uses: docker/build-push-action@v2.7.0
         with:
           context: .
-          tags: latest
+          tags: klausmeyer/docker-registry-browser:latest
           push: true
