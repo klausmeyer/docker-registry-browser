@@ -28,7 +28,7 @@ jobs:
         with:
           context: .
           build-args: |
-            SOURCE_COMMIT=${{ steps.vars.outputs.sha_short }}
+            SOURCE_COMMIT=${{ github.sha }}
           tags: klausmeyer/docker-registry-browser:latest
           platforms: linux/amd64,linux/arm64
           push: true
