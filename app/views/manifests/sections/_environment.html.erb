@@ -1,0 +1,12 @@
+<% if manifest.env.any? %>
+  <h5 class="mt-4">Environment</h5>
+
+  <% manifest.env.sort.each do |env| %>
+    <%- key, value = env.split("=", 2) %>
+
+    <span class="text-muted small"><%= key %></span>
+    <p class="mb-3 text-monospace"><%= value %></p>
+  <% end %>
+
+  <hr />
+<% end %>

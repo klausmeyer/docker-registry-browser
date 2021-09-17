@@ -1,0 +1,494 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:5000/v2/test/hello-world/tags/list
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.18.0 (Ubuntu)
+      Date:
+      - Tue, 05 Oct 2021 21:20:04 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '51'
+      Connection:
+      - keep-alive
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: '{"name":"test/hello-world","tags":["v1","v3","v2"]}
+
+        '
+  recorded_at: Tue, 05 Oct 2021 21:20:04 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/v2/test/hello-world/tags/list
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.18.0 (Ubuntu)
+      Date:
+      - Tue, 05 Oct 2021 21:20:06 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '51'
+      Connection:
+      - keep-alive
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: '{"name":"test/hello-world","tags":["v1","v3","v2"]}
+
+        '
+  recorded_at: Tue, 05 Oct 2021 21:20:06 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/v2/test/hello-world/manifests/v1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Accept:
+      - application/vnd.oci.image.manifest.v1+json, application/vnd.docker.distribution.manifest.list.v2+json,
+        application/vnd.docker.distribution.manifest.v2+json, application/vnd.docker.distribution.manifest.v1+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.18.0 (Ubuntu)
+      Date:
+      - Tue, 05 Oct 2021 21:20:06 GMT
+      Content-Type:
+      - application/vnd.docker.distribution.manifest.list.v2+json
+      Content-Length:
+      - '743'
+      Connection:
+      - keep-alive
+      Docker-Content-Digest:
+      - sha256:a3710d7571745d600e8727ffe8eddcff341b727aec657685104369284746da5e
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      Etag:
+      - '"sha256:a3710d7571745d600e8727ffe8eddcff341b727aec657685104369284746da5e"'
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+           "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+           "schemaVersion": 2,
+           "manifests": [
+              {
+                 "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+                 "digest": "sha256:1fc9879965cbe6c36eb50977f67a1dd2b5052ce6479772ddc7e9cd15092714df",
+                 "size": 1779,
+                 "platform": {
+                    "architecture": "arm64",
+                    "os": "linux"
+                 }
+              },
+              {
+                 "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+                 "digest": "sha256:2625d8db2c66ecef0acc9f474cc3420b8fe9a16ca44519e0aa4a51644b128671",
+                 "size": 1779,
+                 "platform": {
+                    "architecture": "amd64",
+                    "os": "linux"
+                 }
+              }
+           ]
+        }
+  recorded_at: Tue, 05 Oct 2021 21:20:06 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/v2/test/hello-world/manifests/sha256:1fc9879965cbe6c36eb50977f67a1dd2b5052ce6479772ddc7e9cd15092714df
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Accept:
+      - application/vnd.oci.image.manifest.v1+json, application/vnd.docker.distribution.manifest.list.v2+json,
+        application/vnd.docker.distribution.manifest.v2+json, application/vnd.docker.distribution.manifest.v1+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.18.0 (Ubuntu)
+      Date:
+      - Tue, 05 Oct 2021 21:20:06 GMT
+      Content-Type:
+      - application/vnd.docker.distribution.manifest.v2+json
+      Content-Length:
+      - '1779'
+      Connection:
+      - keep-alive
+      Docker-Content-Digest:
+      - sha256:1fc9879965cbe6c36eb50977f67a1dd2b5052ce6479772ddc7e9cd15092714df
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      Etag:
+      - '"sha256:1fc9879965cbe6c36eb50977f67a1dd2b5052ce6479772ddc7e9cd15092714df"'
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+           "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+           "schemaVersion": 2,
+           "config": {
+              "mediaType": "application/vnd.docker.container.image.v1+json",
+              "digest": "sha256:5c4b21db0caddccf2cd9aef879b4cac8e74bb6c9ba1e7bb784f6a9f7179630a5",
+              "size": 5547
+           },
+           "layers": [
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "digest": "sha256:552d1f2373af9bfe12033568ebbfb0ccbb0de11279f9a415a29207e264d7f4d9",
+                 "size": 2711827
+              },
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "digest": "sha256:5df2e0a02613acd4b6987d321d854ed09506b9d4b77e3b8c0802f3e27b84b35f",
+                 "size": 3629775
+              },
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "digest": "sha256:2cd18567ebfd28975165c7c2e90eee4ea5eeef17a3b2c009f7bc444cfb12b815",
+                 "size": 223
+              },
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "digest": "sha256:377daab123c7392b0b08e2d872a9b930483d1e81f4812a68cdc49fe7aa6157b0",
+                 "size": 26034233
+              },
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "digest": "sha256:6f70cf4c50070236b9c95be8aaf7aab4675f7eeb353483c070afdfb9d6dbcfe1",
+                 "size": 173
+              },
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "digest": "sha256:fc93149399a1a057e74093e0dfe36a3a20f5a17d5b2cdc06bb8101a4cdef58c1",
+                 "size": 131
+              },
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "digest": "sha256:e31c42238f7d8b1770d5127df09a58eae64c6c7c5dfe91ce91ebe93c3ccfd0d9",
+                 "size": 114
+              }
+           ]
+        }
+  recorded_at: Tue, 05 Oct 2021 21:20:06 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/v2/test/hello-world/blobs/sha256:5c4b21db0caddccf2cd9aef879b4cac8e74bb6c9ba1e7bb784f6a9f7179630a5
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.18.0 (Ubuntu)
+      Date:
+      - Tue, 05 Oct 2021 21:20:06 GMT
+      Content-Type:
+      - application/octet-stream
+      Content-Length:
+      - '5547'
+      Connection:
+      - keep-alive
+      Accept-Ranges:
+      - bytes
+      Cache-Control:
+      - max-age=31536000
+      Docker-Content-Digest:
+      - sha256:5c4b21db0caddccf2cd9aef879b4cac8e74bb6c9ba1e7bb784f6a9f7179630a5
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      Etag:
+      - '"sha256:5c4b21db0caddccf2cd9aef879b4cac8e74bb6c9ba1e7bb784f6a9f7179630a5"'
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: '{"architecture":"arm64","config":{"Env":["PATH=/usr/local/bundle/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","LANG=C.UTF-8","RUBY_MAJOR=3.0","RUBY_VERSION=3.0.2","RUBY_DOWNLOAD_SHA256=570e7773100f625599575f363831166d91d49a1ab97d3ab6495af44774155c40","GEM_HOME=/usr/local/bundle","BUNDLE_SILENCE_ROOT_WARNING=1","BUNDLE_APP_CONFIG=/usr/local/bundle"],"Cmd":["ruby","/code.rb"],"ArgsEscaped":true,"OnBuild":null},"created":"2021-10-05T21:12:37.900241106Z","history":[{"created":"2021-08-27T17:39:33.425958647Z","created_by":"/bin/sh
+        -c #(nop) ADD file:dc8af9c7bfe9f9541e1db38dea01c4201609f3075b31e108f2073ffed8c5e4b9
+        in / "},{"created":"2021-08-27T17:39:33.633925527Z","created_by":"/bin/sh
+        -c #(nop)  CMD [\"/bin/sh\"]","empty_layer":true},{"created":"2021-08-28T01:31:21.273832703Z","created_by":"/bin/sh
+        -c set -eux; \tapk add --no-cache \t\tbzip2 \t\tca-certificates \t\tgmp-dev
+        \t\tlibffi-dev \t\tprocps \t\tyaml-dev \t\tzlib-dev \t;"},{"created":"2021-08-28T01:31:21.993365136Z","created_by":"/bin/sh
+        -c set -eux; \tmkdir -p /usr/local/etc; \t{ \t\techo ''install: --no-document'';
+        \t\techo ''update: --no-document''; \t} \u003e\u003e /usr/local/etc/gemrc"},{"created":"2021-08-28T01:31:22.160656097Z","created_by":"/bin/sh
+        -c #(nop)  ENV LANG=C.UTF-8","empty_layer":true},{"created":"2021-08-28T01:31:22.32965356Z","created_by":"/bin/sh
+        -c #(nop)  ENV RUBY_MAJOR=3.0","empty_layer":true},{"created":"2021-08-28T01:31:22.500720412Z","created_by":"/bin/sh
+        -c #(nop)  ENV RUBY_VERSION=3.0.2","empty_layer":true},{"created":"2021-08-28T01:31:22.676600124Z","created_by":"/bin/sh
+        -c #(nop)  ENV RUBY_DOWNLOAD_SHA256=570e7773100f625599575f363831166d91d49a1ab97d3ab6495af44774155c40","empty_layer":true},{"created":"2021-08-28T01:34:11.800497724Z","created_by":"/bin/sh
+        -c set -eux; \t\tapk add --no-cache --virtual .ruby-builddeps \t\tautoconf
+        \t\tbison \t\tbzip2 \t\tbzip2-dev \t\tca-certificates \t\tcoreutils \t\tdpkg-dev
+        dpkg \t\tg++ \t\tgcc \t\tgdbm-dev \t\tglib-dev \t\tlibc-dev \t\tlibffi-dev
+        \t\tlibxml2-dev \t\tlibxslt-dev \t\tlinux-headers \t\tmake \t\tncurses-dev
+        \t\topenssl \t\topenssl-dev \t\tpatch \t\tprocps \t\treadline-dev \t\truby
+        \t\ttar \t\txz \t\tyaml-dev \t\tzlib-dev \t; \t\twget -O ruby.tar.xz \"https://cache.ruby-lang.org/pub/ruby/${RUBY_MAJOR%-rc}/ruby-$RUBY_VERSION.tar.xz\";
+        \techo \"$RUBY_DOWNLOAD_SHA256 *ruby.tar.xz\" | sha256sum --check --strict;
+        \t\tmkdir -p /usr/src/ruby; \ttar -xJf ruby.tar.xz -C /usr/src/ruby --strip-components=1;
+        \trm ruby.tar.xz; \t\tcd /usr/src/ruby; \t\twget -O ''thread-stack-fix.patch''
+        ''https://bugs.ruby-lang.org/attachments/download/7081/0001-thread_pthread.c-make-get_main_stack-portable-on-lin.patch'';
+        \techo ''3ab628a51d92fdf0d2b5835e93564857aea73e0c1de00313864a94a6255cb645
+        *thread-stack-fix.patch'' | sha256sum --check --strict; \tpatch -p1 -i thread-stack-fix.patch;
+        \trm thread-stack-fix.patch; \t\texport ac_cv_func_isnan=yes ac_cv_func_isinf=yes;
+        \t\t{ \t\techo ''#define ENABLE_PATH_CHECK 0''; \t\techo; \t\tcat file.c;
+        \t} \u003e file.c.new; \tmv file.c.new file.c; \t\tautoconf; \tgnuArch=\"$(dpkg-architecture
+        --query DEB_BUILD_GNU_TYPE)\"; \t./configure \t\t--build=\"$gnuArch\" \t\t--disable-install-doc
+        \t\t--enable-shared \t; \tmake -j \"$(nproc)\"; \tmake install; \t\trunDeps=\"$(
+        \t\tscanelf --needed --nobanner --format ''%n#p'' --recursive /usr/local \t\t\t|
+        tr '','' ''\\n'' \t\t\t| sort -u \t\t\t| awk ''system(\"[ -e /usr/local/lib/\"
+        $1 \" ]\") == 0 { next } { print \"so:\" $1 }'' \t)\"; \tapk add --no-network
+        --virtual .ruby-rundeps $runDeps; \tapk del --no-network .ruby-builddeps;
+        \t\tcd /; \trm -r /usr/src/ruby; \tif \t\tapk --no-network list --installed
+        \t\t\t| grep -v ''^[.]ruby-rundeps'' \t\t\t| grep -i ruby \t; then \t\texit
+        1; \tfi; \t[ \"$(command -v ruby)\" = ''/usr/local/bin/ruby'' ]; \truby --version;
+        \tgem --version; \tbundle --version"},{"created":"2021-08-28T01:34:12.160417075Z","created_by":"/bin/sh
+        -c #(nop)  ENV GEM_HOME=/usr/local/bundle","empty_layer":true},{"created":"2021-08-28T01:34:12.333025659Z","created_by":"/bin/sh
+        -c #(nop)  ENV BUNDLE_SILENCE_ROOT_WARNING=1 BUNDLE_APP_CONFIG=/usr/local/bundle","empty_layer":true},{"created":"2021-08-28T01:34:12.529154095Z","created_by":"/bin/sh
+        -c #(nop)  ENV PATH=/usr/local/bundle/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","empty_layer":true},{"created":"2021-08-28T01:34:13.197110767Z","created_by":"/bin/sh
+        -c mkdir -p \"$GEM_HOME\" \u0026\u0026 chmod 777 \"$GEM_HOME\""},{"created":"2021-08-28T01:34:13.373738098Z","created_by":"/bin/sh
+        -c #(nop)  CMD [\"irb\"]","empty_layer":true},{"created":"2021-10-05T14:20:28.11880372Z","created_by":"ADD
+        code.rb /code.rb # buildkit","comment":"buildkit.dockerfile.v0"},{"created":"2021-10-05T21:12:37.900241106Z","created_by":"ADD
+        version /version # buildkit","comment":"buildkit.dockerfile.v0"},{"created":"2021-10-05T21:12:37.900241106Z","created_by":"CMD
+        [\"ruby\" \"/code.rb\"]","comment":"buildkit.dockerfile.v0","empty_layer":true}],"os":"linux","rootfs":{"type":"layers","diff_ids":["sha256:ee420dfed78aeb92dbd78bf0e97e3a3cad5ccfbb59fa5dac4e04639210cc7905","sha256:7e69858ce4ba54718463d52a39d1ed92c789494305be4605268d39bf7d7394a9","sha256:463dc1d104fbada7924aafab9fbc7971e330cc1d074cd14b670438a4fe8d39fa","sha256:d6167dfba14ab2b1435300bca9d6ccb8adceb9a41dd2fc94957a77a8a381fc27","sha256:68187955c827b4503ca4fc9614c331df96072d936b26aad89348956e352a4cc1","sha256:4729d1f737964ff396e50b25da7af5cf72ccbc4bd3008e765e7f48d6a4790bc9","sha256:3daa27856501ca7df90156da5e50986e9c9652969d92d83018f6f8c7f8b35276"]}}'
+  recorded_at: Tue, 05 Oct 2021 21:20:06 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/v2/test/hello-world/manifests/sha256:2625d8db2c66ecef0acc9f474cc3420b8fe9a16ca44519e0aa4a51644b128671
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Accept:
+      - application/vnd.oci.image.manifest.v1+json, application/vnd.docker.distribution.manifest.list.v2+json,
+        application/vnd.docker.distribution.manifest.v2+json, application/vnd.docker.distribution.manifest.v1+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.18.0 (Ubuntu)
+      Date:
+      - Tue, 05 Oct 2021 21:20:06 GMT
+      Content-Type:
+      - application/vnd.docker.distribution.manifest.v2+json
+      Content-Length:
+      - '1779'
+      Connection:
+      - keep-alive
+      Docker-Content-Digest:
+      - sha256:2625d8db2c66ecef0acc9f474cc3420b8fe9a16ca44519e0aa4a51644b128671
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      Etag:
+      - '"sha256:2625d8db2c66ecef0acc9f474cc3420b8fe9a16ca44519e0aa4a51644b128671"'
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+           "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+           "schemaVersion": 2,
+           "config": {
+              "mediaType": "application/vnd.docker.container.image.v1+json",
+              "digest": "sha256:e890b0d84ffca3f633de04e7f06dbf82cfabbcef30c46d3108c4c6416091122c",
+              "size": 5548
+           },
+           "layers": [
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "digest": "sha256:a0d0a0d46f8b52473982a3c466318f479767577551a53ffc9074c9fa7035982e",
+                 "size": 2814446
+              },
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "digest": "sha256:0461ee550e837289e2d3304edc645ab33a2472563a2012ebe8b0f140e7c990ca",
+                 "size": 3643924
+              },
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "digest": "sha256:e6ea4108f61712dd7e6071e6442af225dc4adf518217ab5cede7f64d420b3189",
+                 "size": 224
+              },
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "digest": "sha256:cd49af5ee8921c8efd8256cb29a4f2ca306e262a7aaad4c42aa7d3026ac66a94",
+                 "size": 26335600
+              },
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "digest": "sha256:a18f716f51ae6c8d7b4e1514249aff3e103d8e0dc824f4ef69daf67bc8d98b43",
+                 "size": 171
+              },
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "digest": "sha256:fc93149399a1a057e74093e0dfe36a3a20f5a17d5b2cdc06bb8101a4cdef58c1",
+                 "size": 131
+              },
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "digest": "sha256:e31c42238f7d8b1770d5127df09a58eae64c6c7c5dfe91ce91ebe93c3ccfd0d9",
+                 "size": 114
+              }
+           ]
+        }
+  recorded_at: Tue, 05 Oct 2021 21:20:06 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/v2/test/hello-world/blobs/sha256:e890b0d84ffca3f633de04e7f06dbf82cfabbcef30c46d3108c4c6416091122c
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.18.0 (Ubuntu)
+      Date:
+      - Tue, 05 Oct 2021 21:20:06 GMT
+      Content-Type:
+      - application/octet-stream
+      Content-Length:
+      - '5548'
+      Connection:
+      - keep-alive
+      Accept-Ranges:
+      - bytes
+      Cache-Control:
+      - max-age=31536000
+      Docker-Content-Digest:
+      - sha256:e890b0d84ffca3f633de04e7f06dbf82cfabbcef30c46d3108c4c6416091122c
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      Etag:
+      - '"sha256:e890b0d84ffca3f633de04e7f06dbf82cfabbcef30c46d3108c4c6416091122c"'
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: '{"architecture":"amd64","config":{"Env":["PATH=/usr/local/bundle/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","LANG=C.UTF-8","RUBY_MAJOR=3.0","RUBY_VERSION=3.0.2","RUBY_DOWNLOAD_SHA256=570e7773100f625599575f363831166d91d49a1ab97d3ab6495af44774155c40","GEM_HOME=/usr/local/bundle","BUNDLE_SILENCE_ROOT_WARNING=1","BUNDLE_APP_CONFIG=/usr/local/bundle"],"Cmd":["ruby","/code.rb"],"ArgsEscaped":true,"OnBuild":null},"created":"2021-10-05T21:12:37.895172336Z","history":[{"created":"2021-08-27T17:19:45.553092363Z","created_by":"/bin/sh
+        -c #(nop) ADD file:aad4290d27580cc1a094ffaf98c3ca2fc5d699fe695dfb8e6e9fac20f1129450
+        in / "},{"created":"2021-08-27T17:19:45.758611523Z","created_by":"/bin/sh
+        -c #(nop)  CMD [\"/bin/sh\"]","empty_layer":true},{"created":"2021-08-28T00:38:07.282887434Z","created_by":"/bin/sh
+        -c set -eux; \tapk add --no-cache \t\tbzip2 \t\tca-certificates \t\tgmp-dev
+        \t\tlibffi-dev \t\tprocps \t\tyaml-dev \t\tzlib-dev \t;"},{"created":"2021-08-28T00:38:08.130923002Z","created_by":"/bin/sh
+        -c set -eux; \tmkdir -p /usr/local/etc; \t{ \t\techo ''install: --no-document'';
+        \t\techo ''update: --no-document''; \t} \u003e\u003e /usr/local/etc/gemrc"},{"created":"2021-08-28T00:38:08.325747812Z","created_by":"/bin/sh
+        -c #(nop)  ENV LANG=C.UTF-8","empty_layer":true},{"created":"2021-08-28T00:38:08.523445358Z","created_by":"/bin/sh
+        -c #(nop)  ENV RUBY_MAJOR=3.0","empty_layer":true},{"created":"2021-08-28T00:38:08.723289886Z","created_by":"/bin/sh
+        -c #(nop)  ENV RUBY_VERSION=3.0.2","empty_layer":true},{"created":"2021-08-28T00:38:08.902814859Z","created_by":"/bin/sh
+        -c #(nop)  ENV RUBY_DOWNLOAD_SHA256=570e7773100f625599575f363831166d91d49a1ab97d3ab6495af44774155c40","empty_layer":true},{"created":"2021-08-28T00:42:03.487490263Z","created_by":"/bin/sh
+        -c set -eux; \t\tapk add --no-cache --virtual .ruby-builddeps \t\tautoconf
+        \t\tbison \t\tbzip2 \t\tbzip2-dev \t\tca-certificates \t\tcoreutils \t\tdpkg-dev
+        dpkg \t\tg++ \t\tgcc \t\tgdbm-dev \t\tglib-dev \t\tlibc-dev \t\tlibffi-dev
+        \t\tlibxml2-dev \t\tlibxslt-dev \t\tlinux-headers \t\tmake \t\tncurses-dev
+        \t\topenssl \t\topenssl-dev \t\tpatch \t\tprocps \t\treadline-dev \t\truby
+        \t\ttar \t\txz \t\tyaml-dev \t\tzlib-dev \t; \t\twget -O ruby.tar.xz \"https://cache.ruby-lang.org/pub/ruby/${RUBY_MAJOR%-rc}/ruby-$RUBY_VERSION.tar.xz\";
+        \techo \"$RUBY_DOWNLOAD_SHA256 *ruby.tar.xz\" | sha256sum --check --strict;
+        \t\tmkdir -p /usr/src/ruby; \ttar -xJf ruby.tar.xz -C /usr/src/ruby --strip-components=1;
+        \trm ruby.tar.xz; \t\tcd /usr/src/ruby; \t\twget -O ''thread-stack-fix.patch''
+        ''https://bugs.ruby-lang.org/attachments/download/7081/0001-thread_pthread.c-make-get_main_stack-portable-on-lin.patch'';
+        \techo ''3ab628a51d92fdf0d2b5835e93564857aea73e0c1de00313864a94a6255cb645
+        *thread-stack-fix.patch'' | sha256sum --check --strict; \tpatch -p1 -i thread-stack-fix.patch;
+        \trm thread-stack-fix.patch; \t\texport ac_cv_func_isnan=yes ac_cv_func_isinf=yes;
+        \t\t{ \t\techo ''#define ENABLE_PATH_CHECK 0''; \t\techo; \t\tcat file.c;
+        \t} \u003e file.c.new; \tmv file.c.new file.c; \t\tautoconf; \tgnuArch=\"$(dpkg-architecture
+        --query DEB_BUILD_GNU_TYPE)\"; \t./configure \t\t--build=\"$gnuArch\" \t\t--disable-install-doc
+        \t\t--enable-shared \t; \tmake -j \"$(nproc)\"; \tmake install; \t\trunDeps=\"$(
+        \t\tscanelf --needed --nobanner --format ''%n#p'' --recursive /usr/local \t\t\t|
+        tr '','' ''\\n'' \t\t\t| sort -u \t\t\t| awk ''system(\"[ -e /usr/local/lib/\"
+        $1 \" ]\") == 0 { next } { print \"so:\" $1 }'' \t)\"; \tapk add --no-network
+        --virtual .ruby-rundeps $runDeps; \tapk del --no-network .ruby-builddeps;
+        \t\tcd /; \trm -r /usr/src/ruby; \tif \t\tapk --no-network list --installed
+        \t\t\t| grep -v ''^[.]ruby-rundeps'' \t\t\t| grep -i ruby \t; then \t\texit
+        1; \tfi; \t[ \"$(command -v ruby)\" = ''/usr/local/bin/ruby'' ]; \truby --version;
+        \tgem --version; \tbundle --version"},{"created":"2021-08-28T00:42:03.92678285Z","created_by":"/bin/sh
+        -c #(nop)  ENV GEM_HOME=/usr/local/bundle","empty_layer":true},{"created":"2021-08-28T00:42:04.119817673Z","created_by":"/bin/sh
+        -c #(nop)  ENV BUNDLE_SILENCE_ROOT_WARNING=1 BUNDLE_APP_CONFIG=/usr/local/bundle","empty_layer":true},{"created":"2021-08-28T00:42:04.306947592Z","created_by":"/bin/sh
+        -c #(nop)  ENV PATH=/usr/local/bundle/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","empty_layer":true},{"created":"2021-08-28T00:42:05.419416925Z","created_by":"/bin/sh
+        -c mkdir -p \"$GEM_HOME\" \u0026\u0026 chmod 777 \"$GEM_HOME\""},{"created":"2021-08-28T00:42:05.606804007Z","created_by":"/bin/sh
+        -c #(nop)  CMD [\"irb\"]","empty_layer":true},{"created":"2021-10-05T14:20:28.106365768Z","created_by":"ADD
+        code.rb /code.rb # buildkit","comment":"buildkit.dockerfile.v0"},{"created":"2021-10-05T21:12:37.895172336Z","created_by":"ADD
+        version /version # buildkit","comment":"buildkit.dockerfile.v0"},{"created":"2021-10-05T21:12:37.895172336Z","created_by":"CMD
+        [\"ruby\" \"/code.rb\"]","comment":"buildkit.dockerfile.v0","empty_layer":true}],"os":"linux","rootfs":{"type":"layers","diff_ids":["sha256:e2eb06d8af8218cfec8210147357a68b7e13f7c485b991c288c2d01dc228bb68","sha256:2e799cad97047a9f312bdb6c2b840e64759fe769df49ccaa257f45931077a67f","sha256:4e54c0b7317af28dd751b78a41d547d2d83786e8e7ed99144aab54c2ec0e701d","sha256:9968fe99136be47c8c3e4ae4d03bec6457fc5c54d30893aa05211d7d175d5af2","sha256:57e015127bd66ccd1c9d96ac2aa440123f579d52fe2787bb6e73cdec77936d4b","sha256:4729d1f737964ff396e50b25da7af5cf72ccbc4bd3008e765e7f48d6a4790bc9","sha256:3daa27856501ca7df90156da5e50986e9c9652969d92d83018f6f8c7f8b35276"]}}'
+  recorded_at: Tue, 05 Oct 2021 21:20:06 GMT
+recorded_with: VCR 6.0.0

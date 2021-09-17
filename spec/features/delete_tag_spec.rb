@@ -12,12 +12,16 @@ feature "Delete Tags" do
     expect(page).to have_content "hello-world:delete-me"
 
     expect(page).to have_content "Danger Zone"
-    click_link "Delete Tag…"
+    within ".border-danger" do
+      click_link "Delete"
+    end
 
     expect(page).to have_selector("#delete-dialog", visible: true)
     expect(page).to have_content "This will permanently delete the "
     fill_in "delete_confirm", with: "delete-me"
-    click_link "Delete Tag"
+    within "#delete-dialog" do
+      click_link "Delete"
+    end
 
     expect(page).to have_content "The tag delete-me has been deleted."
   end
@@ -29,12 +33,16 @@ feature "Delete Tags" do
     expect(page).to have_content "hello-world:delete-me"
 
     expect(page).to have_content "Danger Zone"
-    click_link "Delete Tag…"
+    within ".border-danger" do
+      click_link "Delete"
+    end
 
     expect(page).to have_selector("#delete-dialog", visible: true)
     expect(page).to have_content "This will permanently delete the "
     fill_in "delete_confirm", with: "delete-me"
-    click_link "Delete Tag"
+    within "#delete-dialog" do
+      click_link "Delete"
+    end
 
     expect(page).to have_content "The delete request was blocked by the registry."
   end

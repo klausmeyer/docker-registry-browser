@@ -1,0 +1,41 @@
+<% if manifest.layers.any? %>
+  <%-
+    colors = %w(#8bcf69 #e6d450 #f28f68 #cf82bf #719fd1)
+
+    layers = manifest.layers.each_with_index.map do |layer, index|
+      percent = ((layer.size * 100.0) / manifest.layers.sum(&:size)).round(2)
+
+      color = if percent > 0
+        colors.shift.tap { |c| colors.push(c) }
+      else
+        'transparent'
+      end
+
+      OpenStruct.new(
+        index:   '#%03d' % index,
+        digest:  layer.digest,
+        size:    number_to_human_size(layer.size),
+        percent: percent,
+        color:   color
+      )
+    end
+  %>
+
+  <h5 class="mt-4">Layers</h5>
+
+  <% layers.each do |layer| %>
+    <p class="text-monospace">
+      <small>
+        [<%= layer.index %>] <%= layer.digest %> - <%= layer.percent %>% (<%= layer.size %>)
+      </small>
+
+      <div class="progress">
+        <% layers.each do |inner| %>
+          <div class="progress-bar" style="width: <%= inner.percent %>%; background-color: <% if inner.index == layer.index %><%= inner.color %><% else %>transparent<% end %>;"></div>
+        <% end %>
+      </div>
+    </p>
+  <% end %>
+
+  <hr />
+<% end %>

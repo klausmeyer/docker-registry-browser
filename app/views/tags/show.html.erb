@@ -1,78 +1,42 @@
 <div class="row justify-content-center">
   <div class="col-md-10">
-
     <%= render "breadcrumb" %>
 
     <div class="card border-docker mb-5">
       <%= content_tag :div, class: "card-header" do %>
         <%= image_tag "icons/tag.png", size: "75x75", align: "right" %>
 
-        <span class="text-muted small">Tag</span>
-        <h5 class="card-title mb-1"><%= @repository.name %>:<%= @tag.name %></h5>
+        <span class="text-muted small">Namespace</span>
+        <h5 class="card-title mb-1"><%= @repository.namespace %></h5>
 
-        <span class="text-muted small">Created</span>
-        <h5 class="card-title mb-1"><%= @tag.created %></h5>
-
-        <span class="text-muted small">Architecture</span>
-        <h5 class="card-title mb-1"><%= @tag.os %> / <%= @tag.architecture %></h5>
+        <span class="text-muted small">Image / Tag</span>
+        <h5 class="card-title mb-1"><%= @repository.image %>:<%= @tag.name %></h5>
 
         <span class="text-muted small">Content Digest</span>
-        <%= render partial: "shared/copy_to_clipboard", locals: { name: :content_digest, value: @tag.content_digest, title: "Copy sha" } %>
+        <h5 class="card-title mb-1"><%= @tag.content_digest %></h5>
 
-        <span class="text-muted small">Type</span>
-        <h5 class="card-title mb-1"><%= @tag.type %></h5>
+        <% if Rails.configuration.x.public_registry_url %>
+          <span class="text-muted small">Pull command</span>
+          <%= render partial: "shared/copy_to_clipboard", locals: { name: :pull_cmd, value: pull_command(@repository.name, @tag.name) } %>
+        <% end %>
       <% end %>
 
       <div class="card-body">
-        <% if Rails.configuration.x.public_registry_url %>
-          <h5 class="mb-2">Pull Command</h5>
-          <%= render partial: "shared/copy_to_clipboard", locals: { name: :pull_cmd, value: pull_command(@repository.name, @tag.name) } %>
-        <% end %>
+        <ul class="nav nav-tabs">
+          <% @tag.manifests.each do |manifest| %>
+            <li class="nav-item">
+              <a data-toggle="tab" class="nav-link <% if @tag.manifests.first == manifest %>active<% end %>" href="#<%= manifest.id %>">
+                <%= manifest.os %> / <%= manifest.architecture %>
+              </a>
+            </li>
+          <% end %>
+        </ul>
 
-        <% if @tag.labels.any? %>
-          <h5 class="mt-4">Labels</h5>
-          <ul class="list-group list-group-flush">
-            <% @tag.labels.each do |key, value| %>
-              <li class="list-group-item">
-                <div class="row">
-                  <div class="col text-monospace small"><span class="badge-pill badge-dlayer"><%= key %></span></div>
-                  <div class="col text-monospace small"><%= value %></div>
-                </div>
-              </li>
-            <% end %>
-          </ul>
-        <% end %>
-
-        <% if @tag.env.any? %>
-          <h5 class="mt-4">ENV</h5>
-          <ul class="list-group list-group-flush">
-            <% @tag.env.each do |env| %>
-              <%= content_tag :li, class: "list-group-item overflow-hidden", title: env do %>
-                <nobr class="text-monospace small"><%= env %></nobr>
-              <% end %>
-            <% end %>
-          </ul>
-        <% end %>
-
-        <% if @tag.layers.any? %>
-          <h5 class="mt-4">Layers</h5>
-          <ul class="list-group list-group-flush">
-            <% @tag.layers.each do |layer| %>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span class="badge badge-pill badge-dlayer mr-2 px-3"><%= format '%03d', layer.index %></span>
-                <span class="flex-grow-1 text-monospace small text-truncate"><%= layer.digest %></span>
-                <% if layer.size.present? %>
-                  <nobr class="text-muted small"><%= number_to_human_size layer.size %></nobr>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-        <% end %>
-
-        <h5 class="mt-4">History</h5>
-        <div class="overflow-auto">
-          <% @tag.history.each do |entry| %>
-            <nobr class="small text-monospace"><%= entry %></nobr>
+        <div class="tab-content">
+          <% @tag.manifests.each do |manifest| %>
+            <div class="tab-pane container <% if @tag.manifests.first == manifest %>active<% end %>" id="<%= manifest.id %>">
+              <%= render manifest %>
+            </div>
           <% end %>
         </div>
       </div>
@@ -81,6 +45,5 @@
     <% if Rails.configuration.x.delete_enabled %>
       <%= render "delete" %>
     <% end %>
-
   </div>
 </div>
