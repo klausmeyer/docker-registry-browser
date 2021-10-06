@@ -20,7 +20,7 @@ feature "Tag details" do
       expect(page).to have_content "image\ntest/hello-world:latest"
       expect(page).to have_content "maintainer\nSomebody"
 
-      expect(page).to have_content /Layers\n001 sha256:[0-9a-f]{64}/
+      expect(page).to have_content /Layers\n\[#000\] sha256:[0-9a-f]{64}/
     end
   end
 
@@ -30,5 +30,16 @@ feature "Tag details" do
 
   context "when the manifest is in docker v2 format" do
     include_examples "successful showing an image tag"
+  end
+
+  context "when the manifest is a list" do
+    scenario "Show multiple manifests as tabs", :vcr do
+      visit "/repo/test/hello-world"
+
+      click_link "v1"
+
+      expect(page).to have_content "linux / arm64"
+      expect(page).to have_content "linux / amd64"
+    end
   end
 end

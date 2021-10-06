@@ -3,35 +3,56 @@ class Tag < Resource
 
   ACCEPTED_MANIFEST_FORMATS = %w[
     application/vnd.oci.image.manifest.v1+json
+    application/vnd.docker.distribution.manifest.list.v2+json
     application/vnd.docker.distribution.manifest.v2+json
     application/vnd.docker.distribution.manifest.v1+json
-  ].freeze
+  ]
 
-  attr_accessor(
-    :architecture,
-    :content_digest,
-    :created,
-    :env,
-    :history,
-    :labels,
-    :layers,
-    :name,
-    :os,
-    :repository,
-    :type,
-  )
+  attr_accessor :repository, :name, :content_digest, :manifests
 
   def self.find(repository:, name:)
-    manifest = client.get "/v2/#{repository.name}/manifests/#{name}" do |request|
+    new(repository: repository, name: name)
+  end
+
+  def initialize(**args)
+    super
+
+    self.manifests = fetch_manifests
+  end
+
+  def delete
+    client.delete("/v2/#{repository.name}/manifests/#{content_digest}").success?
+  end
+
+  private
+
+  def fetch_manifest(reference)
+    client.get("/v2/#{repository.name}/manifests/#{reference}") do |request|
       request.headers["Accept"] = ACCEPTED_MANIFEST_FORMATS.join(', ')
     end
+  end
 
-    digest = manifest.body.dig('config', 'digest') or raise KeyError, 'Missing config.digest'
+  def fetch_manifests
+    main = fetch_manifest(name)
+
+    self.content_digest = main.headers["docker-content-digest"]
+
+    if list = main.body["manifests"]
+      list.map do |entry|
+        manifest_for_digest(fetch_manifest(entry.fetch("digest")).body)
+      end
+    else
+      [manifest_for_digest(main.body)]
+    end
+  end
+
+  def manifest_for_digest(manifest)
+    digest = manifest.dig("config", "digest") or raise KeyError, "Missing config.digest"
 
     blob = client.get("/v2/#{repository.name}/blobs/#{digest}").body
     blob = JSON.parse(blob) if blob.instance_of?(String)
 
-    layers = Array.wrap(manifest.body["layers"] || manifest.body["fsLayers"]).each_with_index.map do |layer, index|
+    layers = Array.wrap(manifest["layers"] || manifest["fsLayers"]).each_with_index.map do |layer, index|
       Layer.new(
         index:  index+1,
         digest: layer["digest"] || layer["blobSum"],
@@ -39,22 +60,16 @@ class Tag < Resource
       )
     end
 
-    new(
+    Manifest.new(
       architecture:   blob.dig("architecture"),
-      content_digest: manifest.headers["docker-content-digest"],
+      content_digest: digest,
       created:        (Time.parse(blob.dig("created")) rescue nil),
       env:            blob.dig("config", "Env") || [],
       history:        blob.dig("history").map { |e| HistoryEntry.new(e) },
       labels:         blob.dig("config", "Labels") || {},
       layers:         layers,
-      name:           name,
       os:             blob.dig("os"),
       repository:     repository,
-      type:           manifest.headers["content-type"],
     )
-  end
-
-  def delete
-    client.delete("/v2/#{repository.name}/manifests/#{content_digest}").success?
   end
 end

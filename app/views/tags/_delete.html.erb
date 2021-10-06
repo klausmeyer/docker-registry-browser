@@ -4,17 +4,16 @@
     <div class="media">
       <%= image_tag "icons/danger.png", size: "50x50", class: "mr-3" %>
       <div class="media-body">
-        <h5 class="card-title mb-1">Delete Tag '<%= @tag.name %>'</h5>
+        <h5 class="card-title mb-1">Delete Tag</h5>
         <p class="card-text">
-          Please be careful. This will delete the content referenced by this tag and not just the reference.
-          <br>
-          If you have more than one tag for the same version of an image <strong>all of them</strong> will be removed.
-          <br><br>
-          You can <strong>NOT</strong> undo this!
+          Please be careful as this will not just delete the reference but also the actual content!
+          <br /><br />
+          For example when you have <strong>latest</strong> and <strong>v1.2.3</strong> both pointing to the same image<br />
+          the deletion of <strong>latest</strong> will also permanently remove <strong>v1.2.3</strong>.
         </p>
 
         <a href="#" class="btn btn-danger px-4" data-toggle="modal" data-target="#delete-dialog">
-          Delete Tag…
+          Delete
         </a>
       </div>
     </div>
@@ -32,18 +31,16 @@
       </div>
       <div class="modal-body">
         <p>
-          Please type in the name of the tag to enable the button.<br />
-          This action <strong>cannot</strong> be undone.<br />
-          This will permanently delete the <strong class="text-monospace small"><%= @tag.name %></strong> docker tag.
+          This will permanently delete the <strong><%= @tag.name %></strong> docker tag.
         </p>
         <div class="form-group">
-          <%= label_tag :delete_confirm, "Tag name" %>
-          <%= text_field_tag :delete_confirm, nil, class: "form-control", data: { expected: @tag.name }, placeholder: @tag.name %>
+          <%= label_tag :delete_confirm, "Please type in the name of the tag to enable the delete button." %>
+          <%= text_field_tag :delete_confirm, nil, class: "form-control", data: { expected: @tag.name }, placeholder: "Type here ..." %>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
-        <%= link_to "Delete Tag", tag_path(@repository.name, @tag.name), method: :delete, id: "delete-button", class: "btn btn-danger disabled" %>
+        <%= link_to "Delete", tag_path(@repository.name, @tag.name), method: :delete, id: "delete-button", class: "btn btn-danger disabled" %>
       </div>
     </div>
   </div>

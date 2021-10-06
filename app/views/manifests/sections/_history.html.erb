@@ -1,0 +1,7 @@
+<h5 class="mt-4">History</h5>
+<div class="overflow-auto">
+  <% manifest.history.each do |entry| %>
+    <span class="text-muted small"><%= entry.created %> <% if entry.comment.present? %>(<%= entry.comment %>)<% end %></span>
+    <p class="mb-3 small text-monospace"><%= entry.created_by %></p>
+  <% end %>
+</div>

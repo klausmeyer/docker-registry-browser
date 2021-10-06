@@ -7,7 +7,5 @@ Rails.application.routes.draw do
   get '*repo:*tag',             to: redirect('repo/%{repo}/tag/%{tag}'),   constraints: {repo: /.+/, tag: /[^\/]+/}
   get '*repo',                  to: redirect('repo/%{repo}'),              constraints: {repo: /.+/}
 
-  delete 'repo/*repo/tag/*tag', to: 'tags#destroy',                              constraints: {repo: /.+/, tag: /[^\/]+/}
-
-  get :ping, to: Proc.new {[200, {'Content-Type' => 'text/plain'}, ['pong']]}
+  delete 'repo/*repo/tag/*tag', to: 'tags#destroy',                        constraints: {repo: /.+/, tag: /[^\/]+/}
 end
