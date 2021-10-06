@@ -1,5 +1,16 @@
 # Changelog
 
+# v1.4.0
+
+* Support for multi arch docker images
+* Support for oci image format
+* Option for collapsed namespaces
+* Handle errors on tage delete gracefully
+* Support token based auth without hardcoded credentials
+* Available as `linux/amd64` and `linux/arm64` on hub.docker.com
+* Update to Ruby 3.0.2
+* Update to Rails 6.1.4.1
+
 # v1.3.5
 
 * Update to Ruby 2.7.2
