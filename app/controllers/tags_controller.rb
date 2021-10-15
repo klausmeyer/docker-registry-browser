@@ -13,9 +13,15 @@ class TagsController < ApplicationController
       redirect_with_flash :error, "The tag #{@tag.name} could not be deleted."
     end
   rescue Faraday::ClientError => e
-    raise unless e.response[:status] == 405
-
-    render :destroy_blocked
+    case e.response[:status]
+    when 401
+      client_error(e)
+      retry
+    when 405
+      render :destroy_blocked
+    else
+      raise
+    end
   end
 
   private

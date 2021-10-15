@@ -2,12 +2,14 @@ class ApplicationController < ActionController::Base
   rescue_from Faraday::ResourceNotFound, with: :not_found
   rescue_from Faraday::ClientError, with: :client_error
 
-  before_action do
+  before_action :set_current_auth
+
+  private
+
+  def set_current_auth
     Current.http_basic_auth = ActionController::HttpAuthentication::Basic.user_name_and_password(request)
     Current.http_token_auth = session[:registry_auth_token]
   end
-
-  private
 
   def not_found
     render file: "#{Rails.root}/public/404.html", layout: false, status: 404
@@ -55,7 +57,10 @@ class ApplicationController < ActionController::Base
 
     session[:registry_auth_scope] = auth_params['scope']
     session[:registry_auth_token] = ObtainAuthenticationToken.new(auth_params, token_authentication_credentials).call
-    redirect_to request.fullpath
+
+    set_current_auth
+
+    redirect_to request.fullpath if request.get?
   rescue ObtainAuthenticationToken::InvalidCredentials
     render 'errors/invalid_credentials'
   end

@@ -1,0 +1,612 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:5000/v2/hello-world/tags/list
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      Www-Authenticate:
+      - Bearer realm="http://localhost:5001/auth",service="Docker
+        registry",scope="repository:hello-world:pull"
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 15 Oct 2021 15:38:30 GMT
+      Content-Length:
+      - '154'
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"code":"UNAUTHORIZED","message":"authentication required","detail":[{"Type":"repository","Class":"","Name":"hello-world","Action":"pull"}]}]}
+
+        '
+  recorded_at: Fri, 15 Oct 2021 15:38:30 GMT
+- request:
+    method: get
+    uri: http://localhost:5001/auth?client_id=docker-registry-browser&offline_token=true&scope=repository:hello-world:pull&service=Docker%20registry
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Authorization:
+      - Basic YWRtaW46cGFzc3dvcmQ=
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 15 Oct 2021 15:38:30 GMT
+      Content-Length:
+      - '1536'
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IkRVSkk6WUJWRTpDMkhNOlFDUlE6N0tGNjpOVlNMOkJaUlc6TEM0UzpJVVVQOlVIV0U6RzNNSTo3TkNMIn0.eyJpc3MiOiJBdXRoIHNlcnZlciIsInN1YiI6ImFkbWluIiwiYXVkIjoiRG9ja2VyIHJlZ2lzdHJ5IiwiZXhwIjoxNjM0MzEzMjEwLCJuYmYiOjE2MzQzMTIzMDAsImlhdCI6MTYzNDMxMjMxMCwianRpIjoiMjY4OTY4ODYxNDM5MzI1Njg5NiIsImFjY2VzcyI6W3sidHlwZSI6InJlcG9zaXRvcnkiLCJuYW1lIjoiaGVsbG8td29ybGQiLCJhY3Rpb25zIjpbInB1bGwiXX1dfQ.S_ZIn9txDMRzhofJDpoQyuzuLI97RZgsx7uHKy1mBZPtOUXU97zm80TK3GPXdADZ_NlTJuWkfrzYTqtKSAhRsdvG5LHgoqiErrAh7n1BVRspryQwB1nHGHoSif2FlaaHiQEFIqRHiSDRqMu90W2-hvmq8lciD9R7881jCs8HgXD9aMZ0oBAZCsRaL6d041x8sr-fv1TaJKWli41gAygDY-0prjRGoTi7fsm2oO7tEWjZJayszJWnTpxUziQxyJesJxZe68QPFMvI1s97xHf0ghaOf2vUME91AfiAeMhXuZVxRoCaClZ0wB1Yfq1eKrHdk8B6ZloNrsCbgX4eoBQgNQ","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IkRVSkk6WUJWRTpDMkhNOlFDUlE6N0tGNjpOVlNMOkJaUlc6TEM0UzpJVVVQOlVIV0U6RzNNSTo3TkNMIn0.eyJpc3MiOiJBdXRoIHNlcnZlciIsInN1YiI6ImFkbWluIiwiYXVkIjoiRG9ja2VyIHJlZ2lzdHJ5IiwiZXhwIjoxNjM0MzEzMjEwLCJuYmYiOjE2MzQzMTIzMDAsImlhdCI6MTYzNDMxMjMxMCwianRpIjoiMjY4OTY4ODYxNDM5MzI1Njg5NiIsImFjY2VzcyI6W3sidHlwZSI6InJlcG9zaXRvcnkiLCJuYW1lIjoiaGVsbG8td29ybGQiLCJhY3Rpb25zIjpbInB1bGwiXX1dfQ.S_ZIn9txDMRzhofJDpoQyuzuLI97RZgsx7uHKy1mBZPtOUXU97zm80TK3GPXdADZ_NlTJuWkfrzYTqtKSAhRsdvG5LHgoqiErrAh7n1BVRspryQwB1nHGHoSif2FlaaHiQEFIqRHiSDRqMu90W2-hvmq8lciD9R7881jCs8HgXD9aMZ0oBAZCsRaL6d041x8sr-fv1TaJKWli41gAygDY-0prjRGoTi7fsm2oO7tEWjZJayszJWnTpxUziQxyJesJxZe68QPFMvI1s97xHf0ghaOf2vUME91AfiAeMhXuZVxRoCaClZ0wB1Yfq1eKrHdk8B6ZloNrsCbgX4eoBQgNQ"}'
+  recorded_at: Fri, 15 Oct 2021 15:38:30 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/v2/hello-world/tags/list
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IkRVSkk6WUJWRTpDMkhNOlFDUlE6N0tGNjpOVlNMOkJaUlc6TEM0UzpJVVVQOlVIV0U6RzNNSTo3TkNMIn0.eyJpc3MiOiJBdXRoIHNlcnZlciIsInN1YiI6ImFkbWluIiwiYXVkIjoiRG9ja2VyIHJlZ2lzdHJ5IiwiZXhwIjoxNjM0MzEzMjEwLCJuYmYiOjE2MzQzMTIzMDAsImlhdCI6MTYzNDMxMjMxMCwianRpIjoiMjY4OTY4ODYxNDM5MzI1Njg5NiIsImFjY2VzcyI6W3sidHlwZSI6InJlcG9zaXRvcnkiLCJuYW1lIjoiaGVsbG8td29ybGQiLCJhY3Rpb25zIjpbInB1bGwiXX1dfQ.S_ZIn9txDMRzhofJDpoQyuzuLI97RZgsx7uHKy1mBZPtOUXU97zm80TK3GPXdADZ_NlTJuWkfrzYTqtKSAhRsdvG5LHgoqiErrAh7n1BVRspryQwB1nHGHoSif2FlaaHiQEFIqRHiSDRqMu90W2-hvmq8lciD9R7881jCs8HgXD9aMZ0oBAZCsRaL6d041x8sr-fv1TaJKWli41gAygDY-0prjRGoTi7fsm2oO7tEWjZJayszJWnTpxUziQxyJesJxZe68QPFMvI1s97xHf0ghaOf2vUME91AfiAeMhXuZVxRoCaClZ0wB1Yfq1eKrHdk8B6ZloNrsCbgX4eoBQgNQ
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 15 Oct 2021 15:38:30 GMT
+      Content-Length:
+      - '44'
+    body:
+      encoding: UTF-8
+      string: '{"name":"hello-world","tags":["delete-me"]}
+
+        '
+  recorded_at: Fri, 15 Oct 2021 15:38:30 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/v2/hello-world/manifests/delete-me
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Accept:
+      - application/vnd.oci.image.manifest.v1+json, application/vnd.docker.distribution.manifest.list.v2+json,
+        application/vnd.docker.distribution.manifest.v2+json, application/vnd.docker.distribution.manifest.v1+json
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IkRVSkk6WUJWRTpDMkhNOlFDUlE6N0tGNjpOVlNMOkJaUlc6TEM0UzpJVVVQOlVIV0U6RzNNSTo3TkNMIn0.eyJpc3MiOiJBdXRoIHNlcnZlciIsInN1YiI6ImFkbWluIiwiYXVkIjoiRG9ja2VyIHJlZ2lzdHJ5IiwiZXhwIjoxNjM0MzEzMjEwLCJuYmYiOjE2MzQzMTIzMDAsImlhdCI6MTYzNDMxMjMxMCwianRpIjoiMjY4OTY4ODYxNDM5MzI1Njg5NiIsImFjY2VzcyI6W3sidHlwZSI6InJlcG9zaXRvcnkiLCJuYW1lIjoiaGVsbG8td29ybGQiLCJhY3Rpb25zIjpbInB1bGwiXX1dfQ.S_ZIn9txDMRzhofJDpoQyuzuLI97RZgsx7uHKy1mBZPtOUXU97zm80TK3GPXdADZ_NlTJuWkfrzYTqtKSAhRsdvG5LHgoqiErrAh7n1BVRspryQwB1nHGHoSif2FlaaHiQEFIqRHiSDRqMu90W2-hvmq8lciD9R7881jCs8HgXD9aMZ0oBAZCsRaL6d041x8sr-fv1TaJKWli41gAygDY-0prjRGoTi7fsm2oO7tEWjZJayszJWnTpxUziQxyJesJxZe68QPFMvI1s97xHf0ghaOf2vUME91AfiAeMhXuZVxRoCaClZ0wB1Yfq1eKrHdk8B6ZloNrsCbgX4eoBQgNQ
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '1363'
+      Content-Type:
+      - application/vnd.docker.distribution.manifest.v2+json
+      Docker-Content-Digest:
+      - sha256:b0b8dd398630cbb819d9a9c2fbd50561370856874b5d5d935be2e0af07c0ff4c
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      Etag:
+      - '"sha256:b0b8dd398630cbb819d9a9c2fbd50561370856874b5d5d935be2e0af07c0ff4c"'
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 15 Oct 2021 15:38:30 GMT
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+           "schemaVersion": 2,
+           "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+           "config": {
+              "mediaType": "application/vnd.docker.container.image.v1+json",
+              "size": 3113,
+              "digest": "sha256:b2cb11db9d3d60af38d9d6841d3b8b053e5972c0b7e4e6351e9ea4374ed37d8c"
+           },
+           "layers": [
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "size": 2817307,
+                 "digest": "sha256:6a428f9f83b0a29f1fdd2ccccca19a9bab805a925b8eddf432a5a3d3da04afbc"
+              },
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "size": 299648,
+                 "digest": "sha256:90cad49de35d1824bc606b0b4034f18bcd9f0cea7b9e637388e0664762adc935"
+              },
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "size": 6823914,
+                 "digest": "sha256:b215d0b4084623113492622ecb9f29eafab51566513f5bc5314fbdf3cab50706"
+              },
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "size": 399,
+                 "digest": "sha256:429305b6c15c7c8cdddc3991149d63e539f7a3d9d7581f4ea901454cac48bd22"
+              },
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "size": 213,
+                 "digest": "sha256:6f7e10a4e907eb65fa50e308b01a1ab9ad08a553ae856427a5fc09f778f75f7f"
+              }
+           ]
+        }
+  recorded_at: Fri, 15 Oct 2021 15:38:30 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/v2/hello-world/blobs/sha256:b2cb11db9d3d60af38d9d6841d3b8b053e5972c0b7e4e6351e9ea4374ed37d8c
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IkRVSkk6WUJWRTpDMkhNOlFDUlE6N0tGNjpOVlNMOkJaUlc6TEM0UzpJVVVQOlVIV0U6RzNNSTo3TkNMIn0.eyJpc3MiOiJBdXRoIHNlcnZlciIsInN1YiI6ImFkbWluIiwiYXVkIjoiRG9ja2VyIHJlZ2lzdHJ5IiwiZXhwIjoxNjM0MzEzMjEwLCJuYmYiOjE2MzQzMTIzMDAsImlhdCI6MTYzNDMxMjMxMCwianRpIjoiMjY4OTY4ODYxNDM5MzI1Njg5NiIsImFjY2VzcyI6W3sidHlwZSI6InJlcG9zaXRvcnkiLCJuYW1lIjoiaGVsbG8td29ybGQiLCJhY3Rpb25zIjpbInB1bGwiXX1dfQ.S_ZIn9txDMRzhofJDpoQyuzuLI97RZgsx7uHKy1mBZPtOUXU97zm80TK3GPXdADZ_NlTJuWkfrzYTqtKSAhRsdvG5LHgoqiErrAh7n1BVRspryQwB1nHGHoSif2FlaaHiQEFIqRHiSDRqMu90W2-hvmq8lciD9R7881jCs8HgXD9aMZ0oBAZCsRaL6d041x8sr-fv1TaJKWli41gAygDY-0prjRGoTi7fsm2oO7tEWjZJayszJWnTpxUziQxyJesJxZe68QPFMvI1s97xHf0ghaOf2vUME91AfiAeMhXuZVxRoCaClZ0wB1Yfq1eKrHdk8B6ZloNrsCbgX4eoBQgNQ
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Accept-Ranges:
+      - bytes
+      Cache-Control:
+      - max-age=31536000
+      Content-Length:
+      - '3113'
+      Content-Type:
+      - application/octet-stream
+      Docker-Content-Digest:
+      - sha256:b2cb11db9d3d60af38d9d6841d3b8b053e5972c0b7e4e6351e9ea4374ed37d8c
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      Etag:
+      - '"sha256:b2cb11db9d3d60af38d9d6841d3b8b053e5972c0b7e4e6351e9ea4374ed37d8c"'
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 15 Oct 2021 15:38:30 GMT
+    body:
+      encoding: UTF-8
+      string: '{"architecture":"amd64","config":{"Hostname":"","Domainname":"","User":"","AttachStdin":false,"AttachStdout":false,"AttachStderr":false,"ExposedPorts":{"5000/tcp":{}},"Tty":false,"OpenStdin":false,"StdinOnce":false,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"],"Cmd":["/etc/docker/registry/config.yml"],"Image":"sha256:69d7656ff69f7d7702a630ef8394dd9e263b6f69b84b790a67fbf4af84f2292a","Volumes":{"/var/lib/registry":{}},"WorkingDir":"","Entrypoint":["/entrypoint.sh"],"OnBuild":null,"Labels":null},"container":"e01f83f429ab49e18dbed26a99b8d45347ea96cf860faa76c9d129d3d9f905f7","container_config":{"Hostname":"e01f83f429ab","Domainname":"","User":"","AttachStdin":false,"AttachStdout":false,"AttachStderr":false,"ExposedPorts":{"5000/tcp":{}},"Tty":false,"OpenStdin":false,"StdinOnce":false,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"],"Cmd":["/bin/sh","-c","#(nop)
+        ","CMD [\"/etc/docker/registry/config.yml\"]"],"Image":"sha256:69d7656ff69f7d7702a630ef8394dd9e263b6f69b84b790a67fbf4af84f2292a","Volumes":{"/var/lib/registry":{}},"WorkingDir":"","Entrypoint":["/entrypoint.sh"],"OnBuild":null,"Labels":{}},"created":"2021-09-01T05:46:01.515980819Z","docker_version":"20.10.7","history":[{"created":"2021-08-31T23:18:31.206789071Z","created_by":"/bin/sh
+        -c #(nop) ADD file:9d14b11183983923090d9e6d15cc51ee210466296e913bfefbfd580b3de59c95
+        in / "},{"created":"2021-08-31T23:18:31.468221118Z","created_by":"/bin/sh
+        -c #(nop)  CMD [\"/bin/sh\"]","empty_layer":true},{"created":"2021-09-01T05:45:59.908983847Z","created_by":"/bin/sh
+        -c set -ex     \u0026\u0026 apk add --no-cache ca-certificates"},{"created":"2021-09-01T05:46:00.263213553Z","created_by":"/bin/sh
+        -c #(nop) COPY file:21256ff7df5369f7ad2e19c6d020a644303aded200bdbec4d46648f38d55df78
+        in /bin/registry "},{"created":"2021-09-01T05:46:00.561451735Z","created_by":"/bin/sh
+        -c #(nop) COPY file:4544cc1555469403b322faecc1cf1ca584667c43a6a60b17300f97840c04196e
+        in /etc/docker/registry/config.yml "},{"created":"2021-09-01T05:46:00.739371101Z","created_by":"/bin/sh
+        -c #(nop)  VOLUME [/var/lib/registry]","empty_layer":true},{"created":"2021-09-01T05:46:00.931580212Z","created_by":"/bin/sh
+        -c #(nop)  EXPOSE 5000","empty_layer":true},{"created":"2021-09-01T05:46:01.144256538Z","created_by":"/bin/sh
+        -c #(nop) COPY file:507caa54f88c1f3862e5876e09a108b2083630ba24c57ad124e356a2de861d62
+        in /entrypoint.sh "},{"created":"2021-09-01T05:46:01.323218699Z","created_by":"/bin/sh
+        -c #(nop)  ENTRYPOINT [\"/entrypoint.sh\"]","empty_layer":true},{"created":"2021-09-01T05:46:01.515980819Z","created_by":"/bin/sh
+        -c #(nop)  CMD [\"/etc/docker/registry/config.yml\"]","empty_layer":true}],"os":"linux","rootfs":{"type":"layers","diff_ids":["sha256:39982b2a789afc156fff00c707d0ff1c6ab4af8f1666a8df4787714059ce24e7","sha256:02ada6f7a843d24d8e81d99e2818184e9a73aedb5bb76f50f6e9633a0817b90c","sha256:d661c8a70d1ee832937068102c42989860387ed101386da26fdae64aa2e5ac2b","sha256:d385a2515a0f65727c1c6de10b21dd9a7724cd744090aacc262d15fda6cf3d40","sha256:6da1e15d5d7fafdaaf637d4995da82a086515e9ed97bce10e4d03f2bad84ab0b"]}}'
+  recorded_at: Fri, 15 Oct 2021 15:38:30 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/v2/hello-world/tags/list
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IkRVSkk6WUJWRTpDMkhNOlFDUlE6N0tGNjpOVlNMOkJaUlc6TEM0UzpJVVVQOlVIV0U6RzNNSTo3TkNMIn0.eyJpc3MiOiJBdXRoIHNlcnZlciIsInN1YiI6ImFkbWluIiwiYXVkIjoiRG9ja2VyIHJlZ2lzdHJ5IiwiZXhwIjoxNjM0MzEzMjEwLCJuYmYiOjE2MzQzMTIzMDAsImlhdCI6MTYzNDMxMjMxMCwianRpIjoiMjY4OTY4ODYxNDM5MzI1Njg5NiIsImFjY2VzcyI6W3sidHlwZSI6InJlcG9zaXRvcnkiLCJuYW1lIjoiaGVsbG8td29ybGQiLCJhY3Rpb25zIjpbInB1bGwiXX1dfQ.S_ZIn9txDMRzhofJDpoQyuzuLI97RZgsx7uHKy1mBZPtOUXU97zm80TK3GPXdADZ_NlTJuWkfrzYTqtKSAhRsdvG5LHgoqiErrAh7n1BVRspryQwB1nHGHoSif2FlaaHiQEFIqRHiSDRqMu90W2-hvmq8lciD9R7881jCs8HgXD9aMZ0oBAZCsRaL6d041x8sr-fv1TaJKWli41gAygDY-0prjRGoTi7fsm2oO7tEWjZJayszJWnTpxUziQxyJesJxZe68QPFMvI1s97xHf0ghaOf2vUME91AfiAeMhXuZVxRoCaClZ0wB1Yfq1eKrHdk8B6ZloNrsCbgX4eoBQgNQ
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 15 Oct 2021 15:38:31 GMT
+      Content-Length:
+      - '44'
+    body:
+      encoding: UTF-8
+      string: '{"name":"hello-world","tags":["delete-me"]}
+
+        '
+  recorded_at: Fri, 15 Oct 2021 15:38:31 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/v2/hello-world/manifests/delete-me
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Accept:
+      - application/vnd.oci.image.manifest.v1+json, application/vnd.docker.distribution.manifest.list.v2+json,
+        application/vnd.docker.distribution.manifest.v2+json, application/vnd.docker.distribution.manifest.v1+json
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IkRVSkk6WUJWRTpDMkhNOlFDUlE6N0tGNjpOVlNMOkJaUlc6TEM0UzpJVVVQOlVIV0U6RzNNSTo3TkNMIn0.eyJpc3MiOiJBdXRoIHNlcnZlciIsInN1YiI6ImFkbWluIiwiYXVkIjoiRG9ja2VyIHJlZ2lzdHJ5IiwiZXhwIjoxNjM0MzEzMjEwLCJuYmYiOjE2MzQzMTIzMDAsImlhdCI6MTYzNDMxMjMxMCwianRpIjoiMjY4OTY4ODYxNDM5MzI1Njg5NiIsImFjY2VzcyI6W3sidHlwZSI6InJlcG9zaXRvcnkiLCJuYW1lIjoiaGVsbG8td29ybGQiLCJhY3Rpb25zIjpbInB1bGwiXX1dfQ.S_ZIn9txDMRzhofJDpoQyuzuLI97RZgsx7uHKy1mBZPtOUXU97zm80TK3GPXdADZ_NlTJuWkfrzYTqtKSAhRsdvG5LHgoqiErrAh7n1BVRspryQwB1nHGHoSif2FlaaHiQEFIqRHiSDRqMu90W2-hvmq8lciD9R7881jCs8HgXD9aMZ0oBAZCsRaL6d041x8sr-fv1TaJKWli41gAygDY-0prjRGoTi7fsm2oO7tEWjZJayszJWnTpxUziQxyJesJxZe68QPFMvI1s97xHf0ghaOf2vUME91AfiAeMhXuZVxRoCaClZ0wB1Yfq1eKrHdk8B6ZloNrsCbgX4eoBQgNQ
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '1363'
+      Content-Type:
+      - application/vnd.docker.distribution.manifest.v2+json
+      Docker-Content-Digest:
+      - sha256:b0b8dd398630cbb819d9a9c2fbd50561370856874b5d5d935be2e0af07c0ff4c
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      Etag:
+      - '"sha256:b0b8dd398630cbb819d9a9c2fbd50561370856874b5d5d935be2e0af07c0ff4c"'
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 15 Oct 2021 15:38:31 GMT
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+           "schemaVersion": 2,
+           "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+           "config": {
+              "mediaType": "application/vnd.docker.container.image.v1+json",
+              "size": 3113,
+              "digest": "sha256:b2cb11db9d3d60af38d9d6841d3b8b053e5972c0b7e4e6351e9ea4374ed37d8c"
+           },
+           "layers": [
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "size": 2817307,
+                 "digest": "sha256:6a428f9f83b0a29f1fdd2ccccca19a9bab805a925b8eddf432a5a3d3da04afbc"
+              },
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "size": 299648,
+                 "digest": "sha256:90cad49de35d1824bc606b0b4034f18bcd9f0cea7b9e637388e0664762adc935"
+              },
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "size": 6823914,
+                 "digest": "sha256:b215d0b4084623113492622ecb9f29eafab51566513f5bc5314fbdf3cab50706"
+              },
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "size": 399,
+                 "digest": "sha256:429305b6c15c7c8cdddc3991149d63e539f7a3d9d7581f4ea901454cac48bd22"
+              },
+              {
+                 "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+                 "size": 213,
+                 "digest": "sha256:6f7e10a4e907eb65fa50e308b01a1ab9ad08a553ae856427a5fc09f778f75f7f"
+              }
+           ]
+        }
+  recorded_at: Fri, 15 Oct 2021 15:38:31 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/v2/hello-world/blobs/sha256:b2cb11db9d3d60af38d9d6841d3b8b053e5972c0b7e4e6351e9ea4374ed37d8c
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IkRVSkk6WUJWRTpDMkhNOlFDUlE6N0tGNjpOVlNMOkJaUlc6TEM0UzpJVVVQOlVIV0U6RzNNSTo3TkNMIn0.eyJpc3MiOiJBdXRoIHNlcnZlciIsInN1YiI6ImFkbWluIiwiYXVkIjoiRG9ja2VyIHJlZ2lzdHJ5IiwiZXhwIjoxNjM0MzEzMjEwLCJuYmYiOjE2MzQzMTIzMDAsImlhdCI6MTYzNDMxMjMxMCwianRpIjoiMjY4OTY4ODYxNDM5MzI1Njg5NiIsImFjY2VzcyI6W3sidHlwZSI6InJlcG9zaXRvcnkiLCJuYW1lIjoiaGVsbG8td29ybGQiLCJhY3Rpb25zIjpbInB1bGwiXX1dfQ.S_ZIn9txDMRzhofJDpoQyuzuLI97RZgsx7uHKy1mBZPtOUXU97zm80TK3GPXdADZ_NlTJuWkfrzYTqtKSAhRsdvG5LHgoqiErrAh7n1BVRspryQwB1nHGHoSif2FlaaHiQEFIqRHiSDRqMu90W2-hvmq8lciD9R7881jCs8HgXD9aMZ0oBAZCsRaL6d041x8sr-fv1TaJKWli41gAygDY-0prjRGoTi7fsm2oO7tEWjZJayszJWnTpxUziQxyJesJxZe68QPFMvI1s97xHf0ghaOf2vUME91AfiAeMhXuZVxRoCaClZ0wB1Yfq1eKrHdk8B6ZloNrsCbgX4eoBQgNQ
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Accept-Ranges:
+      - bytes
+      Cache-Control:
+      - max-age=31536000
+      Content-Length:
+      - '3113'
+      Content-Type:
+      - application/octet-stream
+      Docker-Content-Digest:
+      - sha256:b2cb11db9d3d60af38d9d6841d3b8b053e5972c0b7e4e6351e9ea4374ed37d8c
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      Etag:
+      - '"sha256:b2cb11db9d3d60af38d9d6841d3b8b053e5972c0b7e4e6351e9ea4374ed37d8c"'
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 15 Oct 2021 15:38:31 GMT
+    body:
+      encoding: UTF-8
+      string: '{"architecture":"amd64","config":{"Hostname":"","Domainname":"","User":"","AttachStdin":false,"AttachStdout":false,"AttachStderr":false,"ExposedPorts":{"5000/tcp":{}},"Tty":false,"OpenStdin":false,"StdinOnce":false,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"],"Cmd":["/etc/docker/registry/config.yml"],"Image":"sha256:69d7656ff69f7d7702a630ef8394dd9e263b6f69b84b790a67fbf4af84f2292a","Volumes":{"/var/lib/registry":{}},"WorkingDir":"","Entrypoint":["/entrypoint.sh"],"OnBuild":null,"Labels":null},"container":"e01f83f429ab49e18dbed26a99b8d45347ea96cf860faa76c9d129d3d9f905f7","container_config":{"Hostname":"e01f83f429ab","Domainname":"","User":"","AttachStdin":false,"AttachStdout":false,"AttachStderr":false,"ExposedPorts":{"5000/tcp":{}},"Tty":false,"OpenStdin":false,"StdinOnce":false,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"],"Cmd":["/bin/sh","-c","#(nop)
+        ","CMD [\"/etc/docker/registry/config.yml\"]"],"Image":"sha256:69d7656ff69f7d7702a630ef8394dd9e263b6f69b84b790a67fbf4af84f2292a","Volumes":{"/var/lib/registry":{}},"WorkingDir":"","Entrypoint":["/entrypoint.sh"],"OnBuild":null,"Labels":{}},"created":"2021-09-01T05:46:01.515980819Z","docker_version":"20.10.7","history":[{"created":"2021-08-31T23:18:31.206789071Z","created_by":"/bin/sh
+        -c #(nop) ADD file:9d14b11183983923090d9e6d15cc51ee210466296e913bfefbfd580b3de59c95
+        in / "},{"created":"2021-08-31T23:18:31.468221118Z","created_by":"/bin/sh
+        -c #(nop)  CMD [\"/bin/sh\"]","empty_layer":true},{"created":"2021-09-01T05:45:59.908983847Z","created_by":"/bin/sh
+        -c set -ex     \u0026\u0026 apk add --no-cache ca-certificates"},{"created":"2021-09-01T05:46:00.263213553Z","created_by":"/bin/sh
+        -c #(nop) COPY file:21256ff7df5369f7ad2e19c6d020a644303aded200bdbec4d46648f38d55df78
+        in /bin/registry "},{"created":"2021-09-01T05:46:00.561451735Z","created_by":"/bin/sh
+        -c #(nop) COPY file:4544cc1555469403b322faecc1cf1ca584667c43a6a60b17300f97840c04196e
+        in /etc/docker/registry/config.yml "},{"created":"2021-09-01T05:46:00.739371101Z","created_by":"/bin/sh
+        -c #(nop)  VOLUME [/var/lib/registry]","empty_layer":true},{"created":"2021-09-01T05:46:00.931580212Z","created_by":"/bin/sh
+        -c #(nop)  EXPOSE 5000","empty_layer":true},{"created":"2021-09-01T05:46:01.144256538Z","created_by":"/bin/sh
+        -c #(nop) COPY file:507caa54f88c1f3862e5876e09a108b2083630ba24c57ad124e356a2de861d62
+        in /entrypoint.sh "},{"created":"2021-09-01T05:46:01.323218699Z","created_by":"/bin/sh
+        -c #(nop)  ENTRYPOINT [\"/entrypoint.sh\"]","empty_layer":true},{"created":"2021-09-01T05:46:01.515980819Z","created_by":"/bin/sh
+        -c #(nop)  CMD [\"/etc/docker/registry/config.yml\"]","empty_layer":true}],"os":"linux","rootfs":{"type":"layers","diff_ids":["sha256:39982b2a789afc156fff00c707d0ff1c6ab4af8f1666a8df4787714059ce24e7","sha256:02ada6f7a843d24d8e81d99e2818184e9a73aedb5bb76f50f6e9633a0817b90c","sha256:d661c8a70d1ee832937068102c42989860387ed101386da26fdae64aa2e5ac2b","sha256:d385a2515a0f65727c1c6de10b21dd9a7724cd744090aacc262d15fda6cf3d40","sha256:6da1e15d5d7fafdaaf637d4995da82a086515e9ed97bce10e4d03f2bad84ab0b"]}}'
+  recorded_at: Fri, 15 Oct 2021 15:38:31 GMT
+- request:
+    method: delete
+    uri: http://localhost:5000/v2/hello-world/manifests/sha256:b0b8dd398630cbb819d9a9c2fbd50561370856874b5d5d935be2e0af07c0ff4c
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IkRVSkk6WUJWRTpDMkhNOlFDUlE6N0tGNjpOVlNMOkJaUlc6TEM0UzpJVVVQOlVIV0U6RzNNSTo3TkNMIn0.eyJpc3MiOiJBdXRoIHNlcnZlciIsInN1YiI6ImFkbWluIiwiYXVkIjoiRG9ja2VyIHJlZ2lzdHJ5IiwiZXhwIjoxNjM0MzEzMjEwLCJuYmYiOjE2MzQzMTIzMDAsImlhdCI6MTYzNDMxMjMxMCwianRpIjoiMjY4OTY4ODYxNDM5MzI1Njg5NiIsImFjY2VzcyI6W3sidHlwZSI6InJlcG9zaXRvcnkiLCJuYW1lIjoiaGVsbG8td29ybGQiLCJhY3Rpb25zIjpbInB1bGwiXX1dfQ.S_ZIn9txDMRzhofJDpoQyuzuLI97RZgsx7uHKy1mBZPtOUXU97zm80TK3GPXdADZ_NlTJuWkfrzYTqtKSAhRsdvG5LHgoqiErrAh7n1BVRspryQwB1nHGHoSif2FlaaHiQEFIqRHiSDRqMu90W2-hvmq8lciD9R7881jCs8HgXD9aMZ0oBAZCsRaL6d041x8sr-fv1TaJKWli41gAygDY-0prjRGoTi7fsm2oO7tEWjZJayszJWnTpxUziQxyJesJxZe68QPFMvI1s97xHf0ghaOf2vUME91AfiAeMhXuZVxRoCaClZ0wB1Yfq1eKrHdk8B6ZloNrsCbgX4eoBQgNQ
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      Www-Authenticate:
+      - Bearer realm="http://localhost:5001/auth",service="Docker
+        registry",scope="repository:hello-world:delete",error="insufficient_scope"
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 15 Oct 2021 15:38:31 GMT
+      Content-Length:
+      - '156'
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"code":"UNAUTHORIZED","message":"authentication required","detail":[{"Type":"repository","Class":"","Name":"hello-world","Action":"delete"}]}]}
+
+        '
+  recorded_at: Fri, 15 Oct 2021 15:38:31 GMT
+- request:
+    method: get
+    uri: http://localhost:5001/auth?client_id=docker-registry-browser&offline_token=true&scope=repository:hello-world:delete&service=Docker%20registry
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Authorization:
+      - Basic YWRtaW46cGFzc3dvcmQ=
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 15 Oct 2021 15:38:31 GMT
+      Content-Length:
+      - '1540'
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IkRVSkk6WUJWRTpDMkhNOlFDUlE6N0tGNjpOVlNMOkJaUlc6TEM0UzpJVVVQOlVIV0U6RzNNSTo3TkNMIn0.eyJpc3MiOiJBdXRoIHNlcnZlciIsInN1YiI6ImFkbWluIiwiYXVkIjoiRG9ja2VyIHJlZ2lzdHJ5IiwiZXhwIjoxNjM0MzEzMjExLCJuYmYiOjE2MzQzMTIzMDEsImlhdCI6MTYzNDMxMjMxMSwianRpIjoiNjU5NDM5MDI5OTQ3NjUwODMzOSIsImFjY2VzcyI6W3sidHlwZSI6InJlcG9zaXRvcnkiLCJuYW1lIjoiaGVsbG8td29ybGQiLCJhY3Rpb25zIjpbImRlbGV0ZSJdfV19.Fi33aesAZQN9EWMZ1i88MEaaa_HE2cekNRcyPIzfCVUMUCE-frZmR_ocZiQieJv1ZgGvayzVuEzQECI7G-PepqquoJyg_cQnziHbNbJK8t8bPXLWLuILF_K-01oxEd57G-9PBtSu-kwGk5Y-WFBw_x0n_SbAKvCsAJmTLaV07uStOhBfcGE2HDXPY12qkIBe8MaOhVjsanOnHAiYXN11iRlTWj9YoNK7Jicp0MIaw9wafT1io0B39zNHisetcnTIoo_askBPXYJm2MUrEEW5Q0iU8xw_p_UAXKzNzWvxONo0pji8UiRFZRLurzZrLU9uI83hhCzx-bj3Xs1qYb4SSQ","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IkRVSkk6WUJWRTpDMkhNOlFDUlE6N0tGNjpOVlNMOkJaUlc6TEM0UzpJVVVQOlVIV0U6RzNNSTo3TkNMIn0.eyJpc3MiOiJBdXRoIHNlcnZlciIsInN1YiI6ImFkbWluIiwiYXVkIjoiRG9ja2VyIHJlZ2lzdHJ5IiwiZXhwIjoxNjM0MzEzMjExLCJuYmYiOjE2MzQzMTIzMDEsImlhdCI6MTYzNDMxMjMxMSwianRpIjoiNjU5NDM5MDI5OTQ3NjUwODMzOSIsImFjY2VzcyI6W3sidHlwZSI6InJlcG9zaXRvcnkiLCJuYW1lIjoiaGVsbG8td29ybGQiLCJhY3Rpb25zIjpbImRlbGV0ZSJdfV19.Fi33aesAZQN9EWMZ1i88MEaaa_HE2cekNRcyPIzfCVUMUCE-frZmR_ocZiQieJv1ZgGvayzVuEzQECI7G-PepqquoJyg_cQnziHbNbJK8t8bPXLWLuILF_K-01oxEd57G-9PBtSu-kwGk5Y-WFBw_x0n_SbAKvCsAJmTLaV07uStOhBfcGE2HDXPY12qkIBe8MaOhVjsanOnHAiYXN11iRlTWj9YoNK7Jicp0MIaw9wafT1io0B39zNHisetcnTIoo_askBPXYJm2MUrEEW5Q0iU8xw_p_UAXKzNzWvxONo0pji8UiRFZRLurzZrLU9uI83hhCzx-bj3Xs1qYb4SSQ"}'
+  recorded_at: Fri, 15 Oct 2021 15:38:31 GMT
+- request:
+    method: delete
+    uri: http://localhost:5000/v2/hello-world/manifests/sha256:b0b8dd398630cbb819d9a9c2fbd50561370856874b5d5d935be2e0af07c0ff4c
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IkRVSkk6WUJWRTpDMkhNOlFDUlE6N0tGNjpOVlNMOkJaUlc6TEM0UzpJVVVQOlVIV0U6RzNNSTo3TkNMIn0.eyJpc3MiOiJBdXRoIHNlcnZlciIsInN1YiI6ImFkbWluIiwiYXVkIjoiRG9ja2VyIHJlZ2lzdHJ5IiwiZXhwIjoxNjM0MzEzMjExLCJuYmYiOjE2MzQzMTIzMDEsImlhdCI6MTYzNDMxMjMxMSwianRpIjoiNjU5NDM5MDI5OTQ3NjUwODMzOSIsImFjY2VzcyI6W3sidHlwZSI6InJlcG9zaXRvcnkiLCJuYW1lIjoiaGVsbG8td29ybGQiLCJhY3Rpb25zIjpbImRlbGV0ZSJdfV19.Fi33aesAZQN9EWMZ1i88MEaaa_HE2cekNRcyPIzfCVUMUCE-frZmR_ocZiQieJv1ZgGvayzVuEzQECI7G-PepqquoJyg_cQnziHbNbJK8t8bPXLWLuILF_K-01oxEd57G-9PBtSu-kwGk5Y-WFBw_x0n_SbAKvCsAJmTLaV07uStOhBfcGE2HDXPY12qkIBe8MaOhVjsanOnHAiYXN11iRlTWj9YoNK7Jicp0MIaw9wafT1io0B39zNHisetcnTIoo_askBPXYJm2MUrEEW5Q0iU8xw_p_UAXKzNzWvxONo0pji8UiRFZRLurzZrLU9uI83hhCzx-bj3Xs1qYb4SSQ
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 15 Oct 2021 15:38:31 GMT
+      Content-Length:
+      - '0'
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Fri, 15 Oct 2021 15:38:31 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/v2/hello-world/tags/list
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IkRVSkk6WUJWRTpDMkhNOlFDUlE6N0tGNjpOVlNMOkJaUlc6TEM0UzpJVVVQOlVIV0U6RzNNSTo3TkNMIn0.eyJpc3MiOiJBdXRoIHNlcnZlciIsInN1YiI6ImFkbWluIiwiYXVkIjoiRG9ja2VyIHJlZ2lzdHJ5IiwiZXhwIjoxNjM0MzEzMjExLCJuYmYiOjE2MzQzMTIzMDEsImlhdCI6MTYzNDMxMjMxMSwianRpIjoiNjU5NDM5MDI5OTQ3NjUwODMzOSIsImFjY2VzcyI6W3sidHlwZSI6InJlcG9zaXRvcnkiLCJuYW1lIjoiaGVsbG8td29ybGQiLCJhY3Rpb25zIjpbImRlbGV0ZSJdfV19.Fi33aesAZQN9EWMZ1i88MEaaa_HE2cekNRcyPIzfCVUMUCE-frZmR_ocZiQieJv1ZgGvayzVuEzQECI7G-PepqquoJyg_cQnziHbNbJK8t8bPXLWLuILF_K-01oxEd57G-9PBtSu-kwGk5Y-WFBw_x0n_SbAKvCsAJmTLaV07uStOhBfcGE2HDXPY12qkIBe8MaOhVjsanOnHAiYXN11iRlTWj9YoNK7Jicp0MIaw9wafT1io0B39zNHisetcnTIoo_askBPXYJm2MUrEEW5Q0iU8xw_p_UAXKzNzWvxONo0pji8UiRFZRLurzZrLU9uI83hhCzx-bj3Xs1qYb4SSQ
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      Www-Authenticate:
+      - Bearer realm="http://localhost:5001/auth",service="Docker
+        registry",scope="repository:hello-world:pull",error="insufficient_scope"
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 15 Oct 2021 15:38:31 GMT
+      Content-Length:
+      - '154'
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"code":"UNAUTHORIZED","message":"authentication required","detail":[{"Type":"repository","Class":"","Name":"hello-world","Action":"pull"}]}]}
+
+        '
+  recorded_at: Fri, 15 Oct 2021 15:38:31 GMT
+- request:
+    method: get
+    uri: http://localhost:5001/auth?client_id=docker-registry-browser&offline_token=true&scope=repository:hello-world:pull&service=Docker%20registry
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Authorization:
+      - Basic YWRtaW46YmFkbWlu
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 15 Oct 2021 15:38:31 GMT
+      Content-Length:
+      - '1536'
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IkRVSkk6WUJWRTpDMkhNOlFDUlE6N0tGNjpOVlNMOkJaUlc6TEM0UzpJVVVQOlVIV0U6RzNNSTo3TkNMIn0.eyJpc3MiOiJBdXRoIHNlcnZlciIsInN1YiI6ImFkbWluIiwiYXVkIjoiRG9ja2VyIHJlZ2lzdHJ5IiwiZXhwIjoxNjM0MzEzMjExLCJuYmYiOjE2MzQzMTIzMDEsImlhdCI6MTYzNDMxMjMxMSwianRpIjoiMTI3MzI3OTI3NDM3MzczOTAwNyIsImFjY2VzcyI6W3sidHlwZSI6InJlcG9zaXRvcnkiLCJuYW1lIjoiaGVsbG8td29ybGQiLCJhY3Rpb25zIjpbInB1bGwiXX1dfQ.0wo40yZoiI-3i3cxiRXL2u9Zss_FQ9mOzojn-rjpJLfqcsCGo-I3OEKjl-noMHBDNAxyRwHmmYCaJZsNQ9KS7gehCV_qpt3fyujE-cvbR3ASlW-TridpOl91pHOOzLiaun-wGHvrtybwOw9J_TfrcnZm_thlGeCFxrtrJnUm2AUm4T31cPjYxHQolw0na5JL6lN0rbDKA8I_S4btJaPiZS7RE3Kxe13f_3lJYMjy1GK6ouhNGY9CvlOXfgGskBsutX9iHn8HSOLcc5QVj6quJfB-kiVnTU9maBhPlx9svtK7FMmc3mYGO2s9uXMybM3YeIHSMNJFpOgxWvLoGHbYtw","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IkRVSkk6WUJWRTpDMkhNOlFDUlE6N0tGNjpOVlNMOkJaUlc6TEM0UzpJVVVQOlVIV0U6RzNNSTo3TkNMIn0.eyJpc3MiOiJBdXRoIHNlcnZlciIsInN1YiI6ImFkbWluIiwiYXVkIjoiRG9ja2VyIHJlZ2lzdHJ5IiwiZXhwIjoxNjM0MzEzMjExLCJuYmYiOjE2MzQzMTIzMDEsImlhdCI6MTYzNDMxMjMxMSwianRpIjoiMTI3MzI3OTI3NDM3MzczOTAwNyIsImFjY2VzcyI6W3sidHlwZSI6InJlcG9zaXRvcnkiLCJuYW1lIjoiaGVsbG8td29ybGQiLCJhY3Rpb25zIjpbInB1bGwiXX1dfQ.0wo40yZoiI-3i3cxiRXL2u9Zss_FQ9mOzojn-rjpJLfqcsCGo-I3OEKjl-noMHBDNAxyRwHmmYCaJZsNQ9KS7gehCV_qpt3fyujE-cvbR3ASlW-TridpOl91pHOOzLiaun-wGHvrtybwOw9J_TfrcnZm_thlGeCFxrtrJnUm2AUm4T31cPjYxHQolw0na5JL6lN0rbDKA8I_S4btJaPiZS7RE3Kxe13f_3lJYMjy1GK6ouhNGY9CvlOXfgGskBsutX9iHn8HSOLcc5QVj6quJfB-kiVnTU9maBhPlx9svtK7FMmc3mYGO2s9uXMybM3YeIHSMNJFpOgxWvLoGHbYtw"}'
+  recorded_at: Fri, 15 Oct 2021 15:38:31 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/v2/hello-world/tags/list
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IkRVSkk6WUJWRTpDMkhNOlFDUlE6N0tGNjpOVlNMOkJaUlc6TEM0UzpJVVVQOlVIV0U6RzNNSTo3TkNMIn0.eyJpc3MiOiJBdXRoIHNlcnZlciIsInN1YiI6ImFkbWluIiwiYXVkIjoiRG9ja2VyIHJlZ2lzdHJ5IiwiZXhwIjoxNjM0MzEzMjExLCJuYmYiOjE2MzQzMTIzMDEsImlhdCI6MTYzNDMxMjMxMSwianRpIjoiMTI3MzI3OTI3NDM3MzczOTAwNyIsImFjY2VzcyI6W3sidHlwZSI6InJlcG9zaXRvcnkiLCJuYW1lIjoiaGVsbG8td29ybGQiLCJhY3Rpb25zIjpbInB1bGwiXX1dfQ.0wo40yZoiI-3i3cxiRXL2u9Zss_FQ9mOzojn-rjpJLfqcsCGo-I3OEKjl-noMHBDNAxyRwHmmYCaJZsNQ9KS7gehCV_qpt3fyujE-cvbR3ASlW-TridpOl91pHOOzLiaun-wGHvrtybwOw9J_TfrcnZm_thlGeCFxrtrJnUm2AUm4T31cPjYxHQolw0na5JL6lN0rbDKA8I_S4btJaPiZS7RE3Kxe13f_3lJYMjy1GK6ouhNGY9CvlOXfgGskBsutX9iHn8HSOLcc5QVj6quJfB-kiVnTU9maBhPlx9svtK7FMmc3mYGO2s9uXMybM3YeIHSMNJFpOgxWvLoGHbYtw
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 15 Oct 2021 15:38:31 GMT
+      Content-Length:
+      - '35'
+    body:
+      encoding: UTF-8
+      string: '{"name":"hello-world","tags":null}
+
+        '
+  recorded_at: Fri, 15 Oct 2021 15:38:31 GMT
+recorded_with: VCR 6.0.0
