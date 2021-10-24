@@ -17,7 +17,7 @@ class Tag < Resource
   def initialize(**args)
     super
 
-    self.manifests = fetch_manifests
+    self.manifests = fetch_manifests.sort_by(&:architecture)
   end
 
   def delete
@@ -61,7 +61,7 @@ class Tag < Resource
     end
 
     Manifest.new(
-      architecture:   blob.dig("architecture"),
+      architecture:   [blob.dig("architecture"), blob.dig("variant")].compact.join("-"),
       content_digest: digest,
       created:        (Time.parse(blob.dig("created")) rescue nil),
       env:            blob.dig("config", "Env") || [],
