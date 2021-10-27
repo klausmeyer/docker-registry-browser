@@ -12,11 +12,13 @@
 
         <span class="text-muted small">Image</span>
         <h5 class="card-title mb-0"><%= @repository.image %></h5>
+
+        <%= render "sort_links" %>
       <% end %>
 
-      <% if @repository.tags.any? %>
+      <% if @tags.any? %>
         <div class="list-group list-group-flush">
-          <% @repository.tags.sort.reverse.each do |tag| %>
+          <% @tags.each do |tag| %>
             <% if Rails.configuration.x.public_registry_url %>
               <div class="copy-to-clipboard-icon">
                 <%= render partial: "shared/copy_to_clipboard", locals: { name: :pull_cmd, value: pull_command(@repository.name, tag), style: "icon" } %>
