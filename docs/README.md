@@ -80,7 +80,7 @@ This option defines where the application will load it's SSL key from.
 
 Default: Not used
 
-### Features
+### Features / User Interface
 
 #### `ENABLE_COLLAPSE_NAMESPACES`
 
@@ -97,6 +97,32 @@ Please note that this button will only work when the delete feature is also enab
 See https://docs.docker.com/registry/configuration/#delete for details.
 
 Default: `false`
+
+#### `SORT_TAGS_BY`
+
+This option allows to define the default sort criteria for the tags list.
+
+It is used whenever the user has no custom selection (cookie).
+
+Possible values:
+
+* `api`: Keep the sort as provided by the registry API
+* `name`: Sort the tags in alphabetical order
+
+Default: `name`
+
+#### `SORT_TAGS_ORDER`
+
+This option allows to define the default sort order for the tags list.
+
+It is used whenever the user has no custom selection (cookie).
+
+Possible values:
+
+* `asc`: Normal sort order
+* `desc`: Inverse sort order
+
+Default: `desc`
 
 ### Connection to the Registry
 

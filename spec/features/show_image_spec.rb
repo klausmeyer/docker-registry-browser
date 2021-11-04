@@ -10,8 +10,12 @@ feature "Image details" do
     expect(page).to have_content "/"
     expect(page).to have_content "Image"
     expect(page).to have_content "hello-world"
-    expect(page).to have_content "latest"
-    expect(page).to have_content "v1"
-    expect(page).to have_content "v2"
+    expect(page).to have_content "Tag v2\nTag v1\nTag latest"
+  end
+
+  scenario "Use custom sort for tags", :vcr do
+    visit "/repo/hello-world?sort_tags_by=api&sort_tags_order=asc"
+
+    expect(page).to have_content "Tag v2\nTag latest\nTag v1"
   end
 end
