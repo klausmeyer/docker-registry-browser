@@ -210,7 +210,9 @@ registry-browser:
 
 In your reverse proxy it's important to make sure the proxied request doesn't contain the name of the subfolder.
 
-For [nginx][nginx] you can do that by making sure to add a `/` at the end of the URL used in the `proxy_pass` directive.
+### Example: Nginx (Standalone)
+
+Make sure to add a `/` at the end of the URL used in the `proxy_pass` directive.
 
 ```nginx
 server {
@@ -229,7 +231,36 @@ server {
 }
 ```
 
-The same can be archived with [traefik][traefik] and a small middleware:
+### Example: Nginx Ingress Controller (k8s):
+
+Add a `rewrite-target` to avoid the path being proxied to the application.
+
+```yaml
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+  name: docker-registry-browser
+  namespace: docker-registry
+spec:
+  rules:
+  - host: registry.example.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /browser/(.*)
+        backend:
+          service:
+            name: docker-registry-browser
+            port:
+              number: 8080
+```
+
+### Example: Traefik
+
+Use a custom middleware to avoid proxying the path to the application.
 
 ```yaml
 labels:
@@ -238,7 +269,7 @@ labels:
   - 'traefik.http.routers.browser.middlewares=browser-stripprefix@browser'
 ```
 
-### Token Authentication
+## Token Authentication
 
 The following example was used to test the token based authentication feature.
 
