@@ -68,6 +68,7 @@ class Tag < Resource
       history:        blob.dig("history").map { |e| HistoryEntry.new(e) },
       labels:         blob.dig("config", "Labels") || {},
       layers:         layers,
+      size:           layers.sum(&:size),
       os:             blob.dig("os"),
       repository:     repository,
     )

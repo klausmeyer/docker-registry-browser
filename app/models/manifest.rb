@@ -9,6 +9,7 @@ class Manifest
     :history,
     :labels,
     :layers,
+    :size,
     :name,
     :os,
     :repository,

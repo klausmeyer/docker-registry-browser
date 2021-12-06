@@ -3,6 +3,9 @@
 <span class="text-muted small">Created</span>
 <p class="mb-1"><%= manifest.created %></p>
 
+<span class="text-muted small">Size</span>
+<p class="mb-1"><%= number_to_human_size(manifest.size) %></p>
+
 <span class="text-muted small">Content Digest</span>
 <%= render partial: "shared/copy_to_clipboard", locals: { name: :content_digest, value: manifest.content_digest, title: "Copy sha" } %>
 
