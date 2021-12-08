@@ -13,6 +13,9 @@ feature "Tag details" do
       expect(page).to have_content "Content Digest"
       expect(page.find_field("content_digest").value).to match /sha256:[0-9a-f]{64}/
 
+      expect(page).to have_content "Size"
+      expect(page).to have_content "743 KB"
+
       expect(page).to have_content "ENV"
       expect(page).to have_content "IMAGE=test/hello-world:latest"
 
