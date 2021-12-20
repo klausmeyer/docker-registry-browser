@@ -21,12 +21,11 @@
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
-
-/node_modules
-/yarn-error.log
+/tmp/storage/*
+!/tmp/storage/
+!/tmp/storage/.keep
 
 /public/assets
-.byebug_history
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key

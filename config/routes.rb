@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  root to: 'repositories#index'
+  root to: "repositories#index"
 
-  get 'repo/*repo/tag/*tag',    to: 'tags#show',         as: :tag,         constraints: {repo: /.+/, tag: /[^\/]+/}
-  get 'repo/*repo',             to: 'repositories#show', as: :repository,  constraints: {repo: /.+/}
+  get "repo/*repo/tag/*tag",    to: "tags#show",         as: :tag,         constraints: {repo: /.+/, tag: /[^\/]+/}
+  get "repo/*repo",             to: "repositories#show", as: :repository,  constraints: {repo: /.+/}
 
-  get '*repo:*tag',             to: redirect('repo/%{repo}/tag/%{tag}'),   constraints: {repo: /.+/, tag: /[^\/]+/}
-  get '*repo',                  to: redirect('repo/%{repo}'),              constraints: {repo: /.+/}
+  get "*repo:*tag",             to: redirect("repo/%{repo}/tag/%{tag}"),   constraints: {repo: /.+/, tag: /[^\/]+/}
+  get "*repo",                  to: redirect("repo/%{repo}"),              constraints: {repo: /.+/}
 
-  delete 'repo/*repo/tag/*tag', to: 'tags#destroy',                        constraints: {repo: /.+/, tag: /[^\/]+/}
+  delete "repo/*repo/tag/*tag", to: "tags#destroy",                        constraints: {repo: /.+/, tag: /[^\/]+/}
 end
