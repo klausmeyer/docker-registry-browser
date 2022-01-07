@@ -82,5 +82,5 @@ end
 
 group :test do
   gem "webmock"
-  gem "vcr"
+  gem "vcr", github: "vcr/vcr", ref: "8ced6c9"
 end
