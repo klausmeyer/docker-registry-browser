@@ -26,7 +26,8 @@ class RepositoriesController < ApplicationController
 
   def sort_tags
     tags = @repository.tags
-    tags = tags.sort    if sort_tags_by    == "name"
+    tags = tags.sort if sort_tags_by == "name"
+    tags = VersionSorter.sort(tags) if sort_tags_by == "version"
     tags = tags.reverse if sort_tags_order == "desc"
     tags
   end

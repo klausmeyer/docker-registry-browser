@@ -75,6 +75,7 @@ gem "faraday_middleware"
 gem "bootstrap", "~> 4.6.0"
 gem "jquery-rails"
 gem "turbolinks", "~> 5.2.0"
+gem "version_sorter", "~> 2.3.0"
 
 group :development, :test do
   gem "rspec-rails", "~> 5.0.0"

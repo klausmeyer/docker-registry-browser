@@ -108,6 +108,7 @@ Possible values:
 
 * `api`: Keep the sort as provided by the registry API
 * `name`: Sort the tags in alphabetical order
+* `version`: Sort the tags by interpreting them as version numbers
 
 Default: `name`
 
