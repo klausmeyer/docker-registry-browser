@@ -22,11 +22,17 @@ Delete tag
 
 ## Usage
 
+Please have a look at the [Documentation](https://github.com/klausmeyer/docker-registry-browser/blob/master/docs/README.md) for more details and available configuration options.
+
+### Docker
+
 ```shell
 $ docker run --name registry-browser -p 8080:8080 klausmeyer/docker-registry-browser
 ```
 
-Please have a look at the [Documentation](https://github.com/klausmeyer/docker-registry-browser/blob/master/docs/README.md) for more details and available configuration options.
+### Kubernetes (Helm)
+
+A helm-chart is available at [klausmeyer/helm-charts](https://github.com/klausmeyer/helm-charts/tree/master/charts/docker-registry-browser).
 
 ## Licence
 
