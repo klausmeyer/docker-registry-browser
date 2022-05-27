@@ -1,5 +1,19 @@
 # Changelog
 
+# v1.5.0
+
+* Handle `null` value in `repositories` property of `/v2/_catalog`
+* Add `GET /ping` endpoint for health-checks
+* Allow to sort tags
+* Add Favicon
+* Docker image: Remove `yarn`, Add `libc6-compat`
+* Add total manifest size on details page
+* Multiarch improvements: show variant & sort
+* Also build armv7 images (32bit ARM)
+* Fix delete when using token auth
+* Update to Ruby 3.1.2
+* Update to Rails 7.0.3
+
 # v1.4.0
 
 * Support for multi arch docker images
