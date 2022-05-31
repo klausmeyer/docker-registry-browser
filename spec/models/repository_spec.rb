@@ -11,6 +11,12 @@ describe Repository do
         expect(repo.name).to eq "hello-world"
       end
     end
+
+    it "returns an empty list when repositories returned as null" do
+      VCR.use_cassette("repository/null") do
+        expect(Repository.list.entries).to eq []
+      end
+    end
   end
 
   describe ".find" do

@@ -1,0 +1,26 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:5000/v2/_catalog?n=100
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Docker-Distribution-Api-Version:
+      - registry/2.0
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Thu, 31 May 2022 15:39:00 GMT
+      Content-Length:
+      - '21'
+    body:
+      encoding: UTF-8
+      string: '{"repositories":null}'
+    http_version:
+  recorded_at: Thu, 31 May 2022 15:39:00 GMT
+recorded_with: Manual
