@@ -105,7 +105,7 @@ GEM
     digest (3.1.0)
     erubi (1.10.0)
     execjs (2.8.1)
-    faraday (1.10.1)
+    faraday (1.10.2)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
