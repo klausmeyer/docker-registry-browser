@@ -65,7 +65,7 @@ class Tag < Resource
       content_digest: digest,
       created:        (Time.parse(blob.dig("created")) rescue nil),
       env:            blob.dig("config", "Env") || [],
-      history:        (blob.dig("history") || {}).map { |e| HistoryEntry.new(e) },
+      history:        blob.fetch("history", []).map { |e| HistoryEntry.new(e) },
       labels:         blob.dig("config", "Labels") || {},
       layers:         layers,
       size:           layers.sum(&:size),
