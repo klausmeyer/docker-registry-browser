@@ -169,7 +169,7 @@ GEM
       racc (~> 1.4)
     popper_js (1.16.1)
     public_suffix (5.0.0)
-    puma (5.6.5)
+    puma (6.0.0)
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.4)
@@ -283,7 +283,7 @@ DEPENDENCIES
   faraday
   faraday_middleware
   jquery-rails
-  puma (~> 5.0)
+  puma (~> 6.0)
   rails (~> 7.0.1)
   rspec-rails (~> 6.0.0)
   sassc-rails
