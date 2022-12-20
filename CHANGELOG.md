@@ -1,5 +1,11 @@
 # Changelog
 
+# vNext
+
+* Turn off Faraday HTTP request header logging
+* Add environment variable REGISTRY_LOG_LEVEL to set log level Faraday uses when writing registry related log events
+* Add environment variable REGISTRY_LOG_HEADERS to enable Faraday to log HTTP request headers
+
 # v1.5.0
 
 * Handle `null` value in `repositories` property of `/v2/_catalog`

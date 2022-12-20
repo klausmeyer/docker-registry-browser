@@ -14,7 +14,7 @@ class Resource
       end
       f.use FaradayMiddleware::FollowRedirects, limit: 5
       f.use FaradayMiddleware::ParseJson, content_type: /json|prettyjws/
-      f.response :logger unless Rails.env.test?
+      f.response :logger, Rails.configuration.logger, Rails.configuration.x.registry_log_options
       f.response :raise_error
       f.adapter  Faraday.default_adapter
     end
