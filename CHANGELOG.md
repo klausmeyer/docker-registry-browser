@@ -1,10 +1,14 @@
 # Changelog
 
-# vNext
+# v1.6.0
 
+* Handle case of missing `history` attribute in tag response
+* Allow `version` for `SORT_TAGS_BY` environment variable
 * Turn off Faraday HTTP request header logging
-* Add environment variable REGISTRY_LOG_LEVEL to set log level Faraday uses when writing registry related log events
-* Add environment variable REGISTRY_LOG_HEADERS to enable Faraday to log HTTP request headers
+  * Add environment variable `REGISTRY_LOG_LEVEL` to set log level Faraday uses when writing registry related log events
+  * Add environment variable `REGISTRY_LOG_HEADERS` to enable Faraday to log HTTP request headers
+* Update to Ruby 3.1.3
+* Update to Rails 7.0.4
 
 # v1.5.0
 
