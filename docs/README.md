@@ -153,6 +153,10 @@ Please note that this value should only contain the domain and port part of the 
 
 Default: Not used
 
+#### Logging
+
+See [Registry Request Logging](#registry-request-logging)
+
 ### Authentication
 
 The application automatically detects if the docker-registry API requires authentication and forwards that request to the web-browser. As an alternative it's also possible to configure static values to be used in the authentication to allow access with the permissions of an specific user.
@@ -324,3 +328,17 @@ services:
 
 [nginx]: https://www.nginx.com
 [traefik]: https://traefik.io/traefik/
+
+## Logging
+
+### Registry Request Logging
+
+By default, basic information about requests to the registry, such as HTTP method and url, are 
+logged at the `:info` level.
+
+For debugging, you can change two aspects via environment variables:
+
+* `REGISTRY_LOG_LEVEL` - set the log level used to write registry request (and response) events
+* `REGISTRY_LOG_HEADERS` - boolean - enables logging request headers
+
+Due to sensitive data being present in Authorization headers, do not enable header logging in production.

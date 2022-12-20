@@ -1,2 +1,11 @@
 docs
+log
+spec
+
 .git
+.gitattributes
+.gitignore
+.github
+
+# Ignore JetBrains IDE files
+.idea
