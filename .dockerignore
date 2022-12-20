@@ -1,2 +1,5 @@
 docs
 .git
+
+# Ignore JetBrains IDE files
+.idea
