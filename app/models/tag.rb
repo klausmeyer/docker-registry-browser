@@ -2,6 +2,7 @@ class Tag < Resource
   include ActiveModel::Model
 
   ACCEPTED_MANIFEST_FORMATS = %w[
+    application/vnd.oci.image.index.v1+json
     application/vnd.oci.image.manifest.v1+json
     application/vnd.docker.distribution.manifest.list.v2+json
     application/vnd.docker.distribution.manifest.v2+json
@@ -17,7 +18,9 @@ class Tag < Resource
   def initialize(**args)
     super
 
-    self.manifests = fetch_manifests.sort_by(&:architecture)
+    self.manifests = fetch_manifests.find_all { |manifest|
+      manifest.architecture != "unknown" && manifest.os != "unknown"
+    }.sort_by(&:architecture)
   end
 
   def delete
