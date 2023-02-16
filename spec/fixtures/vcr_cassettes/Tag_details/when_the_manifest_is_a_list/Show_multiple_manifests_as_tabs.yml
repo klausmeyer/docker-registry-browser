@@ -86,7 +86,7 @@ http_interactions:
       User-Agent:
       - Faraday v1.8.0
       Accept:
-      - application/vnd.oci.image.manifest.v1+json, application/vnd.docker.distribution.manifest.list.v2+json,
+      - application/vnd.oci.image.index.v1+json, application/vnd.oci.image.manifest.v1+json, application/vnd.docker.distribution.manifest.list.v2+json,
         application/vnd.docker.distribution.manifest.v2+json, application/vnd.docker.distribution.manifest.v1+json
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -137,6 +137,19 @@ http_interactions:
                     "architecture": "amd64",
                     "os": "linux"
                  }
+              },
+              {
+                "mediaType": "application/vnd.oci.image.manifest.v1+json",
+                "digest": "sha256:cc9152eef644ba2d5f1541c64948576e6deebf0855c2859a8dcbf3a8605280e0",
+                "size": 566,
+                "annotations": {
+                  "vnd.docker.reference.digest": "sha256:16fec09941d77d163521edae7843219cbad5bcc342574d5bc6e15d245138b3b1",
+                  "vnd.docker.reference.type": "attestation-manifest"
+                },
+                "platform": {
+                  "architecture": "unknown",
+                  "os": "unknown"
+                }
               }
            ]
         }

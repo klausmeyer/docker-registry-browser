@@ -18,9 +18,7 @@ class Tag < Resource
   def initialize(**args)
     super
 
-    self.manifests = fetch_manifests.find_all { |manifest|
-      manifest.architecture != "unknown" && manifest.os != "unknown"
-    }.sort_by(&:architecture)
+    self.manifests = fetch_manifests.sort_by(&:architecture)
   end
 
   def delete
@@ -41,11 +39,18 @@ class Tag < Resource
     self.content_digest = main.headers["docker-content-digest"]
 
     if list = main.body["manifests"]
-      list.map do |entry|
+      filter_list_for_images(list).map do |entry|
         manifest_for_digest(fetch_manifest(entry.fetch("digest")).body)
       end
     else
       [manifest_for_digest(main.body)]
+    end
+  end
+
+  def filter_list_for_images(list)
+    list.select do |manifest|
+      manifest.dig("platform", "architecture") != "unknown" &&
+      manifest.dig("platform", "os") != "unknown"
     end
   end
 
