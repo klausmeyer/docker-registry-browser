@@ -2,6 +2,7 @@ class Tag < Resource
   include ActiveModel::Model
 
   ACCEPTED_MANIFEST_FORMATS = %w[
+    application/vnd.oci.image.index.v1+json
     application/vnd.oci.image.manifest.v1+json
     application/vnd.docker.distribution.manifest.list.v2+json
     application/vnd.docker.distribution.manifest.v2+json
@@ -38,11 +39,18 @@ class Tag < Resource
     self.content_digest = main.headers["docker-content-digest"]
 
     if list = main.body["manifests"]
-      list.map do |entry|
+      filter_list_for_images(list).map do |entry|
         manifest_for_digest(fetch_manifest(entry.fetch("digest")).body)
       end
     else
       [manifest_for_digest(main.body)]
+    end
+  end
+
+  def filter_list_for_images(list)
+    list.select do |manifest|
+      manifest.dig("platform", "architecture") != "unknown" &&
+      manifest.dig("platform", "os") != "unknown"
     end
   end
 
