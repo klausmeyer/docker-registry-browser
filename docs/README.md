@@ -161,7 +161,7 @@ See [Registry Request Logging](#registry-request-logging)
 
 The application automatically detects if the docker-registry API requires authentication and forwards that request to the web-browser. As an alternative it's also possible to configure static values to be used in the authentication to allow access with the permissions of an specific user.
 
-The token based authentication has been tested with the official docker [registry](https://docs.docker.com/registry/spec/auth/token/) and [cesanta/docker_auth](https://github.com/cesanta/docker_auth).
+The token based authentication has been tested with the official docker [registry](https://docs.docker.com/registry/spec/auth/token/), [cesanta/docker_auth](https://github.com/cesanta/docker_auth) and [Keycloak](https://www.keycloak.org/)
 
 #### `BASIC_AUTH_USER`
 
