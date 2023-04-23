@@ -1,5 +1,11 @@
 # Changelog
 
+# v1.6.1
+
+* Accept oci manifests and ignore attestations
+* Update to Ruby 3.2.2
+* Update to Rails 7.0.4.3
+
 # v1.6.0
 
 * Handle case of missing `history` attribute in tag response
