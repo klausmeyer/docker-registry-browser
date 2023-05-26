@@ -279,7 +279,7 @@ DEPENDENCIES
   faraday_middleware
   jquery-rails
   puma (~> 6.0)
-  rails (~> 7.0.1)
+  rails (~> 7.0.5)
   rspec-rails (~> 6.0.0)
   sassc-rails
   selenium-webdriver
