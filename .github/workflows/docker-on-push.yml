@@ -2,7 +2,7 @@ name: Docker (latest)
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, rails-7.1 ]
 
 jobs:
   build:
@@ -29,6 +29,6 @@ jobs:
           context: .
           build-args: |
             SOURCE_COMMIT=${{ github.sha }}
-          tags: klausmeyer/docker-registry-browser:latest
+          tags: klausmeyer/docker-registry-browser:${{ github.ref.name == 'master' && 'latest' || github.ref.name }}
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           push: true
