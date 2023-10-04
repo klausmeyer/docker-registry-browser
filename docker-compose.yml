@@ -5,6 +5,7 @@ services:
   frontend:
     build: .
     environment:
+      - "SECRET_KEY_BASE=0c11bc7a755901fcbb5ba0ef5e6ede0911452e9c944d4ab0d8eb3ee1cf8ff7dd4f8fee82615415f5dc665763c6b18b3b8aee6655f44388bc27b27624f218bf86"
       - "DOCKER_REGISTRY_URL=http://backend:5000"
       - "ENABLE_DELETE_IMAGES=true"
       - "PUBLIC_REGISTRY_URL=localhost:5000"
