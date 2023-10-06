@@ -29,6 +29,6 @@ jobs:
           context: .
           build-args: |
             SOURCE_COMMIT=${{ github.sha }}
-          tags: klausmeyer/docker-registry-browser:latest
+          tags: klausmeyer/docker-registry-browser:${{ github.ref_name == 'master' && 'latest' || github.ref_name }}
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           push: true
