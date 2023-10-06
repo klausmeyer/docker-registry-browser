@@ -2,7 +2,7 @@ name: Docker (latest)
 
 on:
   push:
-    branches: [ master, rails-7.1 ]
+    branches: [ master ]
 
 jobs:
   build:
