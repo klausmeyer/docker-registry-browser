@@ -48,6 +48,18 @@ Please have a look at the examples about details.
 
 Default: Not used
 
+#### `SECRET_KEY_BASE`
+
+This option must be set to a unique & random value as it is used for different encryption related functionality by the used framework.
+
+A value can be generated with the following command:
+
+```
+openssl rand -hex 64
+```
+
+The application will check the option from version `>= 1.7.0` and refuse to startup when no proper value has been set.
+
 ### HTTPS & TLS/SSL
 
 It is possible to use the built-in application server for the handling of encrypted HTTP requests.
@@ -333,7 +345,7 @@ services:
 
 ### Registry Request Logging
 
-By default, basic information about requests to the registry, such as HTTP method and url, are 
+By default, basic information about requests to the registry, such as HTTP method and url, are
 logged at the `:info` level.
 
 For debugging, you can change two aspects via environment variables:

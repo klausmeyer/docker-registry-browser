@@ -1,5 +1,12 @@
 # Changelog
 
+# v1.7.0
+
+* Update to Rails 7.1.0
+* **Breaking change**:
+  * The `SECRET_KEY_BASE` option is now mandatory.
+    Please create a unique value with `openssl rand -hex 64`
+
 # v1.6.1
 
 * Accept oci manifests and ignore attestations
