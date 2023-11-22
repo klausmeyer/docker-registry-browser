@@ -76,7 +76,7 @@ gem "faraday_middleware"
 gem "version_sorter", "~> 2.3.0"
 
 group :development, :test do
-  gem "rspec-rails", "~> 6.0.0"
+  gem "rspec-rails", "~> 6.1.0"
 end
 
 group :test do
