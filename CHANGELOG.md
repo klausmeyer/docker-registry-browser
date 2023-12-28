@@ -1,5 +1,17 @@
 # Changelog
 
+# v1.7.1
+
+> **NOTE**:
+>
+> With this version the way how docker images are pushed is changing slightly:
+> Instead of having the `latest` tag being updated on every (potentially) breaking commit merged
+> into `master` branch it will be pointing to the last officially published release.
+>
+> You can switch to the `master` tag if you want to get the newest (unreleased) changes.
+
+* Update to Rails 7.1.2
+
 # v1.7.0
 
 * Update to Rails 7.1.0
