@@ -1,23 +1,46 @@
-$theme-colors: (
-  "docker": #0db7ed,
-  "docker-alt": #384d54,
-  "dimage": #22aac4,
-  "dtag": #1bad73,
-  "dnamespace": #fa6812,
-  "dlayer": #d7dbe0,
-);
 @import "bootstrap";
 
-// App sections
-@import "application/body";
+body > .container {
+  padding: 6rem 1rem;
+}
 
-// Components
-@import "components/alert";
-@import "components/copy_to_clipboard_icon";
+.alert-notice {
+  @extend .alert-warning;
+}
+
+.alert-error {
+  @extend .alert-danger;
+}
+
+.badge-dimage {
+  color: #ffffff;
+  background-color: #22aac4;
+}
+
+.badge-dtag {
+  color: #ffffff;
+  background-color: #1bad73;
+}
 
 .btn:focus {
   outline: none;
   box-shadow: none;
+}
+
+.border-docker {
+  border-color: #0db7ed !important;
+}
+
+.copy-to-clipboard-icon {
+  position: relative;
+  z-index: 1029;
+  margin-left: 1.25rem;
+
+  a {
+    position: absolute;
+    display: inline-block;
+    margin-top: .75rem
+  }
 }
 
 [data-toggle="collapse"].collapsed .if-not-collapsed {

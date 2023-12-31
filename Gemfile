@@ -66,8 +66,8 @@ end
 # custom
 
 gem "sassc-rails"
-gem "bootstrap", "~> 4.6.0"
 gem "jquery-rails"
+gem "popper_js"
 gem "turbolinks", "~> 5.2.0"
 
 gem "faraday"
