@@ -14,5 +14,13 @@
 //= require turbolinks
 //= require jquery
 //= require popper
-//= require bootstrap-sprockets
+//= require bootstrap
 //= require_tree .
+
+$(document).on("turbolinks:load", function () {
+  // bootstrap tooltips
+  $('[data-toggle="tooltip"]').tooltip();
+
+  // bootstrap popover
+  $('[data-toggle="popover"]').popover();
+});
