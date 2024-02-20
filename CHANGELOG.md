@@ -1,5 +1,12 @@
 # Changelog
 
+# v1.7.2
+
+* Allow customizing the catalog page size
+* Switch back to default ruby base image (Alpine 3.19 based)
+* Update to Ruby 3.2.3
+* Update to Rails 7.1.3
+
 # v1.7.1
 
 > **NOTE**:
