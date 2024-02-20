@@ -13,6 +13,7 @@ Rails.application.config.tap do |config|
   config.x.collapse_namespaces = Config.get(name: "ENABLE_COLLAPSE_NAMESPACES").in? %w(1 true yes)
   config.x.sort_tags_by        = Config.get(name: "SORT_TAGS_BY", default: "name", allow: %w(api name version))
   config.x.sort_tags_order     = Config.get(name: "SORT_TAGS_ORDER", default: "desc", allow: %w(asc desc))
+  config.x.catalog_page_size   = Config.get(name: "CATALOG_PAGE_SIZE", default: 100)
 
   # Configure Faraday logger options
   config.x.registry_log_options = {

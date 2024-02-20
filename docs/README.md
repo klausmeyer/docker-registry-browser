@@ -137,6 +137,12 @@ Possible values:
 
 Default: `desc`
 
+#### `CATALOG_PAGE_SIZE`
+
+This option allows limiting how many images will be listed by page.
+
+Default: `100`
+
 ### Connection to the Registry
 
 #### `DOCKER_REGISTRY_URL`

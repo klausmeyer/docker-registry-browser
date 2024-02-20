@@ -3,7 +3,7 @@ class Repository < Resource
 
   attr_accessor :name, :tags
 
-  def self.list(count: 100, last: nil)
+  def self.list(count: Rails.configuration.x.catalog_page_size, last: nil)
     response = client.get "/v2/_catalog", { n: count, last: last }.compact
     repositories = response.body["repositories"] || []
     entries  = repositories.map { |name| new(name: name) }
