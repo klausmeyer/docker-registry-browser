@@ -35,8 +35,8 @@ class ObtainAuthenticationToken
 
   def client
     Faraday.new url: realm, ssl: ssl_options do |f|
-      f.use Faraday::Request::BasicAuthentication, *creds
-      f.use FaradayMiddleware::ParseJson, content_type: /json|prettyjws/
+      f.request :authorization, :basic, *creds
+      f.response :json, content_type: /json|prettyjws/
       f.response :logger, Rails.configuration.logger, Rails.configuration.x.registry_log_options
       f.response :raise_error
       f.adapter Faraday.default_adapter
