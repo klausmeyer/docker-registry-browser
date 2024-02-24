@@ -70,8 +70,8 @@ gem "jquery-rails"
 gem "popper_js"
 gem "turbolinks", "~> 5.2.0"
 
-gem "faraday"
-gem "faraday_middleware"
+gem "faraday", "~> 2.9"
+gem "faraday-follow_redirects", "~> 0.3.0"
 
 gem "version_sorter", "~> 2.3.0"
 
