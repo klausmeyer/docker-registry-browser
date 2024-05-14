@@ -27,8 +27,10 @@ Please have a look at the [Documentation](https://github.com/klausmeyer/docker-r
 ### Docker
 
 ```shell
-$ docker run --name registry-browser -p 8080:8080 klausmeyer/docker-registry-browser
+$ docker run --name registry-browser -e SECRET_KEY_BASE=changeme -p 8080:8080 klausmeyer/docker-registry-browser
 ```
+
+Note: The value for `SECRET_KEY_BASE` can be generated via `openssl rand -hex 64`
 
 ### Kubernetes (Helm)
 
