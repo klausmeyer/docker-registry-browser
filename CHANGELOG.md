@@ -1,5 +1,10 @@
 # Changelog
 
+# v1.7.3
+
+* Update to Ruby 3.3.4
+* Update to Rails 7.1.3.4
+
 # v1.7.2
 
 * Allow customizing the catalog page size
