@@ -26,11 +26,10 @@ class Repository < Resource
   end
 
   def namespace(root = "")
-    name.split("/").size == 1 ? root : name.split("/")[0...-1].join('/')
+    name.split("/").size == 1 ? root : name.split("/")[0...-1].join("/")
   end
 
   def image
     name.split("/").last
   end
 end
-

@@ -29,7 +29,7 @@ class Tag < Resource
 
   def fetch_manifest(reference)
     client.get("/v2/#{repository.name}/manifests/#{reference}") do |request|
-      request.headers["Accept"] = ACCEPTED_MANIFEST_FORMATS.join(', ')
+      request.headers["Accept"] = ACCEPTED_MANIFEST_FORMATS.join(", ")
     end
   end
 
@@ -43,7 +43,7 @@ class Tag < Resource
         manifest_for_digest(fetch_manifest(entry.fetch("digest")).body)
       end
     else
-      [manifest_for_digest(main.body)]
+      [ manifest_for_digest(main.body) ]
     end
   end
 
@@ -69,7 +69,7 @@ class Tag < Resource
     end
 
     Manifest.new(
-      architecture:   [blob.dig("architecture"), blob.dig("variant")].compact.join("-"),
+      architecture:   [ blob.dig("architecture"), blob.dig("variant") ].compact.join("-"),
       content_digest: digest,
       created:        (Time.parse(blob.dig("created")) rescue nil),
       env:            blob.dig("config", "Env") || [],

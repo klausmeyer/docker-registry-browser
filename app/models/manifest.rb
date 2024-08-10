@@ -16,7 +16,7 @@ class Manifest
   )
 
   def id
-    [os, architecture].join("-")
+    [ os, architecture ].join("-")
   end
 
   def delete

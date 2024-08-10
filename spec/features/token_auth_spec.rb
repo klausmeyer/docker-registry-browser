@@ -20,7 +20,7 @@ feature 'Token Auth' do
   end
 
   scenario 'Failed listing of catalog due to ACL issue' do
-    stub_catalog_requests [token_auth_required_response]
+    stub_catalog_requests [ token_auth_required_response ]
 
     visit '/'
 
@@ -28,8 +28,8 @@ feature 'Token Auth' do
   end
 
   scenario 'Successful listing of catalog and repository' do
-    stub_catalog_requests [token_auth_required_response, successful_catalog_response]
-    stub_repository_requests [token_auth_required_response, successful_repository_response]
+    stub_catalog_requests [ token_auth_required_response, successful_catalog_response ]
+    stub_repository_requests [ token_auth_required_response, successful_repository_response ]
 
     visit '/'
     click_link 'repository'
@@ -41,8 +41,8 @@ feature 'Token Auth' do
   end
 
   scenario 'Successful listing of catalog but failed request of repository' do
-    stub_catalog_requests [token_auth_required_response, successful_catalog_response]
-    stub_repository_requests [token_auth_required_response]
+    stub_catalog_requests [ token_auth_required_response, successful_catalog_response ]
+    stub_repository_requests [ token_auth_required_response ]
 
     visit '/'
     click_link 'repository'

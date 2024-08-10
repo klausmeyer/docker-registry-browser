@@ -20,7 +20,6 @@ describe Repository do
   end
 
   describe ".find" do
-
     context "for a existing repo" do
       let(:name) { "test/hello-world-1" }
 
@@ -29,7 +28,7 @@ describe Repository do
           repo = Repository.find name
           expect(repo).to be_instance_of Repository
           expect(repo.name).to eq name
-          expect(repo.tags).to eq %w(latest)
+          expect(repo.tags).to eq %w[latest]
         end
       end
     end
