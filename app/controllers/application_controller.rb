@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   def client_error(error)
     raise error unless error.response && error.response[:status] == 401
 
-    case details = error.response.dig(:headers, 'www-authenticate')
+    case details = error.response.dig(:headers, "www-authenticate")
     when /basic/i
       basic_authentication
     when /bearer/i
@@ -53,16 +53,16 @@ class ApplicationController < ActionController::Base
     auth_params = details[/\w+ (.*)/, 1]
     auth_params = Hash[auth_params.scan(/(\w+)="([^"]+)"/)]
 
-    return if auth_attempts_exceeded? auth_params['scope']
+    return if auth_attempts_exceeded? auth_params["scope"]
 
-    session[:registry_auth_scope] = auth_params['scope']
+    session[:registry_auth_scope] = auth_params["scope"]
     session[:registry_auth_token] = ObtainAuthenticationToken.new(auth_params, token_authentication_credentials).call
 
     set_current_auth
 
     redirect_to request.fullpath if request.get?
   rescue ObtainAuthenticationToken::InvalidCredentials
-    render 'errors/invalid_credentials'
+    render "errors/invalid_credentials"
   end
 
   def auth_attempts_exceeded?(scope)
@@ -71,7 +71,7 @@ class ApplicationController < ActionController::Base
 
     return false if session[:registry_auth_attempts] <= 3
 
-    render 'errors/auth_attempts_exceeded'
+    render "errors/auth_attempts_exceeded"
     true
   end
 end

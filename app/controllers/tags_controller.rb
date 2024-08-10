@@ -1,3 +1,5 @@
+require "ostruct"
+
 class TagsController < ApplicationController
   before_action :find_tag
 

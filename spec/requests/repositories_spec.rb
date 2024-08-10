@@ -66,7 +66,7 @@ RSpec.describe 'Repositories' do
                 'realm'   => 'https://auth.example.com/token',
                 'service' => 'registry.example.com',
                 'scope'   => 'repository:hello/world:pull,push'
-              }, ['username', 'password'])
+              }, [ 'username', 'password' ])
               expect(service_double).to have_received(:call)
             end
 
@@ -106,7 +106,7 @@ RSpec.describe 'Repositories' do
                   'realm'   => 'https://auth.example.com/token',
                   'service' => 'registry.example.com',
                   'scope'   => 'repository:hello/world:pull,push'
-                }, ['admin', 'secret'])
+                }, [ 'admin', 'secret' ])
                 expect(service_double).to have_received(:call)
               end
             end

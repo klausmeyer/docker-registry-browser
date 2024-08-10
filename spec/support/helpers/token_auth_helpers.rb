@@ -4,11 +4,11 @@ module TokenAuthHelpers
     allow(Rails.configuration.x).to receive(:token_auth_password).and_return('badmin')
   end
 
-  def stub_catalog_requests(responses = [empty_catalog_response])
+  def stub_catalog_requests(responses = [ empty_catalog_response ])
     stub_request(:get, 'http://localhost:5000/v2/_catalog?n=100').to_return(responses)
   end
 
-  def stub_repository_requests(responses = [successful_repository_response])
+  def stub_repository_requests(responses = [ successful_repository_response ])
     stub_request(:get, 'http://localhost:5000/v2/repository/tags/list').to_return(responses)
   end
 
@@ -32,7 +32,7 @@ module TokenAuthHelpers
     {
       status:  200,
       headers: { 'Content-Type' => 'application/json' },
-      body:    { repositories: []}.to_json
+      body:    { repositories: [] }.to_json
     }
   end
 
@@ -40,7 +40,7 @@ module TokenAuthHelpers
     {
       status:  200,
       headers: { 'Content-Type' => 'application/json' },
-      body:    { repositories: ['repository']}.to_json
+      body:    { repositories: [ 'repository' ] }.to_json
     }
   end
 
@@ -48,7 +48,7 @@ module TokenAuthHelpers
     {
       status:  200,
       headers: { 'Content-Type' => 'application/json' },
-      body:    { tags: ['latest'] }.to_json
+      body:    { tags: [ 'latest' ] }.to_json
     }
   end
 end

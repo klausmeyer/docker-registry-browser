@@ -2,9 +2,9 @@ class ObtainAuthenticationToken
   InvalidCredentials = Class.new(RuntimeError)
 
   def initialize(auth_params, creds)
-    @realm   = auth_params.fetch('realm')
-    @service = auth_params.fetch('service')
-    @scope   = auth_params.fetch('scope')
+    @realm   = auth_params.fetch("realm")
+    @service = auth_params.fetch("service")
+    @scope   = auth_params.fetch("scope")
     @creds   = creds
   end
 
@@ -18,7 +18,7 @@ class ObtainAuthenticationToken
 
   def perform_request
     resp = client.get(realm, params)
-    resp.body['token'] || resp.body['access_token']
+    resp.body["token"] || resp.body["access_token"]
   rescue Faraday::ClientError => e
     raise InvalidCredentials if e.response[:status] == 401
     raise e
@@ -29,7 +29,7 @@ class ObtainAuthenticationToken
       service:       service,
       scope:         scope,
       offline_token: true,
-      client_id:     'docker-registry-browser'
+      client_id:     "docker-registry-browser"
     }
   end
 
