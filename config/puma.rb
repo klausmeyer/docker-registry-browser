@@ -31,3 +31,12 @@ plugin :tmp_restart
 
 # Only use a pidfile when requested
 pidfile ENV["PIDFILE"] if ENV["PIDFILE"]
+
+# custom
+
+if (cert = ENV["SSL_CERT_PATH"]) && (key = ENV["SSL_KEY_PATH"])
+  ssl_bind ENV.fetch("SSL_ADDRESS", "0.0.0.0"), ENV.fetch("SSL_PORT", "8443"), {
+    cert: cert,
+    key:  key
+  }
+end
