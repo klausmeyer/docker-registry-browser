@@ -294,7 +294,8 @@ GEM
     unicode-display_width (2.5.0)
     uri (0.13.0)
     useragent (0.16.10)
-    vcr (6.2.0)
+    vcr (6.3.1)
+      base64
     version_sorter (2.3.0)
     webmock (3.23.1)
       addressable (>= 2.8.0)
@@ -328,7 +329,7 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   turbolinks (~> 5.2.0)
-  vcr (~> 6.2.0)
+  vcr (~> 6.3.1)
   version_sorter (~> 2.3.0)
   webmock
 
