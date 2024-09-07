@@ -154,6 +154,7 @@ GEM
     nokogiri (1.16.7)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
+    ostruct (0.6.0)
     parallel (1.26.1)
     parser (3.3.4.2)
       ast (~> 2.4.1)
@@ -320,6 +321,7 @@ DEPENDENCIES
   faraday (~> 2.9)
   faraday-follow_redirects (~> 0.3.0)
   jquery-rails
+  ostruct
   popper_js
   puma (>= 5.0)
   rails (~> 7.2.1)

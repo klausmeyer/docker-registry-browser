@@ -60,6 +60,7 @@ gem "sassc-rails"
 gem "jquery-rails"
 gem "popper_js"
 gem "turbolinks", "~> 5.2.0"
+gem "ostruct"
 
 gem "faraday", "~> 2.9"
 gem "faraday-follow_redirects", "~> 0.3.0"
