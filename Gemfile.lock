@@ -322,7 +322,7 @@ DEPENDENCIES
   jquery-rails
   popper_js
   puma (>= 5.0)
-  rails (~> 7.2.0)
+  rails (~> 7.2.1)
   rspec-rails (~> 7.0.1)
   rubocop-rails-omakase
   sassc-rails
