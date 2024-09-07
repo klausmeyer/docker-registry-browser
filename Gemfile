@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
-gem "rails", "~> 7.2.0"
+gem "rails", "~> 7.2.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 # Use the Puma web server [https://github.com/puma/puma]
@@ -60,6 +60,7 @@ gem "sassc-rails"
 gem "jquery-rails"
 gem "popper_js"
 gem "turbolinks", "~> 5.2.0"
+gem "ostruct"
 
 gem "faraday", "~> 2.9"
 gem "faraday-follow_redirects", "~> 0.3.0"
