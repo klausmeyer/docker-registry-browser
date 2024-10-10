@@ -1,5 +1,10 @@
 # Changelog
 
+# v1.7.4
+
+* Update to Ruby 3.3.5
+* Update to Rails 7.2.1
+
 # v1.7.3
 
 * Update to Ruby 3.3.4
