@@ -4,7 +4,7 @@
       <%# only render the usual messages %>
       <% next unless %w(success notice error info).include?(type.to_s) %>
 
-      <%= content_tag :div, class: "alert alert-#{type} alert-flash" do %>
+      <%= content_tag :div, class: "alert alert-#{flash_css_class type} alert-flash" do %>
         <% if body.kind_of?(Array) %>
           <ul class="mb-0">
             <% body.each do |message| %>
