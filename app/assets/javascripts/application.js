@@ -5,7 +5,7 @@ import "@hotwired/turbo-rails"
 import $ from "jquery"
 import "bootstrap"
 
-$(document).on("turbolinks:load", function () {
+$(document).on("turbo:load", function () {
   $("#delete_confirm").on("keyup", function (e) {
     e.preventDefault();
 
@@ -61,5 +61,4 @@ $(document).on("turbolinks:load", function () {
 
     return false;
   });
-
 });

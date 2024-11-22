@@ -40,7 +40,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
-        <%= link_to "Delete", tag_path(@repository.name, @tag.name), method: :delete, id: "delete-button", class: "btn btn-danger disabled" %>
+        <%= link_to "Delete", tag_path(@repository.name, @tag.name), data:{turbo_method: :delete}, id: "delete-button", class: "btn btn-danger disabled" %>
       </div>
     </div>
   </div>

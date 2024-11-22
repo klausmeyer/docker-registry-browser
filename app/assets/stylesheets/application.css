@@ -13,14 +13,6 @@ body > .container {
   padding: 6rem 1rem;
 }
 
-.alert-notice {
-  @extend .alert-warning;
-}
-
-.alert-error {
-  @extend .alert-danger;
-}
-
 .badge-dimage {
   color: #ffffff;
   background-color: #22aac4;
