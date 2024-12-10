@@ -3,12 +3,12 @@ FROM ruby:3.3.6-alpine
 MAINTAINER Klaus Meyer <spam@klaus-meyer.net>
 
 ARG SOURCE_COMMIT
-ENV SOURCE_COMMIT $SOURCE_COMMIT
+ENV SOURCE_COMMIT=$SOURCE_COMMIT
 
-ENV PORT 8080
-ENV SSL_PORT 8443
-ENV SECRET_KEY_BASE changeme
-ENV RAILS_ENV production
+ENV PORT=8080
+ENV SSL_PORT=8443
+ENV SECRET_KEY_BASE=changeme
+ENV RAILS_ENV=production
 
 EXPOSE $PORT
 EXPOSE $SSL_PORT
@@ -25,8 +25,8 @@ RUN apk update \
  && bundle install \
  && bundle exec rails assets:precompile \
  && addgroup -S app && adduser -S app -G app -h /app \
- && chown -R app.app /app \
- && chown -R app.app /usr/local/bundle
+ && chown -R app:app /app \
+ && chown -R app:app /usr/local/bundle
 
 USER app
 
