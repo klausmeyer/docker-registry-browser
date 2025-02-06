@@ -1,4 +1,4 @@
-FROM ruby:3.4.1-alpine3.20
+FROM ruby:3.4.1-alpine
 
 MAINTAINER Klaus Meyer <spam@klaus-meyer.net>
 
