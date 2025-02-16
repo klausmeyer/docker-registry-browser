@@ -1,4 +1,4 @@
-FROM ruby:3.4.1-alpine
+FROM ruby:3.4.2-alpine
 
 MAINTAINER Klaus Meyer <spam@klaus-meyer.net>
 
@@ -18,7 +18,7 @@ WORKDIR /app
 ADD . .
 
 RUN apk update \
- && apk add build-base zlib-dev tzdata openssl-dev shared-mime-info libc6-compat \
+ && apk add build-base zlib-dev tzdata openssl-dev shared-mime-info libc6-compat yaml-dev \
  && rm -rf /var/cache/apk/* \
  && gem install bundler -v $(tail -n1 Gemfile.lock | xargs) \
  && bundle config set without "development test" \
