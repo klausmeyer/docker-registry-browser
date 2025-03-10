@@ -1,6 +1,6 @@
 # Docker Registry Browser
 
-Web Interface for the [Docker Registry HTTP API V2](https://docs.docker.com/registry/spec/api/) written in Ruby on Rails.
+Web Interface for the [Docker Registry HTTP API V2](https://distribution.github.io/distribution/spec/api/) written in Ruby on Rails.
 
 ## Screenshots
 
