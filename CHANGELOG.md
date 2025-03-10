@@ -1,5 +1,10 @@
 # Changelog
 
+# v1.7.5
+
+* Update to Ruby 3.4.2
+* Update to Rails 8.0.1
+
 # v1.7.4
 
 * Update to Ruby 3.3.5
