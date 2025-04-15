@@ -1,46 +1,10 @@
-<div class="row justify-content-center">
-  <div class="col-md-6">
-    <% if @repositories.any? %>
-      <% @namespaces.each do |namespace, repos| %>
-        <%- namespace_key = namespace.gsub("/", "-slash-") %>
-        <div class="card border-docker mb-5">
-          <%= content_tag :div, class: "card-header", id: "namespace-#{namespace_key}" do %>
-            <%= image_tag "icons/namespace.png", size: "50x50", align: "right" %>
-
-            <span class="text-muted small">Namespace</span>
-            <h5 class="card-title mb-0"><%= namespace.presence || "/" %></h5>
-          <% end %>
-          <div>
-          <%= content_tag :div, class: {collapse: configs.collapse_namespaces}, id: "namespace-#{namespace_key}-repos" do %>
-            <div class="list-group list-group-flush">
-              <% repos.each do |repo| %>
-                <%= link_to repository_path(repo.name), class: "list-group-item list-group-item-action d-flex align-items-center" do %>
-                  <div class="flex-grow-1">
-                    <span class="badge badge-dimage text-uppercase mr-1">IMG</span>
-                    <span class="text-monospace small text-truncate"><%= repo.image %></span>
-                  </div>
-                  <%= image_tag "icons/arrow.png", size: "16x16" %>
-                <% end %>
-              <% end %>
-            </div>
-          <% end %>
-          <%= content_tag :button, class: "collapsed btn btn-default w-100", data: { toggle: "collapse", target: "#namespace-#{namespace_key}-repos" } do %>
-            <span class="if-collapsed">&#8964;</span>
-            <span class="if-not-collapsed">&#8963;</span>
-          <% end if configs.collapse_namespaces %>
-          </div>
-        </div>
-      <% end %>
-    <% else %>
-      <%= render "blank" %>
-    <% end %>
-
-    <% if @repositories.more? %>
-      <div class="text-center">
-        <%= link_to root_path(last: @repositories.last.name), class: "btn btn-docker px-4" do %>
-          Load more…
-        <% end %>
-      </div>
-    <% end %>
+<% if @repositories.any? %>
+  <% @namespaces.each do |namespace, repositories| %>
+    <%= render "namespace", namespace: namespace, repositories: repositories %>
+  <% end %>
+<% else %>
+  <div class="card-body text-center py-5">
+    <h2>Empty</h2>
+    <h4 class="lead text-muted">There are no repositories in this registry at the moment.</h4>
   </div>
-</div>
+<% end %>

@@ -1,9 +1,11 @@
 <div class="card border-danger mb-3">
   <div class="card-header bg-danger text-white">Danger Zone</div>
   <div class="card-body">
-    <div class="media">
-      <%= image_tag "icons/danger.png", size: "50x50", class: "mr-3" %>
-      <div class="media-body">
+    <div class="d-flex">
+      <div class="flex-shrink-0">
+        <%= image_tag "icons/danger.png", size: "50x50", class: "mr-3" %>
+      </div>
+      <div class="flex-grow-1 ms-3">
         <h5 class="card-title mb-1">Delete Tag</h5>
         <p class="card-text">
           Please be careful as this will not just delete the reference but also the actual content!
@@ -12,34 +14,30 @@
           the deletion of <strong>latest</strong> will also permanently remove <strong>v1.2.3</strong>.
         </p>
 
-        <a href="#" class="btn btn-danger px-4" data-toggle="modal" data-target="#delete-dialog">
+        <button type="button" class="btn btn-danger px-4" data-bs-toggle="modal" data-bs-target="#delete-dialog">
           Delete
-        </a>
+        </button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="delete-dialog">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade" id="delete-dialog" tabindex="-1">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title text-danger" id="myModalLabel">Are you sure?</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h1 class="modal-title fs-5 text-danger">Are you sure?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>
-          This will permanently delete the <strong><%= @tag.name %></strong> docker tag.
-        </p>
-        <div class="form-group">
-          <%= label_tag :delete_confirm, "Please type in the name of the tag to enable the delete button." %>
-          <%= text_field_tag :delete_confirm, nil, class: "form-control", data: { expected: @tag.name }, placeholder: "Type here ..." %>
-        </div>
+        <p>Do you really want to delete the following tag?</p>
+        <p class="font-monospace"><%= @tag.name %></p>
+        <p>Please enter the tag name below to confirm:</p>
+        <p><%= text_field_tag :delete_confirm, nil, class: "form-control", data: { expected: @tag.name }, placeholder: "Enter tag name here" %></p>
+        <p>This will enable the <strong>Delete</strong> button.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
         <%= link_to "Delete", tag_path(@repository.name, @tag.name), data:{turbo_method: :delete}, id: "delete-button", class: "btn btn-danger disabled" %>
       </div>
     </div>

@@ -13,11 +13,11 @@ feature "Delete Tags" do
 
     expect(page).to have_content "Danger Zone"
     within ".border-danger" do
-      click_link "Delete"
+      click_button "Delete"
     end
 
     expect(page).to have_selector("#delete-dialog", visible: true)
-    expect(page).to have_content "This will permanently delete the "
+    expect(page).to have_content "Do you really want to delete the following tag?"
     fill_in "delete_confirm", with: "delete-me"
     within "#delete-dialog" do
       click_link "Delete"
@@ -37,11 +37,11 @@ feature "Delete Tags" do
 
     expect(page).to have_content "Danger Zone"
     within ".border-danger" do
-      click_link "Delete"
+      click_button "Delete"
     end
 
     expect(page).to have_selector("#delete-dialog", visible: true)
-    expect(page).to have_content "This will permanently delete the "
+    expect(page).to have_content "Do you really want to delete the following tag?"
     fill_in "delete_confirm", with: "delete-me"
     within "#delete-dialog" do
       click_link "Delete"
@@ -58,11 +58,11 @@ feature "Delete Tags" do
 
     expect(page).to have_content "Danger Zone"
     within ".border-danger" do
-      click_link "Delete"
+      click_button "Delete"
     end
 
     expect(page).to have_selector("#delete-dialog", visible: true)
-    expect(page).to have_content "This will permanently delete the "
+    expect(page).to have_content "Do you really want to delete the following tag?"
     fill_in "delete_confirm", with: "delete-me"
     within "#delete-dialog" do
       click_link "Delete"

@@ -1,16 +1,14 @@
 <p class="text-right">
   <small>
     <strong>Sort:</strong> [
-      <%= link_to "API", {sort_tags_by: "api", sort_tags_order: sort_tags_order}, class: {"text-reset": true, "font-weight-bold": sort_tags_by == "api"} %>
-      |
-      <%= link_to "Name", {sort_tags_by: "name", order: sort_tags_order}, class: {"text-reset": true, "font-weight-bold": sort_tags_by == "name"} %>
-      |
-      <%= link_to "Version", {sort_tags_by: "version", order: sort_tags_order}, class: {"text-reset": true, "font-weight-bold": sort_tags_by == "version"} %>
+      <% {"api" => "API", "name" => "Name", "version" => "Version"}.each do |key, name| %>
+        <%= link_to name, {sort_tags_by: key, sort_tags_order: sort_tags_order}, class: class_names("text-reset", {"text-decoration-none": sort_tags_by != key}) %>
+      <% end %>
     ]
     <strong>Order:</strong> [
-      <%= link_to "ASC", {sort_tags_order: "asc", sort_tags_by: sort_tags_by}, class: {"text-reset": true, "font-weight-bold": sort_tags_order == "asc"} %>
-      |
-      <%= link_to "DESC", {sort_tags_order: "desc", sort_tags_by: sort_tags_by}, class: {"text-reset": true, "font-weight-bold": sort_tags_order == "desc"} %>
+      <% {"asc" => "ASC", "desc" => "DESC"}.each do |key, name| %>
+        <%= link_to name, {sort_tags_order: key, sort_tags_by: sort_tags_by}, class: class_names("text-reset", {"text-decoration-none": sort_tags_order != key}) %>
+      <% end %>
     ]
   </small>
 </p>

@@ -1,0 +1,24 @@
+<div class="row my-4">
+  <div class="col-md-12">
+    <div class="card card-border-blue">
+      <div class="card-header py-0" id="namespace-<%= namespace %>">
+        <h4 class="h6 text-muted my-0 mt-3">Namespace</h4>
+        <h6 class="h4 mb-3"><%= namespace.presence || "/" %></h6>
+      </div>
+      <div>
+        <ul class="list-group list-group-flush">
+          <%= content_tag :div, class: {collapse: configs.collapse_namespaces}, id: "namespace-#{namespace}-repos" do %>
+            <% repositories.each do |repository| %>
+              <%= render "repository", repository: repository %>
+            <% end %>
+          <% end %>
+
+          <%= content_tag :button, class: "collapsed btn btn-default w-100", data: {"bs-toggle": "collapse", "bs-target": "#namespace-#{namespace}-repos"} do %>
+            <span class="if-collapsed">&hellip;</span>
+            <span class="if-not-collapsed">&times;</span>
+          <% end if configs.collapse_namespaces %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

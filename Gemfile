@@ -67,6 +67,8 @@ gem "faraday-follow_redirects", "~> 0.3.0"
 
 gem "version_sorter", "~> 2.3.0"
 
+gem "ostruct"
+
 group :development, :test do
   gem "rspec-rails", "~> 7.1.0"
 end

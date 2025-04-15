@@ -1,5 +1,8 @@
 <h5 class="mt-4">Details</h5>
 
+<span class="text-muted small">Content Digest</span>
+<p class="mb-1 font-monospace"><%= manifest.content_digest %></p>
+
 <div class="row">
   <div class="col-md-6">
     <span class="text-muted small">Created</span>
@@ -10,8 +13,5 @@
     <p class="mb-1"><%= number_to_human_size(manifest.size) %></p>
   </div>
 </div>
-
-<span class="text-muted small">Content Digest</span>
-<%= render partial: "shared/copy_to_clipboard", locals: { name: :content_digest, value: manifest.content_digest, title: "Copy sha" } %>
 
 <hr />

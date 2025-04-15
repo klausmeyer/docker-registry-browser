@@ -19,6 +19,10 @@ class Manifest
     [ os, architecture ].join("-")
   end
 
+  def display_name
+    "#{os} / #{architecture}"
+  end
+
   def delete
     client.delete("/v2/#{repository.name}/manifests/#{content_digest}").success?
   end
