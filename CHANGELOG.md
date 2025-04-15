@@ -1,5 +1,11 @@
 # Changelog
 
+# v1.8.0
+
+* Migrate to Bootstrap 5 (Bonus: Darkmode)
+* Update to Ruby 3.4.3
+* Update to Rails 8.0.2
+
 # v1.7.5
 
 * Update to Ruby 3.4.2
