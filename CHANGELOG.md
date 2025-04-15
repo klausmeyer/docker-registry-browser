@@ -1,5 +1,10 @@
 # Changelog
 
+# v1.8.1
+
+* Fix: Remove unused images
+* Fix: Restore credit for [Icons8](https://icons8.com) in footer
+
 # v1.8.0
 
 * Migrate to Bootstrap 5 (Bonus: Darkmode)
