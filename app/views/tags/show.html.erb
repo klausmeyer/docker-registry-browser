@@ -1,49 +1,43 @@
-<div class="row justify-content-center">
-  <div class="col-md-10">
-    <%= render "breadcrumb" %>
-
-    <div class="card border-docker mb-5">
-      <%= content_tag :div, class: "card-header" do %>
-        <%= image_tag "icons/tag.png", size: "75x75", align: "right" %>
-
-        <span class="text-muted small">Namespace</span>
-        <h5 class="card-title mb-1"><%= @repository.namespace %></h5>
-
-        <span class="text-muted small">Image / Tag</span>
-        <h5 class="card-title mb-1"><%= @repository.image %>:<%= @tag.name %></h5>
-
-        <span class="text-muted small">Content Digest</span>
-        <h5 class="card-title mb-1"><%= @tag.content_digest %></h5>
-
-        <% if Rails.configuration.x.public_registry_url %>
-          <span class="text-muted small">Pull command</span>
-          <%= render partial: "shared/copy_to_clipboard", locals: { name: :pull_cmd, value: pull_command(@repository.name, @tag.name) } %>
-        <% end %>
-      <% end %>
-
+<div class="row my-4">
+  <div class="col-md-12">
+    <div class="card card-border-blue">
+      <div class="card-header py-0 pb-3">
+        <h4 class="h6 text-muted my-0 mt-3">Tag</h4>
+        <h6 class="h4 mb-0"><%= @repository.name %>:<%= @tag.name %></h6>
+        <span class="text-muted small">Content Digest: <%= @tag.content_digest %></span>
+      </div>
       <div class="card-body">
+        <div class="p-2">
+            <% if Rails.configuration.x.public_registry_url %>
+            <h5>Details</h5>
+
+            <span class="text-muted small">Pull Command</span>
+            <p class="mb-1 font-monospace"><%= pull_command(@repository.name, @tag.name) %></p>
+
+            <hr />
+          <% end %>
+
+          <h5>Manifests</h5>
+        </div>
+
         <ul class="nav nav-tabs">
           <% @tag.manifests.each do |manifest| %>
             <li class="nav-item">
-              <a data-toggle="tab" class="nav-link <% if @tag.manifests.first == manifest %>active<% end %>" href="#<%= manifest.id %>">
-                <%= manifest.os %> / <%= manifest.architecture %>
-              </a>
+              <%= link_to manifest.display_name, "##{dom_id(manifest)}", data: {toggle: "tab"}, class: {"nav-link": true, "active": @tag.manifests.first == manifest} %>
             </li>
           <% end %>
         </ul>
 
         <div class="tab-content">
           <% @tag.manifests.each do |manifest| %>
-            <div class="tab-pane container <% if @tag.manifests.first == manifest %>active<% end %>" id="<%= manifest.id %>">
+            <%= content_tag :div, id: dom_id(manifest), class: {"tab-pane": true, "container": true, "active": @tag.manifests.first == manifest} do %>
               <%= render manifest %>
-            </div>
+            <% end %>
           <% end %>
         </div>
       </div>
     </div>
-
-    <% if Rails.configuration.x.delete_enabled %>
-      <%= render "delete" %>
-    <% end %>
   </div>
 </div>
+
+<%= render "delete" if Rails.application.config.x.delete_enabled %>

@@ -1,44 +1,26 @@
-<div class="row justify-content-center">
-  <div class="col-md-6">
+<div class="row my-4">
+  <div class="col-md-12">
+    <div class="card card-border-blue">
+      <div class="card-header py-0">
+        <h4 class="h6 text-muted my-0 mt-3">Repository</h4>
+        <h6 class="h4 mb-3"><%= @repository.name %></h6>
 
-    <%= render "breadcrumb" %>
-
-    <div class="card border-docker mb-5">
-      <%= content_tag :div, class: "card-header" do %>
-        <%= image_tag "icons/repo.png", size: "75x75", align: "right" %>
-
-        <span class="text-muted small">Namespace</span>
-        <h5 class="card-title mb-1"><%= @repository.namespace.presence || "/" %></h5>
-
-        <span class="text-muted small">Image</span>
-        <h5 class="card-title mb-0"><%= @repository.image %></h5>
-
-        <%= render "sort_links" %>
-      <% end %>
-
+        <%= render "sort_links" if @tags.size > 1 %>
+      </div>
       <% if @tags.any? %>
-        <div class="list-group list-group-flush">
-          <% @tags.each do |tag| %>
-            <% if Rails.configuration.x.public_registry_url %>
-              <div class="copy-to-clipboard-icon">
-                <%= render partial: "shared/copy_to_clipboard", locals: { name: :pull_cmd, value: pull_command(@repository.name, tag), style: "icon" } %>
-              </div>
+        <div>
+          <ul class="list-group list-group-flush">
+            <% @tags.each do |tag| %>
+              <%= render "tag", repository: @repository, tag: tag %>
             <% end %>
-
-            <%= link_to tag_path(repo: @repository.name, tag: tag), class: "list-group-item list-group-item-action d-flex justify-content-between align-items-center" do %>
-              <div class="flex-grow-1">
-                <% css_margin = Rails.configuration.x.public_registry_url ? "ml-4" : nil %>
-                <%= content_tag :span, "Tag", class: "badge badge-dtag text-uppercase mr-1 #{css_margin}" %>
-                <span class="text-monospace small"><%= tag %></span>
-              </div>
-              <%= image_tag "icons/arrow.png", size: "16x16" %>
-            <% end %>
-          <% end %>
+          </ul>
         </div>
       <% else %>
-        <%= render "blank_tags" %>
+        <div class="card-body text-center py-5">
+          <h2>No tags</h2>
+          <h4 class="lead text-muted">No tags are available at the moment.</h4>
+        </div>
       <% end %>
     </div>
-
   </div>
 </div>

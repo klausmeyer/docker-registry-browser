@@ -1,8 +1,16 @@
-<nav class="navbar navbar-dark bg-dark fixed-top">
-  <div class="container justify-content-center">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "icons/docker-header.png", alt: "Docker", width: "42" %>
-      Docker Registry Browser
-    <% end %>
+<nav class="navbar navbar-expand-md bg-dark border-bottom py-2" data-bs-theme="dark">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="/">
+      <span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center me-2 bs-icon">
+        <%= image_tag "icons/docker-header.png", alt: "App Icon", width: "42" %>
+      </span>
+      <span>Docker Registry Browser</span>
+    </a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" ds-bs-target="#navcol-6">
+      <span class="visually-hidden">Toggle navigation</span>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navcol-6" class="collapse navbar-collapse flex-grow-0 order-md-first"></div>
+    <div class="d-none d-md-block"></div>
   </div>
 </nav>

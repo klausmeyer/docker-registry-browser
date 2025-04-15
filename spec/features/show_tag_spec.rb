@@ -11,7 +11,7 @@ feature "Tag details" do
       expect(page).to have_content "hello-world:latest"
 
       expect(page).to have_content "Content Digest"
-      expect(page.find_field("content_digest").value).to match /sha256:[0-9a-f]{64}/
+      expect(page).to have_content(/sha256:[0-9a-f]{64}/)
 
       expect(page).to have_content "Size"
       expect(page).to have_content "743 KB"
@@ -23,7 +23,7 @@ feature "Tag details" do
       expect(page).to have_content "image\ntest/hello-world:latest"
       expect(page).to have_content "maintainer\nSomebody"
 
-      expect(page).to have_content /Layers\n\[#000\] sha256:[0-9a-f]{64}/
+      expect(page).to have_content(/Layers\n\[#000\] sha256:[0-9a-f]{64}/)
     end
   end
 

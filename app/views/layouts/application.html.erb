@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-bs-theme="auto" lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,16 +9,18 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
+    <%= stylesheet_link_tag "bootstrap.min.css", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+
     <%= javascript_importmap_tags %>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
   </head>
-  <body>
+  <body class="pb-5">
     <%= render "header" %>
 
-    <div class="container">
+    <div class="container pb-5">
       <%= render "flash" %>
       <%= yield %>
     </div>

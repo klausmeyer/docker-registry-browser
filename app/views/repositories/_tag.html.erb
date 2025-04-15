@@ -1,0 +1,9 @@
+<li class="list-group-item list-group-item-action py-3 item-tag">
+  <%= link_to tag_path(repo: repository.name, tag: tag), class: "d-flex align-items-center text-reset text-decoration-none" do %>
+    <div class="flex-grow-1">
+      <span class="badge">TAG</span>
+      <span class="mx-2"><%= tag %></span>
+    </div>
+    <%= image_tag "icons/arrow.png", alt: "&rsaquo;", width: "16" %>
+  <% end %>
+</li>

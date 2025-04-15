@@ -16,7 +16,7 @@ feature 'Token Auth' do
 
     visit '/'
 
-    expect(page).to have_text 'No repositories'
+    expect(page).to have_text 'There are no repositories in this registry at the moment.'
   end
 
   scenario 'Failed listing of catalog due to ACL issue' do
@@ -34,9 +34,9 @@ feature 'Token Auth' do
     visit '/'
     click_link 'repository'
 
-    expect(page).to have_text 'Image'
+    expect(page).to have_text 'Repository'
     expect(page).to have_text 'repository'
-    expect(page).to have_text 'Tag'
+    expect(page).to have_text 'TAG'
     expect(page).to have_text 'latest'
   end
 

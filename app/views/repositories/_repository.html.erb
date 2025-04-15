@@ -1,0 +1,9 @@
+<li class="list-group-item list-group-item-action py-3 item-repository">
+  <%= link_to repository_path(repository.name), class: "d-flex align-items-center text-reset text-decoration-none" do %>
+    <div class="flex-grow-1">
+      <span class="badge">IMG</span>
+      <span class="mx-2"><%= repository.image %></span>
+    </div>
+    <%= image_tag "icons/arrow.png", alt: "&rsaquo;", width: "16" %>
+  <% end %>
+</li>

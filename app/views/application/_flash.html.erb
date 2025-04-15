@@ -1,5 +1,5 @@
 <% if flash.any? %>
-  <div class="app-flash">
+  <div class="mt-4">
     <% flash.each do |type, body| %>
       <%# only render the usual messages %>
       <% next unless %w(success notice error info).include?(type.to_s) %>
