@@ -1,5 +1,9 @@
 # Changelog
 
+# v1.8.2
+
+* Fix: Switching tabs for multiple architectures
+
 # v1.8.1
 
 * Fix: Remove unused images
