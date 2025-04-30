@@ -23,7 +23,7 @@
         <ul class="nav nav-tabs">
           <% @tag.manifests.each do |manifest| %>
             <li class="nav-item">
-              <%= link_to manifest.display_name, "##{dom_id(manifest)}", data: {toggle: "tab"}, class: {"nav-link": true, "active": @tag.manifests.first == manifest} %>
+              <%= link_to manifest.display_name, "##{dom_id(manifest)}", data: {"bs-toggle": "tab"}, class: {"nav-link": true, "active": @tag.manifests.first == manifest} %>
             </li>
           <% end %>
         </ul>
