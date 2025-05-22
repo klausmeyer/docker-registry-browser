@@ -3,6 +3,7 @@
 # v1.8.3
 
 * Fix: Respect relative root url conf for logo link
+* Update to Ruby 3.4.4
 
 # v1.8.2
 
