@@ -1,5 +1,9 @@
 # Changelog
 
+# v1.8.3
+
+* Fix: Respect relative root url conf for logo link
+
 # v1.8.2
 
 * Fix: Switching tabs for multiple architectures
