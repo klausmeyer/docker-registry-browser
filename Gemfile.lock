@@ -159,7 +159,7 @@ GEM
     nokogiri (1.18.8)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    ostruct (0.6.2)
+    ostruct (0.6.3)
     parallel (1.26.3)
     parser (3.3.7.1)
       ast (~> 2.4.1)
