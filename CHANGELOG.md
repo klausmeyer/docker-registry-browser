@@ -1,5 +1,10 @@
 # Changelog
 
+# v1.8.4
+
+* Update to Ruby 3.4.5
+* Update to Rails 8.0.2.1
+
 # v1.8.3
 
 * Fix: Respect relative root url conf for logo link
