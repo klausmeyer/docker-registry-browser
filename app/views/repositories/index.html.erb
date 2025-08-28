@@ -2,6 +2,14 @@
   <% @namespaces.each do |namespace, repositories| %>
     <%= render "namespace", namespace: namespace, repositories: repositories %>
   <% end %>
+
+  <% if @repositories.more? %>
+    <div class="text-center">
+      <%= link_to root_path(last: @repositories.last.name), class: "btn btn-outline-secondary px-4" do %>
+        Next page
+      <% end %>
+    </div>
+  <% end %>
 <% else %>
   <div class="card-body text-center py-5">
     <h2>Empty</h2>

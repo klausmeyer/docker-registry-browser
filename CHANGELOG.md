@@ -1,5 +1,9 @@
 # Changelog
 
+# v1.8.5
+
+* Restore "Next page" link in repo/image list
+
 # v1.8.4
 
 * Update to Ruby 3.4.5
