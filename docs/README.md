@@ -211,7 +211,19 @@ A few common issues and how to solve them:
 
 ### Can't delete image tags
 
-Please make sure that you hvae enabled the image deletion in your docker-registry [configuration](https://docs.docker.com/registry/configuration/#delete) and that your reverse-proxy setup sets the `X-Forwarded-Proto` header in case it's stripping the SSL/TLS connection down to plain HTTP when talking to the application.
+Please make sure that you have enabled the image deletion in your docker-registry [configuration](https://docs.docker.com/registry/configuration/#delete) and that your reverse-proxy setup sets the `X-Forwarded-Proto` header in case it's stripping the SSL/TLS connection down to plain HTTP when talking to the application.
+
+Here one sample config for nginx:
+
+```
+proxy_pass http://docker-registry-browser:8080/;
+proxy_set_header Host $host;
+proxy_set_header Origin $scheme://$host;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+proxy_set_header X-Forwarded-Proto $scheme;
+proxy_set_header X-Forwarded-Port $server_port;
+proxy_set_header X-Forwarded-Host $host;
+```
 
 # Examples
 
