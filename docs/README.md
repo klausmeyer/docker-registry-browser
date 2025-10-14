@@ -216,7 +216,7 @@ Please make sure that you have enabled the image deletion in your docker-registr
 Here one sample config for nginx:
 
 ```
-proxy_pass http://docker-registry-browser:8080/;
+proxy_pass http://docker-registry-browser:8080;
 proxy_set_header Host $host;
 proxy_set_header Origin $scheme://$host;
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
