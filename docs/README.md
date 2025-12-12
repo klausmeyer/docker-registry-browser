@@ -171,6 +171,14 @@ Please note that this value should only contain the domain and port part of the 
 
 Default: Not used
 
+#### `TZ`
+
+This options allows to configure in which timezone the timestamps should be displayed to the user.
+
+See [https://api.rubyonrails.org/classes/ActiveSupport/TimeZone.html](https://api.rubyonrails.org/classes/ActiveSupport/TimeZone.html) for supported values.
+
+Default: `UTC`
+
 #### Logging
 
 See [Registry Request Logging](#registry-request-logging)
