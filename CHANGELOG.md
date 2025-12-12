@@ -1,5 +1,11 @@
 # Changelog
 
+# v1.9.0
+
+* Respect configured timezone for datetimes
+* Update to Ruby 3.4.7
+* Update to Rails 8.1.1
+
 # v1.8.5
 
 * Restore "Next page" link in repo/image list
