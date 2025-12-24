@@ -296,8 +296,7 @@ GEM
     unicode-emoji (4.0.4)
     uri (1.0.4)
     useragent (0.16.11)
-    vcr (6.3.1)
-      base64
+    vcr (6.4.0)
     version_sorter (2.3.0)
     webmock (3.26.1)
       addressable (>= 2.8.0)
@@ -330,7 +329,7 @@ DEPENDENCIES
   rubocop-rails-omakase
   selenium-webdriver
   turbo-rails
-  vcr (~> 6.3.1)
+  vcr (~> 6.4.0)
   version_sorter (~> 2.3.0)
   webmock
 

@@ -75,5 +75,5 @@ end
 
 group :test do
   gem "webmock"
-  gem "vcr", "~> 6.3.1"
+  gem "vcr", "~> 6.4.0"
 end
