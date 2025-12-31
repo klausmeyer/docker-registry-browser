@@ -1,5 +1,10 @@
 # Changelog
 
+# v1.9.1
+
+* Restore support or `ADDRESS` env
+* Update to Ruby 3.4.8
+
 # v1.9.0
 
 * Respect configured timezone for datetimes
