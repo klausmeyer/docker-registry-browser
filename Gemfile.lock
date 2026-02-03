@@ -80,7 +80,7 @@ GEM
     ast (2.4.3)
     base64 (0.3.0)
     bigdecimal (4.0.1)
-    bootsnap (1.21.1)
+    bootsnap (1.22.0)
       msgpack (~> 1.2)
     builder (3.3.0)
     capybara (3.40.0)
