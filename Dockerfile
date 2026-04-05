@@ -10,7 +10,6 @@ ENV SOURCE_COMMIT=$SOURCE_COMMIT
 
 ENV PORT=8080
 ENV SSL_PORT=8443
-ENV SECRET_KEY_BASE=changeme
 ENV RAILS_ENV=production
 
 EXPOSE $PORT
@@ -26,7 +25,7 @@ RUN apk update \
  && gem install bundler -v $(tail -n1 Gemfile.lock | xargs) \
  && bundle config set without "development test" \
  && bundle install \
- && bundle exec rails assets:precompile \
+ && SECRET_KEY_BASE_DUMMY=1 bundle exec rails assets:precompile \
  && addgroup -S app && adduser -S app -G app -h /app \
  && chown -R app:app /app \
  && chown -R app:app /usr/local/bundle
