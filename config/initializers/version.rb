@@ -1,7 +1,7 @@
-Rails.application.config.x.version = "1.9.1"
+version = ENV.fetch("SOURCE_VERSION", "v0.0.0").delete_prefix("v")
 
-# Docker Cloud will pass the git commit it is building the image from
-# See: https://docs.docker.com/docker-hub/builds/advanced/
 if sha = ENV["SOURCE_COMMIT"].presence
-  Rails.application.config.x.version << " (#{sha[0...7]})"
+  version = "#{version} (#{sha[0...7]})"
 end
+
+Rails.application.config.x.version = version.freeze

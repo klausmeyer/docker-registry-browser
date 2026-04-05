@@ -1,68 +1,72 @@
 # Changelog
 
-# v1.9.1
+See GitHub releases for changelog: [https://github.com/klausmeyer/docker-registry-browser/releases](https://github.com/klausmeyer/docker-registry-browser/releases)
+
+## Old Releases
+
+### v1.9.1
 
 * Restore support or `ADDRESS` env
 * Update to Ruby 3.4.8
 
-# v1.9.0
+### v1.9.0
 
 * Respect configured timezone for datetimes
 * Update to Ruby 3.4.7
 * Update to Rails 8.1.1
 
-# v1.8.5
+### v1.8.5
 
 * Restore "Next page" link in repo/image list
 
-# v1.8.4
+### v1.8.4
 
 * Update to Ruby 3.4.5
 * Update to Rails 8.0.2.1
 
-# v1.8.3
+### v1.8.3
 
 * Fix: Respect relative root url conf for logo link
 * Update to Ruby 3.4.4
 
-# v1.8.2
+### v1.8.2
 
 * Fix: Switching tabs for multiple architectures
 
-# v1.8.1
+### v1.8.1
 
 * Fix: Remove unused images
 * Fix: Restore credit for [Icons8](https://icons8.com) in footer
 
-# v1.8.0
+### v1.8.0
 
 * Migrate to Bootstrap 5 (Bonus: Darkmode)
 * Update to Ruby 3.4.3
 * Update to Rails 8.0.2
 
-# v1.7.5
+### v1.7.5
 
 * Update to Ruby 3.4.2
 * Update to Rails 8.0.1
 
-# v1.7.4
+### v1.7.4
 
 * Update to Ruby 3.3.5
 * Update to Rails 7.2.1
 
-# v1.7.3
+### v1.7.3
 
 * Update to Ruby 3.3.4
 * Update to Rails 7.1.3.4
 
-# v1.7.2
+### v1.7.2
 
 * Allow customizing the catalog page size
 * Switch back to default ruby base image (Alpine 3.19 based)
 * Update to Ruby 3.2.3
 * Update to Rails 7.1.3
 
-# v1.7.1
+### v1.7.1
 
 > **NOTE**:
 >
@@ -74,20 +78,20 @@
 
 * Update to Rails 7.1.2
 
-# v1.7.0
+### v1.7.0
 
 * Update to Rails 7.1.0
 * **Breaking change**:
   * The `SECRET_KEY_BASE` option is now mandatory.
     Please create a unique value with `openssl rand -hex 64`
 
-# v1.6.1
+### v1.6.1
 
 * Accept oci manifests and ignore attestations
 * Update to Ruby 3.2.2
 * Update to Rails 7.0.4.3
 
-# v1.6.0
+### v1.6.0
 
 * Handle case of missing `history` attribute in tag response
 * Allow `version` for `SORT_TAGS_BY` environment variable
@@ -97,7 +101,7 @@
 * Update to Ruby 3.1.3
 * Update to Rails 7.0.4
 
-# v1.5.0
+### v1.5.0
 
 * Handle `null` value in `repositories` property of `/v2/_catalog`
 * Add `GET /ping` endpoint for health-checks
@@ -111,7 +115,7 @@
 * Update to Ruby 3.1.2
 * Update to Rails 7.0.3
 
-# v1.4.0
+### v1.4.0
 
 * Support for multi arch docker images
 * Support for oci image format
@@ -122,78 +126,78 @@
 * Update to Ruby 3.0.2
 * Update to Rails 6.1.4.1
 
-# v1.3.5
+### v1.3.5
 
 * Update to Ruby 2.7.2
 * Update to Rails 6.0.3.4
 * Gracefully handle token auth issues
 * Use ca_file option when obtaining auth token
 
-# v1.3.4
+### v1.3.4
 
 * Fix issue in puma config.
 
-# v1.3.3
+### v1.3.3
 
 * Add new `CA_FILE` option to configure CA for SSL backends
 * Update to Rails 6.0.2.2
 * Update to Ruby 2.6.6
 * Update to Faraday 1.0
 
-# v1.3.2
+### v1.3.2
 
 * Improve token auth support
 
-# v1.3.1
+### v1.3.1
 
 * Update to Rails 6.0.2
 * Allow Faraday to follow remote redirects
 * Support registries returning json header for blob requests
 
-# v1.3.0
+### v1.3.0
 
 * Update to Ruby 2.6.5 and Rails 6.0.1
 * Add `ADDRESS` and `SSL_ADDRESS` options
 * Fix an `Illegal instruction` ruby error related to sassc
 * Show more details on the tag page (Labels, ENVs, Created Date, ...)
 
-# v1.2.3
+### v1.2.3
 
 * Security fix for nokogiri CVE-2019-5477
 
-# v1.2.2
+### v1.2.2
 
 * Improve warning text for delete tag button
 
-# v1.2.1
+### v1.2.1
 
 * Fix tag delete button for special tag names (like `null`)
 
-# v1.2.0
+### v1.2.0
 
 * Support for standalone SSL
 
-# v1.1.2
+### v1.1.2
 
 * Update to Ruby 2.6.3 and Rails 5.2.3
 * Support for links in `/example:latest` format (via redirect)
 
-# v1.1.1
+### v1.1.1
 
 * Update to Ruby 2.6.2 and Rails 5.2.2.1
 
-# v1.1.0
+### v1.1.0
 
 * Support for token based authentication
 * Update of used libraries
 
-# v1.0.1
+### v1.0.1
 
 * Reduce size of docker image
 * Update of Ruby interpreter to 2.6.0 and some used libraries
 * Stop hotlinking of icons from external domain icons8.com
 
-# v1.0.0
+### v1.0.0
 
 * Started versioning the application
 
