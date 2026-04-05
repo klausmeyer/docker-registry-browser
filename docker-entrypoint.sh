@@ -3,7 +3,7 @@
 case "$1" in
 
   web)
-    if [[ -z "$SECRET_KEY_BASE" ]] || [[ "$SECRET_KEY_BASE" == "changeme" ]];
+    if [[ -z "$SECRET_KEY_BASE" ]];
     then
       echo "Missing SECRET_KEY_BASE variable."
       echo "Generate a unique and strong value with: openssl rand -hex 64"
