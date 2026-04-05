@@ -75,6 +75,7 @@ jobs:
         with:
           context: .
           build-args: |
+            SOURCE_VERSION=${{ github.ref_name }}
             SOURCE_COMMIT=${{ github.sha }}
           platforms: ${{ matrix.platform }}
           labels: ${{ steps.meta.outputs.labels }}

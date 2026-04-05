@@ -1,8 +1,11 @@
 FROM ruby:4.0.2-alpine
 
-MAINTAINER Klaus Meyer <spam@klaus-meyer.net>
+LABEL org.opencontainers.image.authors="Klaus Meyer <spam@klaus-meyer.net>"
 
+ARG SOURCE_VERSION
 ARG SOURCE_COMMIT
+
+ENV SOURCE_VERSION=$SOURCE_VERSION
 ENV SOURCE_COMMIT=$SOURCE_COMMIT
 
 ENV PORT=8080
