@@ -1,4 +1,4 @@
-FROM ruby:4.0.4-alpine
+FROM ruby:4.0.5-alpine
 
 LABEL org.opencontainers.image.authors="Klaus Meyer <spam@klaus-meyer.net>"
 
