@@ -84,5 +84,4 @@ ENV SSL_PORT=8443
 EXPOSE $PORT
 EXPOSE $SSL_PORT
 
-# Start server via Thruster by default, this can be overwritten at runtime
-CMD ["./bin/thrust", "./bin/rails", "server"]
+CMD ["./bin/rails", "server"]

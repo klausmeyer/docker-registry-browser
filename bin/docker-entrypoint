@@ -11,13 +11,4 @@ then
   exit 1
 fi
 
-if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
-  export HTTP_PORT=${PORT}
-  export HTTPS_PORT=${SSL_PORT}
-  unset PORT
-  unset SSL_PORT
-
-  echo "HTTP_PORT: ${HTTP_PORT}, HTTPS_PORT: ${HTTPS_PORT}, PORT: ${PORT}, SSL_PORT: ${SSL_PORT}"
-fi
-
 exec "${@}"
