@@ -32,10 +32,6 @@ $ docker run --name registry-browser -e SECRET_KEY_BASE="..." -p 8080:8080 klaus
 
 Note: The value for `SECRET_KEY_BASE` can be generated via `openssl rand -hex 64`.
 
-### Kubernetes (Helm)
-
-A helm-chart is available at [klausmeyer/helm-charts](https://github.com/klausmeyer/helm-charts/tree/master/charts/docker-registry-browser).
-
 ## Licence
 
 The application is available as open source under the terms of the MIT License.
