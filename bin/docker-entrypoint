@@ -1,7 +1,5 @@
 #!/bin/bash -e
 
-set -x
-
 if [[ -z "$SECRET_KEY_BASE" ]];
 then
   echo "Missing SECRET_KEY_BASE variable."
