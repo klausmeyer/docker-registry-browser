@@ -78,6 +78,11 @@ COPY --chown=rails:rails --from=build /rails /rails
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
+ENV PORT=8080
+ENV SSL_PORT=8443
+
+EXPOSE $PORT
+EXPOSE $SSL_PORT
+
 # Start server via Thruster by default, this can be overwritten at runtime
-EXPOSE 80
 CMD ["./bin/thrust", "./bin/rails", "server"]
