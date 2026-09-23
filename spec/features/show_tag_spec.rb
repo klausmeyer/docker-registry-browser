@@ -35,6 +35,10 @@ feature "Tag details" do
     include_examples "successful showing an image tag"
   end
 
+  context "when the manifest is a buildcache" do
+    include_examples "successful showing an image tag"
+  end
+
   context "when the manifest is a list" do
     scenario "Show multiple manifests as tabs", :vcr do
       visit "/repo/test/hello-world"
