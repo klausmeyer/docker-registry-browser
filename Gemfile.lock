@@ -302,7 +302,7 @@ GEM
     unicode-emoji (4.2.0)
     uri (1.1.2)
     useragent (0.16.11)
-    vcr (6.4.0)
+    vcr (6.4.1)
     version_sorter (2.3.0)
     webmock (3.34.0)
       addressable (>= 2.8.0)
