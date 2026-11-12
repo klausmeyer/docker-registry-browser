@@ -3,6 +3,6 @@
 pin "application", preload: true
 pin "@hotwired/turbo-rails", to: "turbo.min.js", preload: true
 
-pin "bootstrap" # @5.3.8
+pin "bootstrap" # @5.3.9
 pin "@popperjs/core", to: "popper-lib.js" # @2.11.8
 pin "jquery" # @4.0.0
