@@ -5,4 +5,4 @@ pin "@hotwired/turbo-rails", to: "turbo.min.js", preload: true
 
 pin "bootstrap" # @5.3.9
 pin "@popperjs/core", to: "popper-lib.js" # @2.11.8
-pin "jquery" # @4.0.0
+pin "jquery" # @4.1.0
